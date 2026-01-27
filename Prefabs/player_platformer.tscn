@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://kwyh835wwiss"]
 
 [ext_resource type="Script" uid="uid://d2evtidyx5mfr" path="res://Scripts/player_platformer.gd" id="1_k8yfm"]
+[ext_resource type="Texture2D" uid="uid://f6yx7r15mpdq" path="res://Assets/chara2.png" id="2_af50u"]
+[ext_resource type="Texture2D" uid="uid://bh2mjei4ei78i" path="res://Assets/chara1.png" id="3_u8n0l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y75pj"]
 radius = 20.0
-height = 75.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_y75pj"]
-radius = 20.0
-height = 75.0
+height = 42.0
 
 [node name="PlayerPlatformer" type="CharacterBody2D" unique_id=1249391039]
 script = ExtResource("1_k8yfm")
@@ -16,5 +14,12 @@ script = ExtResource("1_k8yfm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1475884500]
 shape = SubResource("CapsuleShape2D_y75pj")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1253136124]
-mesh = SubResource("CapsuleMesh_y75pj")
+[node name="Sprite1" type="Sprite2D" parent="." unique_id=540338906]
+position = Vector2(-13, 0)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_af50u")
+
+[node name="Sprite2" type="Sprite2D" parent="." unique_id=795262404]
+position = Vector2(-13, 0)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_u8n0l")
