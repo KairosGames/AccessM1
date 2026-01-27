@@ -17,8 +17,9 @@ distance = -365.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fyl2u"]
 distance = -357.0
 
-[node name="Shmup" type="Node2D" unique_id=1538815170]
+[node name="Shmup" type="Node2D" unique_id=1538815170 node_paths=PackedStringArray("player")]
 script = ExtResource("1_381ea")
+player = NodePath("PlayerShmup")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=178597164]
 offset = Vector2(640, 360)

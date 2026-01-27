@@ -17,7 +17,7 @@ func _physics_process(delta: float)->void:
 	if get_last_slide_collision()!=null:
 		if not get_last_slide_collision().get_collider().name.contains("Player"):
 			queue_free()
-		get_last_slide_collision().get_collider().queue_free()
+			get_last_slide_collision().get_collider().queue_free()
 		get_parent().scoreAdd(model.SCORE)
 
 func fire():

@@ -7,7 +7,7 @@ class_name Shmup
 
 const RESTART_TIME=3
 
-@onready var player=$PlayerShmup
+@export var player: CharacterBody2D
 @onready var playerModel=preload("res://Prefabs/player_shmup.tscn")
 var startPosition=Vector2(100,100)
 
@@ -59,6 +59,8 @@ var playerDead=false
 
 func _process(delta: float) -> void:
 	if playerDead:
+		var gm: GameManager = get_parent()
+		gm.currentIndex -= 1
 		get_parent().next_game()
 		if restart==RESTART_TIME:
 			$Camera/EndPanel.visible=true

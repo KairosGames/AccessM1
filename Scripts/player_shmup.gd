@@ -4,7 +4,7 @@ extends CharacterBody2D
 var firing:bool=false
 
 func _ready() -> void:
-	name="Bullet"
+	name="Player"
 
 func _physics_process(delta: float)->void:
 	velocity=lerp(velocity,Vector2.ZERO,delta*Shmup.DATA.PLAYER.FRICTION)
@@ -12,12 +12,13 @@ func _physics_process(delta: float)->void:
 	velocity+=Vector2(Input.get_action_strength("Right")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Left")*Shmup.DATA.PLAYER.SPEED,Input.get_action_strength("Down")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Up")*Shmup.DATA.PLAYER.SPEED)
 	move_and_slide()
 	if get_last_slide_collision()!=null:
+		#print("BONK "+get_last_slide_collision().get_collider().name)
 		if not get_last_slide_collision().get_collider().name.contains("Border"):
 			#queue_free()
 			#get_last_slide_collision().get_collider().queue_free()
-			#game.playerDead=true
-			print("BONK")
-			game.get_parent().next_game()
+			game.playerDead=true
+			
+			#game.get_parent().next_game()
 	if Input.get_action_strength("Action"):
 		if not firing:
 			firing=true
