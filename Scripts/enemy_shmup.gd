@@ -4,8 +4,8 @@ class_name ShmupEnemy
 
 @onready var game:Shmup=get_parent()
 var bulletType
+var model
 
-var firing:bool=false
 func _physics_process(delta: float)->void:
 	#velocity=lerp(velocity,Vector2.ZERO,delta*Shmup.DATA.PLAYER.FRICTION)
 	
@@ -14,13 +14,15 @@ func _physics_process(delta: float)->void:
 	if get_last_slide_collision()!=null:
 		queue_free()
 		get_last_slide_collision().get_collider().queue_free()
+		get_parent().scoreAdd(model.SCORE)
 
 func fire():
 	var b=game.bulletModel.instantiate()
 	b.call_deferred("setModel",bulletType,global_position)
 	game.add_child(b)
 	
-func setModel(model,where)->void:
+func setModel(whatModel,where)->void:
+	model=whatModel
 	velocity=Vector2(model.VELOCITY,0)
 	global_position=where
 	$Sprite.texture=model.SPRITE

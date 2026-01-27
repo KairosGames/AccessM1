@@ -21,6 +21,7 @@ const DATA={
 		"VELOCITY":-1000, # Pixels per second
 		"SPRITE":preload("res://Sprites/HereItComes.png"),
 		"SCALE":0.2,
+		"SCORE":10,
 	},
 	"BULLET":{
 		"PLAYER":{
@@ -54,3 +55,12 @@ func spawn(what,where:Vector2)->void:
 	var e=enemyModel.instantiate()
 	e.call_deferred("setModel",what,where)
 	add_child(e)
+
+var score:int=0
+
+func scoreSet(what):
+	score=what
+	$Camera/Panel/Label.text="Score "+str(score)
+
+func scoreAdd(what):
+	scoreSet(score+what)

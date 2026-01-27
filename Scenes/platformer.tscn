@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ccytl6btogey5"]
 
+[ext_resource type="Texture2D" uid="uid://do70skw0vvamu" path="res://Assets/bg_platformer.png" id="1_6hv7n"]
 [ext_resource type="PackedScene" uid="uid://kwyh835wwiss" path="res://Prefabs/player_platformer.tscn" id="1_41awe"]
 [ext_resource type="Texture2D" uid="uid://duve2i6ivdw2m" path="res://Assets/gate_platformer.png" id="2_k0oe1"]
+[ext_resource type="Texture2D" uid="uid://c1ima3fiylcvt" path="res://Assets/plateforme.png" id="4_h786q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hv7n"]
 size = Vector2(121, 130)
@@ -24,6 +26,11 @@ size = Vector3(150, 50, 1)
 size = Vector2(150, 50)
 
 [node name="Platformer" type="Node2D" unique_id=1147497293]
+
+[node name="BackGround" type="Sprite2D" parent="." unique_id=1967548223]
+position = Vector2(640, 431)
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("1_6hv7n")
 
 [node name="ResetPosition" type="Marker2D" parent="." unique_id=1655889943]
 position = Vector2(67, 517)
@@ -56,6 +63,10 @@ mesh = SubResource("BoxMesh_6hv7n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Plat1" unique_id=188308998]
 shape = SubResource("RectangleShape2D_h786q")
 
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/Plat1" unique_id=1507322506]
+scale = Vector2(0.213, 0.64)
+texture = ExtResource("4_h786q")
+
 [node name="Plat2" type="StaticBody2D" parent="Platforms" unique_id=140362181]
 position = Vector2(471, 470)
 
@@ -65,6 +76,10 @@ mesh = SubResource("BoxMesh_k5hyf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Plat2" unique_id=852704539]
 shape = SubResource("RectangleShape2D_xp55e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/Plat2" unique_id=1779518306]
+scale = Vector2(0.08, 0.16)
+texture = ExtResource("4_h786q")
 
 [node name="Plat3" type="StaticBody2D" parent="Platforms" unique_id=1147869716]
 position = Vector2(780, 413)
@@ -76,6 +91,10 @@ mesh = SubResource("BoxMesh_k5hyf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Plat3" unique_id=2081861576]
 shape = SubResource("RectangleShape2D_xp55e")
 
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/Plat3" unique_id=1470163428]
+scale = Vector2(0.08, 0.16)
+texture = ExtResource("4_h786q")
+
 [node name="Plat4" type="StaticBody2D" parent="Platforms" unique_id=528023652]
 position = Vector2(1214, 666)
 
@@ -85,3 +104,7 @@ mesh = SubResource("BoxMesh_6hv7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Plat4" unique_id=446058829]
 shape = SubResource("RectangleShape2D_h786q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/Plat4" unique_id=611706936]
+scale = Vector2(0.213, 0.64)
+texture = ExtResource("4_h786q")
