@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://86trrvrpeokk" path="res://Scripts/car_game/player_car.gd" id="1_j0moc"]
 [ext_resource type="Texture2D" uid="uid://d031mjnjlp8vw" path="res://icon.svg" id="1_pgcr8"]
+[ext_resource type="Texture2D" uid="uid://dfm7c066j61wc" path="res://Assets/arrow.png" id="3_35kap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0moc"]
 size = Vector2(128, 128)
@@ -14,3 +15,13 @@ shape = SubResource("RectangleShape2D_j0moc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1034161455]
 texture = ExtResource("1_pgcr8")
+
+[node name="Timer" type="Timer" parent="." unique_id=1901636133]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1310479964]
+visible = false
+position = Vector2(200, 0)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_35kap")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

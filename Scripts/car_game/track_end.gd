@@ -1,9 +1,8 @@
 extends Area2D
 
 
-func _process(_delta: float) -> void:
-	position.x += -20
+func _physics_process(delta: float) -> void:
+	position.x += -1000 * delta
 
 func _on_body_entered(body: Node2D) -> void:
-	if "game_manager" in body and body.game_manager != null:
-		body.game_manager.next_game()
+	(get_parent().get_parent().get_parent() as GameManager).next_game()
