@@ -32,14 +32,12 @@ func set_player_stats(p_health: int, p_attack: int):
 	health = p_health
 	strength_attack = p_attack
 
-
 func get_input():
 	move_dir = Input.get_vector("Left", "Right", "Up", "Down")
 	if move_dir.length() < 0.2:
 		move_dir = Vector2.ZERO
 	if Input.is_action_just_pressed("Action"):
 		jump()
-
 
 func move_player(delta: float):
 	handle_acceleration(delta)

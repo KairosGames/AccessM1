@@ -5,6 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dga7"]
 
 [node name="Bullet" type="RigidBody2D" unique_id=1203134428]
+mass = 0.001
 gravity_scale = 0.0
 script = ExtResource("1_0oen4")
 

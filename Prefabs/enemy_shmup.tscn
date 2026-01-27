@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://chgy4w8ennuro"]
+
+[ext_resource type="Script" uid="uid://dvgxxtwb7tlj2" path="res://Scripts/enemy_shmup.gd" id="1_ngrgs"]
+[ext_resource type="Texture2D" uid="uid://dbqaxy3xgrxrh" path="res://Sprites/pogflame.png" id="2_dxk8s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ge55o"]
+radius = 32.0
+
+[node name="EnemyShmup" type="CharacterBody2D" unique_id=1846282480]
+collision_mask = 28
+motion_mode = 1
+script = ExtResource("1_ngrgs")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=970728718]
+shape = SubResource("CircleShape2D_ge55o")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=951689301]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dxk8s")
