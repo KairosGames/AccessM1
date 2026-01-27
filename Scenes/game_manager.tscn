@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://cnd4qukxcj10b"]
 
 [ext_resource type="Script" uid="uid://csj2a6kd4m23c" path="res://Scripts/game_manager.gd" id="1_oj352"]
-[ext_resource type="PackedScene" path="res://Scenes/platformer.tscn" id="2_e5fcp"]
+[ext_resource type="PackedScene" uid="uid://ccytl6btogey5" path="res://Scenes/platformer.tscn" id="2_e5fcp"]
+[ext_resource type="PackedScene" uid="uid://c4a16n7y6i6r8" path="res://Scenes/car.tscn" id="2_mmt5l"]
 [ext_resource type="PackedScene" uid="uid://bx002ripwggcv" path="res://Scenes/shmup.tscn" id="2_sq00h"]
 [ext_resource type="PackedScene" path="res://Prefabs/AudioManager.tscn" id="4_mmt5l"]
 
 [node name="GameManager" type="Node2D" unique_id=1754334892]
 script = ExtResource("1_oj352")
-games = Array[PackedScene]([ExtResource("2_e5fcp"), ExtResource("2_sq00h")])
+games = Array[PackedScene]([ExtResource("2_mmt5l"), ExtResource("2_sq00h"), ExtResource("2_e5fcp")])
 
 [node name="AudioManager" parent="." unique_id=1938405838 instance=ExtResource("4_mmt5l")]
