@@ -6,13 +6,17 @@ class_name ShmupEnemy
 var bulletType
 var model
 
+func _ready() -> void:
+	name="Enemy"
+
 func _physics_process(delta: float)->void:
 	#velocity=lerp(velocity,Vector2.ZERO,delta*Shmup.DATA.PLAYER.FRICTION)
 	
 	#velocity+=Vector2(Input.get_action_strength("Right")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Left")*Shmup.DATA.PLAYER.SPEED,Input.get_action_strength("Down")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Up")*Shmup.DATA.PLAYER.SPEED)
 	move_and_slide()
 	if get_last_slide_collision()!=null:
-		queue_free()
+		if not get_last_slide_collision().get_collider().name.contains("Player"):
+			queue_free()
 		get_last_slide_collision().get_collider().queue_free()
 		get_parent().scoreAdd(model.SCORE)
 
