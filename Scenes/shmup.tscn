@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bx002ripwggcv"]
+
+[ext_resource type="Script" uid="uid://dlxqwqc3t7d4c" path="res://Scripts/shmup.gd" id="1_381ea"]
+[ext_resource type="PackedScene" uid="uid://ctlx36btqvsas" path="res://Scenes/player_shmup.tscn" id="2_iwdsl"]
+
+[node name="Shmup" type="Node2D" unique_id=1538815170]
+script = ExtResource("1_381ea")
+
+[node name="PlayerShmup" parent="." unique_id=1846282480 instance=ExtResource("2_iwdsl")]
+position = Vector2(206, 177)
