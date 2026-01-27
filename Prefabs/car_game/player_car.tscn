@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b445pofbt25xc"]
 
 [ext_resource type="Script" uid="uid://86trrvrpeokk" path="res://Scripts/car_game/player_car.gd" id="1_j0moc"]
-[ext_resource type="Texture2D" uid="uid://d031mjnjlp8vw" path="res://icon.svg" id="1_pgcr8"]
+[ext_resource type="Texture2D" uid="uid://dsnc6n2wkorwx" path="res://Assets/voiture_1.png" id="2_8g0gi"]
+[ext_resource type="Texture2D" uid="uid://dviw5wedbvpxg" path="res://Assets/voiture_2.png" id="3_6yhff"]
 [ext_resource type="Texture2D" uid="uid://dfm7c066j61wc" path="res://Assets/arrow.png" id="3_35kap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0moc"]
@@ -14,7 +15,12 @@ script = ExtResource("1_j0moc")
 shape = SubResource("RectangleShape2D_j0moc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1034161455]
-texture = ExtResource("1_pgcr8")
+position = Vector2(-56.999996, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_8g0gi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1543617245]
+texture = ExtResource("3_6yhff")
 
 [node name="Timer" type="Timer" parent="." unique_id=1901636133]
 
