@@ -1,6 +1,6 @@
 extends Node2D
 
-var is_one_button : bool = false
+var is_one_button : bool = true
 var double_tap : float = 0.25
 var direction : bool = true
 var waiting_tap : bool = false
