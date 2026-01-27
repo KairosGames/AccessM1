@@ -10,6 +10,10 @@ func _ready() -> void:
 	add_child(currentGame)
 	pass
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("SwitchGame"):
+		next_game()
+
 func next_game() -> void:
 	if currentIndex == games.size() - 1:
 		get_tree().quit()

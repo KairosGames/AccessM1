@@ -28,6 +28,8 @@ position = Vector2(67, 517)
 position = Vector2(139, 472)
 reset_pos = NodePath("../ResetPosition")
 
+[node name="Gate" type="Area2D" parent="." unique_id=797272663]
+
 [node name="Platforms" type="Node2D" parent="." unique_id=418223071]
 
 [node name="Plat1" type="StaticBody2D" parent="Platforms" unique_id=615442738]
