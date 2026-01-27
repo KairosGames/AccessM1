@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://ccytl6btogey5"]
 
-[ext_resource type="Script" uid="uid://bhpwowmopokhx" path="res://Scripts/gate_platformer.gd" id="1_6hv7n"]
 [ext_resource type="PackedScene" uid="uid://kwyh835wwiss" path="res://Prefabs/player_platformer.tscn" id="1_41awe"]
 [ext_resource type="Texture2D" uid="uid://duve2i6ivdw2m" path="res://Assets/gate_platformer.png" id="2_k0oe1"]
 
@@ -31,7 +30,6 @@ position = Vector2(67, 517)
 
 [node name="Gate" type="Area2D" parent="." unique_id=797272663]
 position = Vector2(1217, 502)
-script = ExtResource("1_6hv7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate" unique_id=711141815]
 position = Vector2(-0.5, -4)
@@ -41,9 +39,10 @@ shape = SubResource("RectangleShape2D_6hv7n")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_k0oe1")
 
-[node name="PlayerPlatformer" parent="." unique_id=1249391039 node_paths=PackedStringArray("reset_pos") instance=ExtResource("1_41awe")]
+[node name="PlayerPlatformer" parent="." unique_id=1249391039 node_paths=PackedStringArray("reset_pos", "gate") instance=ExtResource("1_41awe")]
 position = Vector2(139, 472)
 reset_pos = NodePath("../ResetPosition")
+gate = NodePath("../Gate")
 
 [node name="Platforms" type="Node2D" parent="." unique_id=418223071]
 
