@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cbwqqp3tcb6vo"]
+
+[ext_resource type="Script" uid="uid://dnyqcbmxh4hq6" path="res://Scripts/car_game/track_end.gd" id="1_to5jr"]
+[ext_resource type="Texture2D" uid="uid://bk2gmfoey1wt" path="res://Assets/Asset_Ligne_arrivée.png" id="2_to5jr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_to5jr"]
+size = Vector2(21, 717)
+
+[node name="Track_end" type="Area2D" unique_id=1235177132]
+script = ExtResource("1_to5jr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1361944715]
+position = Vector2(22.5, 0.5)
+shape = SubResource("RectangleShape2D_to5jr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218730776]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_to5jr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

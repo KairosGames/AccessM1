@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c4a16n7y6i6r8"]
+
+[ext_resource type="PackedScene" uid="uid://b445pofbt25xc" path="res://Prefabs/car_game/player_car.tscn" id="1_wqo35"]
+[ext_resource type="PackedScene" uid="uid://dkdgbxy2dirjx" path="res://Prefabs/car_game/obstacle_manager.tscn" id="2_go66d"]
+[ext_resource type="PackedScene" uid="uid://b0fp3xn4wptd3" path="res://Prefabs/car_game/chicken.tscn" id="3_yi23e"]
+[ext_resource type="PackedScene" uid="uid://cbwqqp3tcb6vo" path="res://Prefabs/car_game/track_end.tscn" id="4_u41r7"]
+[ext_resource type="Texture2D" uid="uid://of7k3dl6m0yo" path="res://Assets/Asset_route.png" id="5_u41r7"]
+
+[node name="Car" type="Node2D" unique_id=269657128]
+
+[node name="player_car" parent="." unique_id=663967588 instance=ExtResource("1_wqo35")]
+position = Vector2(100, 360)
+
+[node name="Obstacle_Manager" parent="." unique_id=1932009275 instance=ExtResource("2_go66d")]
+position = Vector2(1500, 360)
+obstacles = Array[PackedScene]([ExtResource("3_yi23e"), ExtResource("4_u41r7")])
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=862256618]
+z_index = -1
+repeat_size = Vector2(1280, 0)
+autoscroll = Vector2(-40, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=2105014228]
+position = Vector2(639.99994, 360)
+texture = ExtResource("5_u41r7")

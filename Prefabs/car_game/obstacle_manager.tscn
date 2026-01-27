@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dkdgbxy2dirjx"]
+
+[ext_resource type="Script" uid="uid://dcfjhkyn5oubk" path="res://Scripts/car_game/race_manager.gd" id="1_7cd4c"]
+[ext_resource type="PackedScene" uid="uid://b0fp3xn4wptd3" path="res://Prefabs/car_game/chicken.tscn" id="2_3q4sk"]
+
+[node name="Obstacle_Manager" type="Node2D" unique_id=1932009275]
+script = ExtResource("1_7cd4c")
+obstacles = Array[PackedScene]([ExtResource("2_3q4sk"), null])
