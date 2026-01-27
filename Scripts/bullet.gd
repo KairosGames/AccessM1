@@ -9,7 +9,6 @@ var lifeSpan:float=LIFESPAN
 func setModel(model,where)->void:
 	apply_impulse(Vector2(model.VELOCITY,0))
 	global_position=where
-	print(model)
 	if model.has("OFFSET"):
 		global_position+=model.OFFSET
 	$Sprite.texture=model.SPRITE
