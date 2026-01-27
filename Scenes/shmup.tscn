@@ -3,8 +3,42 @@
 [ext_resource type="Script" uid="uid://dlxqwqc3t7d4c" path="res://Scripts/shmup.gd" id="1_381ea"]
 [ext_resource type="PackedScene" uid="uid://ctlx36btqvsas" path="res://Prefabs/player_shmup.tscn" id="2_iwdsl"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iwdsl"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_381ea"]
+normal = Vector2(-1, 0)
+distance = 80.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j70ir"]
+normal = Vector2(0, 1)
+distance = -365.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fyl2u"]
+distance = -357.0
+
 [node name="Shmup" type="Node2D" unique_id=1538815170]
 script = ExtResource("1_381ea")
 
 [node name="PlayerShmup" parent="." unique_id=1846282480 instance=ExtResource("2_iwdsl")]
-position = Vector2(206, 177)
+position = Vector2(215, 301)
+
+[node name="Border" type="StaticBody2D" parent="." unique_id=573962077]
+collision_layer = 16
+collision_mask = 0
+
+[node name="BorderLeft" type="CollisionShape2D" parent="Border" unique_id=667548349]
+position = Vector2(-1, 365)
+shape = SubResource("WorldBoundaryShape2D_iwdsl")
+
+[node name="BorderRight" type="CollisionShape2D" parent="Border" unique_id=361639126]
+position = Vector2(1362, 373)
+shape = SubResource("WorldBoundaryShape2D_381ea")
+
+[node name="BorderTop" type="CollisionShape2D" parent="Border" unique_id=1417339766]
+position = Vector2(-1, 365)
+shape = SubResource("WorldBoundaryShape2D_j70ir")
+
+[node name="BorderBottom" type="CollisionShape2D" parent="Border" unique_id=365037212]
+position = Vector2(-1, 365)
+shape = SubResource("WorldBoundaryShape2D_fyl2u")
