@@ -2,7 +2,7 @@ class_name game_manager extends Node2D
 
 @export var games : Array[PackedScene] = []
 
-var currentIndex: int = 0;
+var currentIndex: int = 0
 var currentGame: Node2D
 
 func _ready() -> void:
