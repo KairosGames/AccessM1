@@ -1,3 +1,71 @@
 [gd_scene format=3 uid="uid://ccytl6btogey5"]
 
+[ext_resource type="PackedScene" uid="uid://kwyh835wwiss" path="res://Prefabs/player_platformer.tscn" id="1_41awe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0oe1"]
+albedo_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6hv7n"]
+material = SubResource("StandardMaterial3D_k0oe1")
+size = Vector3(400, 200, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h786q"]
+size = Vector2(400, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k5hyf"]
+material = SubResource("StandardMaterial3D_k0oe1")
+size = Vector3(150, 50, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp55e"]
+size = Vector2(150, 50)
+
 [node name="Platformer" type="Node2D" unique_id=1147497293]
+
+[node name="ResetPosition" type="Marker2D" parent="." unique_id=1655889943]
+position = Vector2(67, 517)
+
+[node name="PlayerPlatformer" parent="." unique_id=1249391039 node_paths=PackedStringArray("reset_pos") instance=ExtResource("1_41awe")]
+position = Vector2(139, 472)
+reset_pos = NodePath("../ResetPosition")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=418223071]
+
+[node name="Plat1" type="StaticBody2D" parent="Platforms" unique_id=615442738]
+position = Vector2(99, 666)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platforms/Plat1" unique_id=1993911472]
+modulate = Color(0.44749326, 0.4832002, 0.5255208, 1)
+mesh = SubResource("BoxMesh_6hv7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Plat1" unique_id=188308998]
+shape = SubResource("RectangleShape2D_h786q")
+
+[node name="Plat2" type="StaticBody2D" parent="Platforms" unique_id=140362181]
+position = Vector2(471, 470)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platforms/Plat2" unique_id=503937174]
+modulate = Color(0.44705883, 0.48235294, 0.5254902, 1)
+mesh = SubResource("BoxMesh_k5hyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Plat2" unique_id=852704539]
+shape = SubResource("RectangleShape2D_xp55e")
+
+[node name="Plat3" type="StaticBody2D" parent="Platforms" unique_id=1147869716]
+position = Vector2(780, 413)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platforms/Plat3" unique_id=843312750]
+modulate = Color(0.44705883, 0.48235294, 0.5254902, 1)
+mesh = SubResource("BoxMesh_k5hyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Plat3" unique_id=2081861576]
+shape = SubResource("RectangleShape2D_xp55e")
+
+[node name="Plat4" type="StaticBody2D" parent="Platforms" unique_id=528023652]
+position = Vector2(1214, 666)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platforms/Plat4" unique_id=2146019296]
+modulate = Color(0.44705883, 0.48235294, 0.5254902, 1)
+mesh = SubResource("BoxMesh_6hv7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Plat4" unique_id=446058829]
+shape = SubResource("RectangleShape2D_h786q")
