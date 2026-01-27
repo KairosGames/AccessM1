@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kwyh835wwiss"]
 
-[ext_resource type="Script" uid="uid://d2evtidyx5mfr" path="res://Prefabs/player_platformer.gd" id="1_k8yfm"]
+[ext_resource type="Script" uid="uid://d2evtidyx5mfr" path="res://Scripts/player_platformer.gd" id="1_k8yfm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y75pj"]
 radius = 20.0
