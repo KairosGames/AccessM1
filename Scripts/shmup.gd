@@ -83,7 +83,7 @@ func _process(delta: float) -> void:
 				if c.name.contains("Enemy") or c.name.contains("Bullet"):
 					c.queue_free()
 		restart-=delta
-		$Camera/EndPanel/EndLabel.text="You died\nRestart in... "+str(ceil(restart))
+		$Camera/EndPanel/EndLabel.text="You died\nRestart in... "+str(ceili(restart))
 		if restart<=0:
 			player.global_position=startPosition
 			player.visible=true

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dlxqwqc3t7d4c" path="res://Scripts/shmup.gd" id="1_381ea"]
 [ext_resource type="PackedScene" uid="uid://ctlx36btqvsas" path="res://Prefabs/player_shmup.tscn" id="2_iwdsl"]
+[ext_resource type="Texture2D" uid="uid://bovsb7c826jfp" path="res://bg.png" id="2_j70ir"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iwdsl"]
 normal = Vector2(1, 0)
@@ -20,6 +21,17 @@ distance = -357.0
 [node name="Shmup" type="Node2D" unique_id=1538815170 node_paths=PackedStringArray("player")]
 script = ExtResource("1_381ea")
 player = NodePath("PlayerShmup")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1690065874]
+repeat_size = Vector2(1280, 0)
+autoscroll = Vector2(-100, 0)
+follow_viewport = false
+ignore_camera_scroll = true
+
+[node name="Background" type="Sprite2D" parent="Parallax2D" unique_id=315350849]
+position = Vector2(644, 359)
+scale = Vector2(0.42111653, 0.4211165)
+texture = ExtResource("2_j70ir")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=178597164]
 offset = Vector2(640, 360)
