@@ -1,0 +1,284 @@
+[gd_scene format=3 uid="uid://d2nvhihvkjqj5"]
+
+[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scenes/car_game_settings.gd" id="1_1k4ne"]
+[ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="3_dm6ou"]
+
+[node name="settings_ui" type="CanvasLayer" unique_id=2096271821]
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1587218561]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 2
+
+[node name="General" type="TabBar" parent="TabContainer" unique_id=535313388]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Audio" type="TabBar" parent="TabContainer" unique_id=2140731782]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Audio" unique_id=525643353]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 691.0
+alignment = 1
+
+[node name="Left_submenu" type="VBoxContainer" parent="TabContainer/Audio/HBoxContainer" unique_id=2025839750]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/HBoxContainer/Left_submenu" unique_id=67449142]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Audio/HBoxContainer/Left_submenu/VBoxContainer" unique_id=1680405021]
+layout_mode = 2
+text = "General"
+
+[node name="General" type="HSlider" parent="TabContainer/Audio/HBoxContainer/Left_submenu/VBoxContainer" unique_id=1059573817]
+layout_mode = 2
+value = 100.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Audio/HBoxContainer/Left_submenu" unique_id=113573627]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Audio/HBoxContainer/Left_submenu/VBoxContainer2" unique_id=1916948973]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFX" type="HSlider" parent="TabContainer/Audio/HBoxContainer/Left_submenu/VBoxContainer2" unique_id=509080084]
+layout_mode = 2
+value = 100.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="TabContainer/Audio/HBoxContainer/Left_submenu" unique_id=919082869]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Audio/HBoxContainer/Left_submenu/VBoxContainer3" unique_id=1332656144]
+layout_mode = 2
+text = "Amb"
+
+[node name="AMB" type="HSlider" parent="TabContainer/Audio/HBoxContainer/Left_submenu/VBoxContainer3" unique_id=213161350]
+layout_mode = 2
+value = 100.0
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/Audio/HBoxContainer" unique_id=86814442]
+layout_mode = 2
+
+[node name="Right_submenu" type="VBoxContainer" parent="TabContainer/Audio/HBoxContainer" unique_id=1873126384]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Audio/HBoxContainer/Right_submenu" unique_id=1378904924]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="TabContainer/Audio/HBoxContainer/Right_submenu/HBoxContainer" unique_id=170780099]
+layout_mode = 2
+text = "
+Mute All
+"
+
+[node name="MuteAll" type="CheckBox" parent="TabContainer/Audio/HBoxContainer/Right_submenu/HBoxContainer" unique_id=1809039689]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Audio/HBoxContainer/Right_submenu" unique_id=775743948]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="TabContainer/Audio/HBoxContainer/Right_submenu/HBoxContainer2" unique_id=344972388]
+layout_mode = 2
+text = "Mono Mode"
+
+[node name="Mono" type="CheckBox" parent="TabContainer/Audio/HBoxContainer/Right_submenu/HBoxContainer2" unique_id=1661372728]
+layout_mode = 2
+
+[node name="Accessibility" type="TabBar" parent="TabContainer" unique_id=257157212]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/Accessibility" unique_id=882017417]
+layout_mode = 0
+offset_right = 1279.0
+offset_bottom = 688.0
+tab_alignment = 1
+current_tab = 0
+tab_0/title = "Car game"
+tab_1/title = "Shoot them up"
+
+[node name="Car_Game" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=284667736]
+layout_mode = 2
+script = ExtResource("1_1k4ne")
+metadata/_tab_index = 0
+metadata/_tab_name = "Car game"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Car_Game" unique_id=1674106224]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 453.0
+offset_top = 130.0
+offset_right = 853.0
+offset_bottom = 379.0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2" unique_id=505649956]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer4" unique_id=1247921757]
+layout_mode = 2
+text = "Bebou Mode"
+
+[node name="Bebou_mode" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer4" unique_id=278409404]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2" unique_id=1147452028]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer2" unique_id=1115108157]
+layout_mode = 2
+text = "One Button Mode"
+
+[node name="One Button Mode" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer2" unique_id=1000470250]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2" unique_id=267838100]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3" unique_id=1000570204]
+layout_mode = 2
+text = "Timescale"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3" unique_id=73939086]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+
+[node name="Shoot Them Up" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=1180642821]
+visible = false
+layout_mode = 2
+script = ExtResource("3_dm6ou")
+metadata/_tab_index = 1
+metadata/_tab_name = "Shoot them up"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up" unique_id=64936275]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 453.0
+offset_top = 130.0
+offset_right = 853.0
+offset_bottom = 379.0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=636399715]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer" unique_id=1271903932]
+layout_mode = 2
+text = "Autofire"
+
+[node name="Autofire" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer" unique_id=310508660]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=1572286520]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer2" unique_id=1435484782]
+layout_mode = 2
+text = "Invincibility"
+
+[node name="Invincibility" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer2" unique_id=1033876108]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=671707340]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer3" unique_id=534395904]
+layout_mode = 2
+text = "Time Scale"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer3" unique_id=1742781879]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+
+[node name="Platformer" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=241576454]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = "Platformer"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Platformer" unique_id=344058981]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 453.0
+offset_top = 130.0
+offset_right = 853.0
+offset_bottom = 379.0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2" unique_id=634136001]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer2" unique_id=1899803447]
+layout_mode = 2
+text = "Auto-Jump"
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer2" unique_id=1857171823]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2" unique_id=1233725846]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer3" unique_id=1406155471]
+layout_mode = 2
+text = "Jump Tolerance"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer3" unique_id=839611258]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.2
+
+[node name="Button" type="Button" parent="." unique_id=110433854]
+offset_left = 173.0
+offset_top = 600.0
+offset_right = 548.0
+offset_bottom = 683.0
+text = "Quit Menu"
+
+[node name="Button2" type="Button" parent="." unique_id=1872316141]
+offset_left = 660.0
+offset_top = 600.0
+offset_right = 1035.0
+offset_bottom = 683.0
+text = "Quit Game"
+
+[connection signal="toggled" from="TabContainer/Audio/HBoxContainer/Right_submenu/HBoxContainer/MuteAll" to="TabContainer/Audio" method="_on_mute_all_toggled"]
+[connection signal="toggled" from="TabContainer/Audio/HBoxContainer/Right_submenu/HBoxContainer2/Mono" to="TabContainer/Audio" method="_on_mono_toggled"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer4/Bebou_mode" to="TabContainer/Accessibility/TabContainer/Car_Game" method="_on_bebou_mode_toggled"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer2/One Button Mode" to="TabContainer/Accessibility/TabContainer/Car_Game" method="_on_one_button_mode_toggled"]
+[connection signal="value_changed" from="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3/HSlider" to="TabContainer/Accessibility/TabContainer/Car_Game" method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer/Autofire" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_autofire_toggled"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer2/Invincibility" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_invincibility_toggled"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer2/CheckBox" to="TabContainer/Accessibility/TabContainer/Platformer" method="_on_check_box_toggled"]
+[connection signal="value_changed" from="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer3/HSlider" to="TabContainer/Accessibility/TabContainer/Platformer" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
