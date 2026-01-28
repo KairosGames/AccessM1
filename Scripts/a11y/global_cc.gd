@@ -12,5 +12,4 @@ func update_emitters():
 	emitters.clear()
 
 func write(sound_name, position):
-	print(sound_name, position)
 	ui.add_line(sound_name, position)
