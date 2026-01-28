@@ -20,7 +20,6 @@ distance = -357.0
 [node name="Shmup" type="Node2D" unique_id=1538815170 node_paths=PackedStringArray("player")]
 script = ExtResource("1_381ea")
 player = NodePath("PlayerShmup")
-gameSpeed = 0.5
 
 [node name="Camera" type="Camera2D" parent="." unique_id=178597164]
 offset = Vector2(640, 360)
