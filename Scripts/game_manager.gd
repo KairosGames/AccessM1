@@ -14,6 +14,7 @@ func playPool(sounds:Array[AudioStream],where=Vector2(0,0)):
 func _ready() -> void:
 	currentGame = games[currentIndex].instantiate()
 	add_child(currentGame)
+	GlobalCc.game_manager = self
 	pass
 
 func _process(_delta: float) -> void:
@@ -30,4 +31,4 @@ func next_game() -> void:
 	currentIndex += 1
 	currentGame = games[currentIndex].instantiate()
 	add_child(currentGame)
-	
+	GlobalCc.update_emitters()

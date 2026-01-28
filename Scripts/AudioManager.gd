@@ -27,7 +27,7 @@ func play(sound:AudioStream,where=Vector2(0,0)):
 	queue.push_back(sound)
 	positionQueue.push_back(where)
 
-func _process(delta:float):
+func _process(_delta:float):
 	# Play a queued sound if any players are available.
 	#print(available.size())
 	if not queue.is_empty() and not available.is_empty():

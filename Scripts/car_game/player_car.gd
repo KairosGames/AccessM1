@@ -13,6 +13,7 @@ func _ready() -> void:
 		$Sprite2D2.show()
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	

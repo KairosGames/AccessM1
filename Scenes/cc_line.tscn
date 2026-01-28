@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bomp2h8of5uub"]
+
+[node name="CCline" type="HBoxContainer" unique_id=692386534]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Left" type="Label" parent="." unique_id=745782378]
+visible = false
+layout_mode = 2
+text = "<"
+
+[node name="Name" type="Label" parent="." unique_id=1378471077]
+layout_mode = 2
+
+[node name="Right" type="Label" parent="." unique_id=1906668296]
+visible = false
+layout_mode = 2
+text = ">"
