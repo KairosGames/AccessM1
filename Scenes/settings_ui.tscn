@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="3_dm6ou"]
 
 [node name="settings_ui" type="CanvasLayer" unique_id=2096271821]
+visible = false
 script = ExtResource("1_1k4ne")
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=1587218561]
