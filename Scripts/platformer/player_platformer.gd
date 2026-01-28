@@ -19,6 +19,11 @@ class_name PlayerPlatformer extends CharacterBody2D
 var move_dir: Vector2 = Vector2.ZERO
 var win_timer: float = 0.0
 
+var can_jump: bool = true
+var coyote_time: float = 0.0
+var can_use_jump: bool = true
+var has_control: bool = true
+
 func _ready() -> void:
 	position = reset_pos.position
 
@@ -35,10 +40,11 @@ func set_player_stats(p_health: int, p_attack: int):
 	strength_attack = p_attack
 
 func get_input():
+	if not has_control : return
 	move_dir = Input.get_vector("Left", "Right", "Up", "Down")
 	if move_dir.length() < 0.2:
 		move_dir = Vector2.ZERO
-	if Input.is_action_just_pressed("Action"):
+	if Input.is_action_just_pressed("Action") && can_use_jump:
 		jump()
 
 func move_player(delta: float):
@@ -65,10 +71,20 @@ func handle_gravity(delta: float):
 		velocity.y += gravity * delta
 		if velocity.y < -max_fall_speed:
 			velocity.y = -max_fall_speed
+		if can_jump:
+			await get_tree().create_timer(coyote_time).timeout
+			if not is_on_floor():
+				can_jump = false
+	check_floor.call_deferred()
 
-func jump():
+func check_floor():
 	if is_on_floor():
+		can_jump = true
+
+func jump() -> void:
+	if can_jump:
 		velocity.y = -jump_strength
+		can_jump = false
 
 func check_pos() -> void:
 	position.x = clamp(position.x, 0.0, 1280.0)
@@ -82,3 +98,7 @@ func check_win(delta: float) -> void:
 			(get_parent().get_parent() as GameManager).next_game()
 	else:
 		win_timer = 0.0
+
+func launch_auto_jump():
+	if can_use_jump: return
+	jump()
