@@ -15,15 +15,6 @@ func _physics_process(delta: float)->void:
 	move_and_slide()
 	if get_last_slide_collision()!=null:
 		var bonk=get_last_slide_collision().get_collider()
-		if bonk.name.contains("Bullet"):
-			if bonk.damage>=life:
-				get_parent().scoreAdd(model.SCORE)
-				queue_free()
-			else:
-				life-=bonk.damage
-			bonk.life-=1
-			if bonk.life<=0:
-				bonk.queue_free()
 		if not get_parent().invincible and bonk.name.contains("Player"):
 			if damage>=bonk.life:
 				get_parent().playerDead=true

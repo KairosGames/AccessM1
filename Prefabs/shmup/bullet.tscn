@@ -5,9 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dga7"]
 resource_local_to_scene = true
 
-[node name="Bullet" type="RigidBody2D" unique_id=1203134428]
-mass = 0.001
-gravity_scale = 0.0
+[node name="Bullet" type="Area2D" unique_id=695292271]
 script = ExtResource("1_1ghm6")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=433622618]
@@ -16,3 +14,5 @@ shape = SubResource("CircleShape2D_7dga7")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=797597029]
 unique_name_in_owner = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
