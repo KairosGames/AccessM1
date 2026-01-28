@@ -92,6 +92,8 @@ var invincibilityPressed:bool=false
 
 var autoFirePressed:bool=false
 
+var highContrastPressed:bool=false
+
 var gameSpeeds=[0.25,0.5,0.75,1]
 var gameSpeedIndex=3
 var gameSpeedPressed:bool=false
@@ -121,6 +123,16 @@ func _process(delta: float) -> void:
 			player.autoFire=not player.autoFire
 	else:
 		autoFirePressed=false
+	#################################
+	if Input.get_action_raw_strength("Shmup_high_contrast"):
+		if not highContrastPressed:
+			highContrastPressed=true
+			if $Parallax/Background.modulate==Color.WHITE:
+				$Parallax/Background.modulate=Color.DIM_GRAY
+			else:
+				$Parallax/Background.modulate=Color.WHITE
+	else:
+		highContrastPressed=false
 	#################################
 	if playerDead:
 		#var gm: GameManager = get_parent()
