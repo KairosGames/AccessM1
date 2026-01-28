@@ -115,7 +115,13 @@ var enemyProjectileSpeedPressed:bool=false
 const PLAYER_PROJECTILE_SPEED_ALTERNATE:float=1.5
 const ENEMY_PROJECTILE_SPEED_ALTERNATE:float=0.66
 
+var gameTime=30
+
 func _process(delta: float) -> void:
+	gameTime-=delta/gameSpeeds[gameSpeedIndex]
+	print("gameTime "+str(gameTime))
+	if gameTime<=0:
+		get_parent().next_game()
 	#################################
 	if Input.get_action_raw_strength("Shmup_Invincibility"):
 		if not invincibilityPressed:
