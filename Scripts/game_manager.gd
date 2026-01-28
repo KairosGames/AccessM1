@@ -25,7 +25,7 @@ func next_game() -> void:
 	if currentIndex == games.size() - 1:
 		get_tree().quit()
 		return
-	
+	Engine.time_scale=1
 	var toDelete: Node2D = currentGame
 	toDelete.queue_free()
 	currentIndex += 1
