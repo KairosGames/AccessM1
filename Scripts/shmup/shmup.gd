@@ -98,13 +98,22 @@ var playerDead=false
 
 var invincibilityPressed:bool=false
 
+var gameSpeeds=[0.25,0.5,0.75,1]
+var gameSpeedIndex=3
+var gameSpeedPressed:bool=false
+
 var autoFirePressed:bool=false
 
 var highContrastPressed:bool=false
 
-var gameSpeeds=[0.25,0.5,0.75,1]
-var gameSpeedIndex=3
-var gameSpeedPressed:bool=false
+@export var playerProjectileSpeed:float=1
+@export var enemyProjectileSpeed:float=1
+
+var playerProjectileSpeedPressed:bool=false
+var enemyProjectileSpeedPressed:bool=false
+
+const PLAYER_PROJECTILE_SPEED_ALTERNATE:float=1.5
+const ENEMY_PROJECTILE_SPEED_ALTERNATE:float=0.66
 
 func _process(delta: float) -> void:
 	#################################
@@ -142,6 +151,36 @@ func _process(delta: float) -> void:
 	else:
 		highContrastPressed=false
 	#################################
+	if Input.get_action_raw_strength("Shmup_player_projectile_speed"):
+		if not playerProjectileSpeedPressed:
+			playerProjectileSpeedPressed=true
+			if playerProjectileSpeed==1:
+				playerProjectileSpeed=PLAYER_PROJECTILE_SPEED_ALTERNATE
+				for e in get_children():
+					if e.name.contains("Bullet") and e.friend:
+						e.velocity*=PLAYER_PROJECTILE_SPEED_ALTERNATE
+			else:
+				playerProjectileSpeed=1
+				for e in get_children():
+					if e.name.contains("Bullet") and e.friend:
+						e.velocity/=PLAYER_PROJECTILE_SPEED_ALTERNATE
+	else:
+		playerProjectileSpeedPressed=false
+	if Input.get_action_raw_strength("Shmup_enemy_projectile_speed"):
+		if not enemyProjectileSpeedPressed:
+			enemyProjectileSpeedPressed=true
+			if enemyProjectileSpeed==1:
+				enemyProjectileSpeed=ENEMY_PROJECTILE_SPEED_ALTERNATE
+				for e in get_children():
+					if e.name.contains("Bullet") and not e.friend:
+						e.velocity*=ENEMY_PROJECTILE_SPEED_ALTERNATE
+			else:
+				enemyProjectileSpeed=1
+				for e in get_children():
+					if e.name.contains("Bullet") and not e.friend:
+						e.velocity/=ENEMY_PROJECTILE_SPEED_ALTERNATE
+	else:
+		enemyProjectileSpeedPressed=false
 	if playerDead:
 		#var gm: GameManager = get_parent()
 		#gm.currentIndex -= 1
