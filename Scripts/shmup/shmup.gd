@@ -27,7 +27,7 @@ const DATA={
 	"PLAYER":{
 		"SPEED":100, # Pixels per second
 		"FRICTION":10, # Pixels per second
-		"LIFE":1
+		"LIFE":10
 	},
 	"ENEMY":{
 		"PERIOD":1,# spawn period
@@ -35,7 +35,8 @@ const DATA={
 		"SPRITE":preload("res://Sprites/shmup/ennemi 2.png"),
 		"SCALE":0.1,
 		"SCORE":10,
-		"LIFE":1
+		"LIFE":1,
+		"DAMAGE":2 # on player collision
 	},
 	"BULLET":{
 		"PLAYER":{
@@ -52,12 +53,14 @@ const DATA={
 			"VELOCITY":-100,
 			"SPRITE":preload("res://Sprites/shmup/bullet ennemi.png"),
 			"SCALE":0.2,
-			"LIFE":1
+			"LIFE":1,
+			"DAMAGE":1
 		}
 	}
 }
 
 func _ready() -> void:
+	player.life=DATA.PLAYER.LIFE
 	if invincible:
 		player.collision_mask=16
 	Engine.time_scale=gameSpeed
@@ -84,10 +87,11 @@ func _process(delta: float) -> void:
 					c.queue_free()
 		restart-=delta
 		$Camera/EndPanel/EndLabel.text="You died\nRestart in... "+str(ceili(restart))
-		if restart<=0:
+		if restart<=0: # GAME RESTARTS
 			player.global_position=startPosition
 			player.visible=true
 			playerDead=false
+			player.life=DATA.PLAYER.LIFE
 			restart=RESTART_TIME
 			scoreSet(0)
 			spawnTimer=DATA.ENEMY.PERIOD

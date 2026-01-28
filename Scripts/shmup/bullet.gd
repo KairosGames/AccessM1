@@ -2,6 +2,8 @@ extends RigidBody2D
 class_name Bullet
 var model
 var friend:bool
+var life:int
+var damage:int
 
 const LIFESPAN:float=4 # in seconds
 
@@ -18,6 +20,8 @@ func setModel(model,where)->void:
 	$Sprite.texture=model.SPRITE
 	$Sprite.scale=Vector2(model.SCALE,model.SCALE)
 	friend=model.FRIEND
+	life=model.LIFE
+	damage=model.DAMAGE
 	if friend:
 		collision_layer=2
 		collision_mask=4+8
@@ -27,7 +31,6 @@ func setModel(model,where)->void:
 			collision_mask=2
 		else:
 			collision_mask=1+2
-	#print("Fired at"+str(global_position))
 	
 func _process(delta: float) -> void:
 	lifeSpan-=delta

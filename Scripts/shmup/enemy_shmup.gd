@@ -5,6 +5,8 @@ class_name ShmupEnemy
 @onready var game:Shmup=get_parent()
 var bulletType
 var model
+var life:int
+var damage:int
 
 func _ready() -> void:
 	name="Enemy"
@@ -13,16 +15,22 @@ func _physics_process(delta: float)->void:
 	move_and_slide()
 	if get_last_slide_collision()!=null:
 		var bonk=get_last_slide_collision().get_collider()
-		if get_parent().invincible:
-			if bonk.name.contains("Bullet"):
+		if bonk.name.contains("Bullet"):
+			if bonk.damage>=life:
 				get_parent().scoreAdd(model.SCORE)
 				queue_free()
+			else:
+				life-=bonk.damage
+			bonk.life-=1
+			if bonk.life<=0:
 				bonk.queue_free()
-		else:
-			if bonk.name.contains("Player"):
+		if not get_parent().invincible and bonk.name.contains("Player"):
+			print("damage "+str(damage))
+			print("Life "+str(bonk.life))
+			if damage>=bonk.life:
 				get_parent().playerDead=true
 			else:
-				bonk.queue_free()
+				bonk.life-=damage
 			get_parent().scoreAdd(model.SCORE)
 			queue_free()
 
@@ -30,9 +38,11 @@ func fire():
 	var b=game.bulletModel.instantiate()
 	b.call_deferred("setModel",bulletType,global_position)
 	game.add_child(b)
-	
+
 func setModel(whatModel,where)->void:
 	model=whatModel
+	damage=model.DAMAGE
+	life=model.LIFE
 	velocity=Vector2(model.VELOCITY,0)
 	global_position=where
 	$Sprite.texture=model.SPRITE

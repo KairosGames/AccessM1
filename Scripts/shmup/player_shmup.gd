@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name ShmupPlayer
 @onready var game:Shmup=get_parent()
 var firing:bool=false
+var life:int
 
 func _ready() -> void:
 	name="Player"
@@ -11,11 +12,11 @@ func _physics_process(delta: float)->void:
 	if visible:
 		velocity+=Vector2(Input.get_action_strength("Right")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Left")*Shmup.DATA.PLAYER.SPEED,Input.get_action_strength("Down")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Up")*Shmup.DATA.PLAYER.SPEED)
 	move_and_slide()
-	if get_last_slide_collision()!=null:
-		var bonk=get_last_slide_collision().get_collider()
+	#if get_last_slide_collision()!=null:
+	#	var bonk=get_last_slide_collision().get_collider()
 		# If the player bonks something else than the border, pwnd !
-		if not game.invincible and not bonk.name.contains("Border"):
-			game.playerDead=true
+		#if not game.invincible and not bonk.name.contains("Border"):
+		#	game.playerDead=true
 	if Input.get_action_strength("Action"):
 		if not firing:
 			firing=true
@@ -27,4 +28,3 @@ func fire():
 	var b=game.bulletModel.instantiate()
 	b.call_deferred("setModel",Shmup.DATA.BULLET.PLAYER,global_position)
 	game.add_child(b)
-	
