@@ -12,11 +12,6 @@ func _physics_process(delta: float)->void:
 	if visible:
 		velocity+=Vector2(Input.get_action_strength("Right")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Left")*Shmup.DATA.PLAYER.SPEED,Input.get_action_strength("Down")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Up")*Shmup.DATA.PLAYER.SPEED)
 	move_and_slide()
-	#if get_last_slide_collision()!=null:
-	#	var bonk=get_last_slide_collision().get_collider()
-		# If the player bonks something else than the border, pwnd !
-		#if not game.invincible and not bonk.name.contains("Border"):
-		#	game.playerDead=true
 	if Input.get_action_strength("Action"):
 		if not firing:
 			firing=true

@@ -25,8 +25,6 @@ func _physics_process(delta: float)->void:
 			if bonk.life<=0:
 				bonk.queue_free()
 		if not get_parent().invincible and bonk.name.contains("Player"):
-			print("damage "+str(damage))
-			print("Life "+str(bonk.life))
 			if damage>=bonk.life:
 				get_parent().playerDead=true
 			else:
@@ -45,6 +43,7 @@ func setModel(whatModel,where)->void:
 	life=model.LIFE
 	velocity=Vector2(model.VELOCITY,0)
 	global_position=where
+	$Collision.shape.radius=model.COLLISION
 	$Sprite.texture=model.SPRITE
 	$Sprite.scale=Vector2(model.SCALE,model.SCALE)
 	collision_layer=8

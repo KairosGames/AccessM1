@@ -19,6 +19,7 @@ func setModel(model,where)->void:
 		global_position+=model.OFFSET
 	$Sprite.texture=model.SPRITE
 	$Sprite.scale=Vector2(model.SCALE,model.SCALE)
+	$Collision.shape.radius=model.COLLISION
 	friend=model.FRIEND
 	life=model.LIFE
 	damage=model.DAMAGE
