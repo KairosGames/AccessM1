@@ -11,7 +11,8 @@ var waiting_tap : bool = false
 func _ready() -> void:
 	if is_one_button == true:
 		$Sprite2D2.show()
-
+	GlobalSettings.settings_changed.connect(settings)
+	GlobalSettings.new_settings()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,3 +57,11 @@ func tap_timer():
 
 func _on_timer_timeout() -> void:
 	waiting_tap = false
+
+func settings(): 
+	is_one_button = GlobalSettings.one_button_mode
+	print(is_one_button)
+	if is_one_button == true:
+		$Sprite2D2.show()
+	else:
+		$Sprite2D2.hide()
