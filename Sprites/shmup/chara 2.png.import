@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ej0qjw4bbqpe"
-path="res://.godot/imported/bullet joueur.png-a248bbe899fb629dddb51f445b660ae5.ctex"
+uid="uid://ct36rle7h345o"
+path="res://.godot/imported/chara 2.png-23c9e25b4e9d2db915f5a8b75f7567d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/bullet joueur.png"
-dest_files=["res://.godot/imported/bullet joueur.png-a248bbe899fb629dddb51f445b660ae5.ctex"]
+source_file="res://Sprites/shmup/chara 2.png"
+dest_files=["res://.godot/imported/chara 2.png-23c9e25b4e9d2db915f5a8b75f7567d2.ctex"]
 
 [params]
 

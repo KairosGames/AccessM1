@@ -2,13 +2,13 @@ extends Node2D
 
 class_name Shmup
 
-@onready var bulletModel=preload("res://Prefabs/bullet.tscn")
-@onready var enemyModel=preload("res://Prefabs/enemy_shmup.tscn")
+@onready var bulletModel=preload("res://Prefabs/shmup/bullet.tscn")
+@onready var enemyModel=preload("res://Prefabs/shmup/enemy_shmup.tscn")
 
 const RESTART_TIME=3
 
 @export var player: CharacterBody2D
-@onready var playerModel=preload("res://Prefabs/player_shmup.tscn")
+@onready var playerModel=preload("res://Prefabs/shmup/player_shmup.tscn")
 var startPosition=Vector2(100,100)
 
 var restart:float=0
@@ -32,7 +32,7 @@ const DATA={
 	"ENEMY":{
 		"PERIOD":1,# spawn period
 		"VELOCITY":-1000, # Pixels per second
-		"SPRITE":preload("res://Sprites/ennemi 2.png"),
+		"SPRITE":preload("res://Sprites/shmup/ennemi 2.png"),
 		"SCALE":0.1,
 		"SCORE":10,
 		"LIFE":1
@@ -41,7 +41,7 @@ const DATA={
 		"PLAYER":{
 			"FRIEND":true,
 			"VELOCITY":1500,
-			"SPRITE":preload("res://Sprites/bullet joueur.png"),
+			"SPRITE":preload("res://Sprites/shmup/bullet joueur.png"),
 			"SCALE":0.4,
 			"OFFSET":Vector2(64,0),
 			"LIFE":1, # Number of hits before destruction
@@ -50,7 +50,7 @@ const DATA={
 		"ENEMY":{
 			"FRIEND":false,
 			"VELOCITY":-100,
-			"SPRITE":preload("res://Sprites/bullet ennemi.png"),
+			"SPRITE":preload("res://Sprites/shmup/bullet ennemi.png"),
 			"SCALE":0.2,
 			"LIFE":1
 		}

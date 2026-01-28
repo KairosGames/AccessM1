@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bx002ripwggcv"]
 
-[ext_resource type="Script" uid="uid://dlxqwqc3t7d4c" path="res://Scripts/shmup/shmup.gd" id="1_381ea"]
+[ext_resource type="Script" uid="uid://dlxqwqc3t7d4c" path="res://Scripts/shmup.gd" id="1_381ea"]
 [ext_resource type="PackedScene" uid="uid://ctlx36btqvsas" path="res://Prefabs/shmup/player_shmup.tscn" id="2_iwdsl"]
-[ext_resource type="Texture2D" uid="uid://bovsb7c826jfp" path="res://Sprites/shmup/bg.png" id="2_j70ir"]
+[ext_resource type="Texture2D" uid="uid://bovsb7c826jfp" path="res://Sprites/bg.png" id="2_j70ir"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iwdsl"]
 normal = Vector2(1, 0)
@@ -21,6 +21,9 @@ distance = -357.0
 [node name="Shmup" type="Node2D" unique_id=1538815170 node_paths=PackedStringArray("player")]
 script = ExtResource("1_381ea")
 player = NodePath("PlayerShmup")
+scoreMultiplier = null
+gameSpeed = null
+invincible = null
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1690065874]
 repeat_size = Vector2(1280, 0)

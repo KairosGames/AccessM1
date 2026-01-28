@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhm653pjsn6ke"
-path="res://.godot/imported/ennemi 1.png-da948d68cf3ff73848abcec57b11d817.ctex"
+uid="uid://dbqaxy3xgrxrh"
+path="res://.godot/imported/pogflame.png-00a6de525e80bdc5bdd8d8efd637fdb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ennemi 1.png"
-dest_files=["res://.godot/imported/ennemi 1.png-da948d68cf3ff73848abcec57b11d817.ctex"]
+source_file="res://Sprites/shmup/pogflame.png"
+dest_files=["res://.godot/imported/pogflame.png-00a6de525e80bdc5bdd8d8efd637fdb9.ctex"]
 
 [params]
 

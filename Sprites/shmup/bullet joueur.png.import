@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brqvd2824yqby"
-path="res://.godot/imported/bullet ennemi.png-2b1faab0362303463925c9bc2aafcc19.ctex"
+uid="uid://ej0qjw4bbqpe"
+path="res://.godot/imported/bullet joueur.png-db9da433b8fa3abfc94d57fe5a55a8b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/bullet ennemi.png"
-dest_files=["res://.godot/imported/bullet ennemi.png-2b1faab0362303463925c9bc2aafcc19.ctex"]
+source_file="res://Sprites/shmup/bullet joueur.png"
+dest_files=["res://.godot/imported/bullet joueur.png-db9da433b8fa3abfc94d57fe5a55a8b5.ctex"]
 
 [params]
 

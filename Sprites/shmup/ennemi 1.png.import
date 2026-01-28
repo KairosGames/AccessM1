@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfng7nfac7wvu"
-path="res://.godot/imported/HereItComes.png-b66640e0c964826cb73f17dc198f2c27.ctex"
+uid="uid://bhm653pjsn6ke"
+path="res://.godot/imported/ennemi 1.png-0312fc1c44b2218a224829a9f86253cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/HereItComes.png"
-dest_files=["res://.godot/imported/HereItComes.png-b66640e0c964826cb73f17dc198f2c27.ctex"]
+source_file="res://Sprites/shmup/ennemi 1.png"
+dest_files=["res://.godot/imported/ennemi 1.png-0312fc1c44b2218a224829a9f86253cf.ctex"]
 
 [params]
 

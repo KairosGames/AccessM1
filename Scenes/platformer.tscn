@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccytl6btogey5"]
 
 [ext_resource type="Texture2D" uid="uid://do70skw0vvamu" path="res://Assets/bg_platformer.png" id="1_6hv7n"]
-[ext_resource type="PackedScene" uid="uid://kwyh835wwiss" path="res://Prefabs/player_platformer.tscn" id="1_41awe"]
+[ext_resource type="PackedScene" uid="uid://kwyh835wwiss" path="res://Prefabs/shmup/player_platformer.tscn" id="1_41awe"]
 [ext_resource type="Texture2D" uid="uid://duve2i6ivdw2m" path="res://Assets/gate_platformer.png" id="2_k0oe1"]
 [ext_resource type="Texture2D" uid="uid://c1ima3fiylcvt" path="res://Assets/plateforme.png" id="4_h786q"]
 

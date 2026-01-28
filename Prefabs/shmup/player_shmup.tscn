@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctlx36btqvsas"]
 
-[ext_resource type="Script" uid="uid://baj17mxnpeadr" path="res://Scripts/player_shmup.gd" id="1_auvhs"]
-[ext_resource type="Texture2D" uid="uid://ct36rle7h345o" path="res://Sprites/chara 2.png" id="2_402u0"]
+[ext_resource type="Script" uid="uid://baj17mxnpeadr" path="res://Scripts/shmup/player_shmup.gd" id="1_tli52"]
+[ext_resource type="Texture2D" uid="uid://ct36rle7h345o" path="res://Sprites/shmup/chara 2.png" id="2_34iti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ge55o"]
 radius = 32.0
@@ -9,11 +9,11 @@ radius = 32.0
 [node name="PlayerShmup" type="CharacterBody2D" unique_id=1846282480]
 collision_mask = 28
 motion_mode = 1
-script = ExtResource("1_auvhs")
+script = ExtResource("1_tli52")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=951689301]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_402u0")
+texture = ExtResource("2_34iti")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=970728718]
 shape = SubResource("CircleShape2D_ge55o")
