@@ -27,7 +27,8 @@ const DATA={
 	"PLAYER":{
 		"SPEED":100, # Pixels per second
 		"FRICTION":10, # Pixels per second
-		"LIFE":10
+		"LIFE":10, # Pixels per second
+		"RELOAD":0.25 # To fire, in seconds
 	},
 	"ENEMY":{
 		"PERIOD":1,# spawn period
@@ -89,17 +90,21 @@ var playerDead=false
 
 var invincibilityPressed:bool=false
 
+var autoFirePressed:bool=false
+
 var gameSpeeds=[0.25,0.5,0.75,1]
 var gameSpeedIndex=3
 var gameSpeedPressed:bool=false
 
 func _process(delta: float) -> void:
+	#################################
 	if Input.get_action_raw_strength("Shmup_Invincibility"):
 		if not invincibilityPressed:
 			invincibilityPressed=true
 			invincibleSet(not invincible)
 	else:
 		invincibilityPressed=false
+	#################################
 	if Input.get_action_raw_strength("Shmup_game_speed"):
 		if not gameSpeedPressed:
 			gameSpeedPressed=true
@@ -109,6 +114,14 @@ func _process(delta: float) -> void:
 			Engine.time_scale=gameSpeeds[gameSpeedIndex]
 	else:
 		gameSpeedPressed=false
+	#################################
+	if Input.get_action_raw_strength("Shmup_autofire"):
+		if not autoFirePressed:
+			autoFirePressed=true
+			player.autoFire=not player.autoFire
+	else:
+		autoFirePressed=false
+	#################################
 	if playerDead:
 		#var gm: GameManager = get_parent()
 		#gm.currentIndex -= 1
