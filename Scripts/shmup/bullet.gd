@@ -34,7 +34,16 @@ func setModel(model,where)->void:
 			collision_mask=2
 		else:
 			collision_mask=1+2
-	
+	if model.has("TYPE"):
+		match model.TYPE:
+			"FRONT":
+				if not friend:
+					velocity=-velocity
+			"TARGET":
+				var angle=global_position.angle_to_point(get_parent().player.global_position)
+				$Sprite.rotation_degrees=rad_to_deg(angle+PI)
+				velocity=velocity.rotated(angle)
+		
 func _process(delta: float) -> void:
 	position+=velocity*delta
 	lifeSpan-=delta

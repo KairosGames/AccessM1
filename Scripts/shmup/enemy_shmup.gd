@@ -3,30 +3,41 @@ extends CharacterBody2D
 class_name ShmupEnemy
 
 @onready var game:Shmup=get_parent()
-var bulletType
 var model
 var life:int
 var damage:int
+var reload:float=0
 
 func _ready() -> void:
 	name="Enemy"
 
 func _physics_process(delta: float)->void:
 	move_and_slide()
-	if get_last_slide_collision()!=null:
-		var bonk=get_last_slide_collision().get_collider()
-		if not get_parent().invincible and bonk.name.contains("Player"):
-			if damage>=bonk.life:
-				get_parent().playerDead=true
-			else:
-				bonk.life-=damage
-			get_parent().scoreAdd(model.SCORE)
-			queue_free()
+	if global_position.x<-200:
+		queue_free()
+	else:
+		if get_last_slide_collision()!=null:
+			var bonk=get_last_slide_collision().get_collider()
+			if not get_parent().invincible and bonk.name.contains("Player"):
+				if damage>=bonk.life:
+					get_parent().playerDead=true
+				else:
+					bonk.life-=damage
+				get_parent().scoreAdd(model.SCORE)
+				queue_free()
 
-func fire():
+func _process(delta: float) -> void:
+	if model.has("PROJECTILE"):
+		reload-=delta
+		while reload<=0:
+			reload+=model.FIRERATE
+			fire()
+
+func fire()->Bullet:
 	var b=game.bulletModel.instantiate()
-	b.call_deferred("setModel",bulletType,global_position)
+	b.call_deferred("setModel",get_parent().DATA.BULLET[model.PROJECTILE],global_position)
 	game.add_child(b)
+	return b
 
 func setModel(whatModel,where)->void:
 	model=whatModel

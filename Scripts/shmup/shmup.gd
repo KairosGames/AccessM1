@@ -22,6 +22,10 @@ func play(sound:AudioStream,where=Vector2(0,0)):
 
 func playPool(sounds:Array[AudioStream],where=Vector2(0,0)):
 	get_parent().play(sounds.pick_random(),where)
+# Projectile types : 
+# FRONT fire in front
+# TARGET fire the player position
+# BALISTICS fire where the player can be
 
 const DATA={
 	"PLAYER":{
@@ -41,14 +45,16 @@ const DATA={
 		"DAMAGE":2 # on player collision
 	},
 	"ENEMYBIG":{
-		"PERIOD":3.5,# spawn period
-		"VELOCITY":-500, # Pixels per second
+		"PERIOD":6.19,# spawn period
+		"VELOCITY":-200, # Pixels per second
 		"SPRITE":preload("res://Sprites/shmup/ennemi 2.png"),
 		"SCALE":0.2,
 		"COLLISION":64,#Radius
 		"SCORE":10,
 		"LIFE":5,
-		"DAMAGE":5 # on player collision
+		"DAMAGE":5, # on player collision
+		"FIRERATE":1.9, # in seconds
+		"PROJECTILE":"ENEMY",
 	},
 	"BULLET":{
 		"PLAYER":{
@@ -59,16 +65,18 @@ const DATA={
 			"OFFSET":Vector2(64,0),
 			"LIFE":1, # Number of hits before destruction
 			"DAMAGE":1, # Damage per hit
-			"COLLISION":8 #Radius
+			"COLLISION":8, #Radius
+			"TYPE":"FRONT"
 		},
 		"ENEMY":{
 			"FRIEND":false,
-			"VELOCITY":-100,
+			"VELOCITY":500,
 			"SPRITE":preload("res://Sprites/shmup/bullet ennemi.png"),
 			"SCALE":0.2,
 			"LIFE":1,
 			"DAMAGE":1,
-			"COLLISION":8#Radius
+			"COLLISION":8,#Radius
+			"TYPE":"TARGET"
 		}
 	}
 }
@@ -161,10 +169,10 @@ func _process(delta: float) -> void:
 		spawnTimer-=delta
 		spawnBigTimer-=delta
 		while spawnTimer<=0:
-			spawn(DATA.ENEMY,Vector2(1800,randf_range(60,660)))
+			spawn(DATA.ENEMY,Vector2(1400,randf_range(60,660)))
 			spawnTimer+=DATA.ENEMY.PERIOD
 		while spawnBigTimer<=0:
-			spawn(DATA.ENEMYBIG,Vector2(1800,randf_range(60,660)))
+			spawn(DATA.ENEMYBIG,Vector2(1400,randf_range(60,660)))
 			spawnBigTimer+=DATA.ENEMYBIG.PERIOD
 
 func spawn(what,where:Vector2)->void:
