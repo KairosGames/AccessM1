@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do70skw0vvamu"
-path="res://.godot/imported/bg_platformer.png-35879d92522c66a52601ef0c94a812f5.ctex"
+uid="uid://bmt3o43jw4roo"
+path="res://.godot/imported/chara1_platformer.png-c1c5e2889bc5ff3973dee099c7e4a8d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bg_platformer.png"
-dest_files=["res://.godot/imported/bg_platformer.png-35879d92522c66a52601ef0c94a812f5.ctex"]
+source_file="res://Assets/platformer/chara1_platformer.png"
+dest_files=["res://.godot/imported/chara1_platformer.png-c1c5e2889bc5ff3973dee099c7e4a8d5.ctex"]
 
 [params]
 

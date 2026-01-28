@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ccytl6btogey5"]
 
-[ext_resource type="Texture2D" uid="uid://do70skw0vvamu" path="res://Assets/bg_platformer.png" id="1_6hv7n"]
-[ext_resource type="PackedScene" uid="uid://kwyh835wwiss" path="res://Prefabs/shmup/player_platformer.tscn" id="1_41awe"]
+[ext_resource type="Texture2D" uid="uid://do70skw0vvamu" path="res://Assets/platformer/bg_platformer.png" id="1_6hv7n"]
+[ext_resource type="PackedScene" uid="uid://kwyh835wwiss" path="res://Prefabs/platformer/player_platformer.tscn" id="1_41awe"]
 [ext_resource type="Texture2D" uid="uid://duve2i6ivdw2m" path="res://Assets/gate_platformer.png" id="2_k0oe1"]
-[ext_resource type="Texture2D" uid="uid://c1ima3fiylcvt" path="res://Assets/plateforme.png" id="4_h786q"]
+[ext_resource type="Texture2D" uid="uid://30nt65wdrnu7" path="res://Assets/platformer/platform.png" id="4_h786q"]
+[ext_resource type="Script" uid="uid://bhpwowmopokhx" path="res://Scripts/platformer/jump_box.gd" id="5_k5hyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hv7n"]
 size = Vector2(121, 130)
@@ -24,6 +25,15 @@ size = Vector3(150, 50, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp55e"]
 size = Vector2(150, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5hyf"]
+size = Vector2(27, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy5s2"]
+size = Vector2(25, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y7vq"]
+size = Vector2(23, 32)
 
 [node name="Platformer" type="Node2D" unique_id=1147497293]
 
@@ -67,6 +77,10 @@ shape = SubResource("RectangleShape2D_h786q")
 scale = Vector2(0.213, 0.64)
 texture = ExtResource("4_h786q")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Platforms/Plat1" unique_id=256295072]
+scale = Vector2(0.213, 0.64)
+texture = ExtResource("4_h786q")
+
 [node name="Plat2" type="StaticBody2D" parent="Platforms" unique_id=140362181]
 position = Vector2(471, 470)
 
@@ -78,6 +92,10 @@ mesh = SubResource("BoxMesh_k5hyf")
 shape = SubResource("RectangleShape2D_xp55e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platforms/Plat2" unique_id=1779518306]
+scale = Vector2(0.08, 0.16)
+texture = ExtResource("4_h786q")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Platforms/Plat2" unique_id=1115899725]
 scale = Vector2(0.08, 0.16)
 texture = ExtResource("4_h786q")
 
@@ -95,6 +113,10 @@ shape = SubResource("RectangleShape2D_xp55e")
 scale = Vector2(0.08, 0.16)
 texture = ExtResource("4_h786q")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Platforms/Plat3" unique_id=1681563548]
+scale = Vector2(0.08, 0.16)
+texture = ExtResource("4_h786q")
+
 [node name="Plat4" type="StaticBody2D" parent="Platforms" unique_id=528023652]
 position = Vector2(1214, 666)
 
@@ -108,3 +130,40 @@ shape = SubResource("RectangleShape2D_h786q")
 [node name="Sprite2D" type="Sprite2D" parent="Platforms/Plat4" unique_id=611706936]
 scale = Vector2(0.213, 0.64)
 texture = ExtResource("4_h786q")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Platforms/Plat4" unique_id=872230061]
+scale = Vector2(0.213, 0.64)
+texture = ExtResource("4_h786q")
+
+[node name="JumpBoxes" type="Node2D" parent="." unique_id=65611966]
+
+[node name="JumpBox1" type="Area2D" parent="JumpBoxes" unique_id=1416072550]
+position = Vector2(282, 537)
+script = ExtResource("5_k5hyf")
+time = 0.3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpBoxes/JumpBox1" unique_id=1758234581]
+position = Vector2(3.5, 7.5)
+shape = SubResource("RectangleShape2D_k5hyf")
+
+[node name="JumpBox2" type="Area2D" parent="JumpBoxes" unique_id=1485503429]
+position = Vector2(534, 415)
+script = ExtResource("5_k5hyf")
+time = 0.35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpBoxes/JumpBox2" unique_id=812647757]
+position = Vector2(2.5, 8)
+shape = SubResource("RectangleShape2D_cy5s2")
+
+[node name="JumpBox3" type="Area2D" parent="JumpBoxes" unique_id=1007265660]
+position = Vector2(844, 370)
+script = ExtResource("5_k5hyf")
+time = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpBoxes/JumpBox3" unique_id=73398334]
+position = Vector2(1.5, 6)
+shape = SubResource("RectangleShape2D_8y7vq")
+
+[connection signal="body_entered" from="JumpBoxes/JumpBox1" to="JumpBoxes/JumpBox1" method="_on_body_entered"]
+[connection signal="body_entered" from="JumpBoxes/JumpBox2" to="JumpBoxes/JumpBox2" method="_on_body_entered"]
+[connection signal="body_entered" from="JumpBoxes/JumpBox3" to="JumpBoxes/JumpBox3" method="_on_body_entered"]
