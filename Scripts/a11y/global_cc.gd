@@ -13,7 +13,7 @@ func update_emitters():
 	emitters.clear()
 	ui.erase_all()
 
-func to_delete(sound_name):
+func erase(sound_name):
 	ui.remove_line(sound_name)
 
 func write(sound_name, position):

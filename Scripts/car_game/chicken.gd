@@ -14,3 +14,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(_body: Node2D) -> void:
 	$Sprite2D.texture = death_texture
+	$AudioStreamPlayer2D.play()
