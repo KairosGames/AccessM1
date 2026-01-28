@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b7bidnraatudr"]
+
+[ext_resource type="Script" uid="uid://btbx0w15ijj4a" path="res://Scripts/a11y/cc_ui.gd" id="1_2lts4"]
+[ext_resource type="PackedScene" uid="uid://bomp2h8of5uub" path="res://Scenes/cc_line.tscn" id="2_rgme4"]
+
+[node name="cc_ui" type="Control" unique_id=1240772617]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2lts4")
+line = ExtResource("2_rgme4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=17007568]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=448627027]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -40.0
+offset_right = 90.0
+grow_vertical = 0
