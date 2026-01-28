@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name ShmupPlayer
 @onready var game:Shmup=get_parent()
 var firing:bool=false
 
@@ -8,17 +8,14 @@ func _ready() -> void:
 
 func _physics_process(delta: float)->void:
 	velocity=lerp(velocity,Vector2.ZERO,delta*Shmup.DATA.PLAYER.FRICTION)
-	
-	velocity+=Vector2(Input.get_action_strength("Right")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Left")*Shmup.DATA.PLAYER.SPEED,Input.get_action_strength("Down")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Up")*Shmup.DATA.PLAYER.SPEED)
+	if visible:
+		velocity+=Vector2(Input.get_action_strength("Right")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Left")*Shmup.DATA.PLAYER.SPEED,Input.get_action_strength("Down")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Up")*Shmup.DATA.PLAYER.SPEED)
 	move_and_slide()
 	if get_last_slide_collision()!=null:
-		#print("BONK "+get_last_slide_collision().get_collider().name)
-		if not get_last_slide_collision().get_collider().name.contains("Border"):
-			#queue_free()
-			#get_last_slide_collision().get_collider().queue_free()
+		var bonk=get_last_slide_collision().get_collider()
+		# If the player bonks something else than the border, pwnd !
+		if not game.invincible and not bonk.name.contains("Border"):
 			game.playerDead=true
-			
-			#game.get_parent().next_game()
 	if Input.get_action_strength("Action"):
 		if not firing:
 			firing=true

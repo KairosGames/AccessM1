@@ -10,15 +10,21 @@ func _ready() -> void:
 	name="Enemy"
 
 func _physics_process(delta: float)->void:
-	#velocity=lerp(velocity,Vector2.ZERO,delta*Shmup.DATA.PLAYER.FRICTION)
-	
-	#velocity+=Vector2(Input.get_action_strength("Right")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Left")*Shmup.DATA.PLAYER.SPEED,Input.get_action_strength("Down")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Up")*Shmup.DATA.PLAYER.SPEED)
 	move_and_slide()
 	if get_last_slide_collision()!=null:
-		if not get_last_slide_collision().get_collider().name.contains("Player"):
+		var bonk=get_last_slide_collision().get_collider()
+		if get_parent().invincible:
+			if bonk.name.contains("Bullet"):
+				get_parent().scoreAdd(model.SCORE)
+				queue_free()
+				bonk.queue_free()
+		else:
+			if bonk.name.contains("Player"):
+				get_parent().playerDead=true
+			else:
+				bonk.queue_free()
+			get_parent().scoreAdd(model.SCORE)
 			queue_free()
-			get_last_slide_collision().get_collider().queue_free()
-		get_parent().scoreAdd(model.SCORE)
 
 func fire():
 	var b=game.bulletModel.instantiate()
@@ -32,5 +38,8 @@ func setModel(whatModel,where)->void:
 	$Sprite.texture=model.SPRITE
 	$Sprite.scale=Vector2(model.SCALE,model.SCALE)
 	collision_layer=8
-	collision_mask=1+2
+	if get_parent().invincible:
+		collision_mask=2
+	else:
+		collision_mask=1+2
 	#print("Fired at"+str(global_position))
