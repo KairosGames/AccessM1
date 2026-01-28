@@ -13,6 +13,10 @@ var startPosition=Vector2(100,100)
 
 var restart:float=0
 
+@export var scoreMultiplier:float=1
+@export var gameSpeed:float=1
+@export var invincible:bool=false
+
 func play(sound:AudioStream,where=Vector2(0,0)):
 	get_parent().AudioManager.play(sound,where)
 
@@ -22,7 +26,8 @@ func playPool(sounds:Array[AudioStream],where=Vector2(0,0)):
 const DATA={
 	"PLAYER":{
 		"SPEED":100, # Pixels per second
-		"FRICTION":10 # Pixels per second
+		"FRICTION":10, # Pixels per second
+		"LIFE":1
 	},
 	"ENEMY":{
 		"PERIOD":1,# spawn period
@@ -30,6 +35,7 @@ const DATA={
 		"SPRITE":preload("res://Sprites/ennemi 2.png"),
 		"SCALE":0.1,
 		"SCORE":10,
+		"LIFE":1
 	},
 	"BULLET":{
 		"PLAYER":{
@@ -37,45 +43,51 @@ const DATA={
 			"VELOCITY":1500,
 			"SPRITE":preload("res://Sprites/bullet joueur.png"),
 			"SCALE":0.4,
-			"OFFSET":Vector2(32,0)
+			"OFFSET":Vector2(64,0),
+			"LIFE":1, # Number of hits before destruction
+			"DAMAGE":1 # Damage per hit
 		},
 		"ENEMY":{
 			"FRIEND":false,
 			"VELOCITY":-100,
 			"SPRITE":preload("res://Sprites/bullet ennemi.png"),
-			"SCALE":0.2
+			"SCALE":0.2,
+			"LIFE":1
 		}
 	}
 }
 
 func _ready() -> void:
-	await get_tree().create_timer(20.0).timeout
-	get_parent().next_game()
-	
-	pass#set_deferred("startPositin",player.global_position)
+	if invincible:
+		player.collision_mask=16
+	Engine.time_scale=gameSpeed
+	startPosition=player.global_position
+	#await get_tree().create_timer(20.0).timeout
+	#get_parent().next_game()
+	#Engine.time_scale=1
+	#pass#set_deferred("startPositin",player.global_position)
 
 var spawnTimer=DATA.ENEMY.PERIOD
 var playerDead=false
 
 func _process(delta: float) -> void:
 	if playerDead:
-		var gm: GameManager = get_parent()
-		gm.currentIndex -= 1
-		get_parent().next_game()
+		#var gm: GameManager = get_parent()
+		#gm.currentIndex -= 1
+		#get_parent().next_game()
+		 #Engine.time_scale=gameSpeed
 		if restart==RESTART_TIME:
+			player.visible=false
 			$Camera/EndPanel.visible=true
 			for c in get_children():
-				print(c.name)
-				if c.name.contains("Enemy"):
+				if c.name.contains("Enemy") or c.name.contains("Bullet"):
 					c.queue_free()
 		restart-=delta
 		$Camera/EndPanel/EndLabel.text="You died\nRestart in... "+str(ceil(restart))
 		if restart<=0:
+			player.global_position=startPosition
+			player.visible=true
 			playerDead=false
-			print("RESPAWN")
-			player=playerModel.instantiate()
-			player.set_deferred("global_position",startPosition)
-			add_child(player)
 			restart=RESTART_TIME
 			scoreSet(0)
 			spawnTimer=DATA.ENEMY.PERIOD
@@ -86,18 +98,35 @@ func _process(delta: float) -> void:
 		while spawnTimer<=0:
 			spawn(DATA.ENEMY,Vector2(1800,randf_range(60,660)))
 			spawnTimer+=DATA.ENEMY.PERIOD
-			
 
 func spawn(what,where:Vector2)->void:
 	var e=enemyModel.instantiate()
 	e.call_deferred("setModel",what,where)
 	add_child(e)
 
-var score:int=0
+var score:float=0
 
-func scoreSet(what):
+func scoreSet(what:float):
 	score=what
-	$Camera/Panel/Label.text="Score "+str(score)
+	$Camera/Panel/Label.text="Score "+str(floori(score))
 
-func scoreAdd(what):
-	scoreSet(score+what)
+func scoreAdd(what:float):
+	scoreSet(score+what*scoreMultiplier)
+
+func invincibleSet(value:bool)->void:
+	if value!=invincible:
+		invincible=value
+		if value:
+			player.collision_mask=16 # Just world border
+			for e in get_children():
+				if e.name.contains("Bullet") and not e.friend:
+					e.collision_mask=2
+				if e.name.contains("Enemy"):
+					e.collision_mask=2
+		else:
+			player.collision_mask=4+8+16
+			for e in get_children():
+				if e.name.contains("Bullet") and not e.friend:
+					e.collision_mask=1+2
+				if e.name.contains("Enemy"):
+					e.collision_mask=1+2
