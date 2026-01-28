@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2nvhihvkjqj5"]
 
 [ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scenes/car_game_settings.gd" id="1_1k4ne"]
+[ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="3_a4fwd"]
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="3_dm6ou"]
 
 [node name="settings_ui" type="CanvasLayer" unique_id=2096271821]
@@ -109,11 +110,12 @@ layout_mode = 0
 offset_right = 1279.0
 offset_bottom = 688.0
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 tab_0/title = "Car game"
 tab_1/title = "Shoot them up"
 
 [node name="Car_Game" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=284667736]
+visible = false
 layout_mode = 2
 script = ExtResource("1_1k4ne")
 metadata/_tab_index = 0
@@ -217,8 +219,8 @@ max_value = 1.0
 value = 1.0
 
 [node name="Platformer" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=241576454]
-visible = false
 layout_mode = 2
+script = ExtResource("3_a4fwd")
 metadata/_tab_index = 2
 metadata/_tab_name = "Platformer"
 
