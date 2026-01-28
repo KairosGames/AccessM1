@@ -9,7 +9,6 @@ func _ready() -> void:
 	GlobalCc.ui = self
 
 func add_line(sound_name, sound_position):
-	print(sound_position)
 	var new_line : HBoxContainer = line.instantiate()
 	if sound_position < float(0):
 		new_line.get_child(0).show()
