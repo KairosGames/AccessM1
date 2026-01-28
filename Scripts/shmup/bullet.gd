@@ -43,7 +43,11 @@ func setModel(model,where)->void:
 				var angle=global_position.angle_to_point(get_parent().player.global_position)
 				$Sprite.rotation_degrees=rad_to_deg(angle+PI)
 				velocity=velocity.rotated(angle)
-		
+	if friend:
+		velocity*=get_parent().playerProjectileSpeed
+	else:
+		velocity*=get_parent().enemyProjectileSpeed
+
 func _process(delta: float) -> void:
 	position+=velocity*delta
 	lifeSpan-=delta
