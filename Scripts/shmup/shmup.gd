@@ -72,8 +72,17 @@ func _ready() -> void:
 
 var spawnTimer=DATA.ENEMY.PERIOD
 var playerDead=false
+var gameSpeeds=[0.25,0.5,0.75,1]
+var gameSpeedIndex=3
+var invincibilityPressed:bool=false
 
 func _process(delta: float) -> void:
+	if Input.get_action_raw_strength("Shmup_Invincibility"):
+		if not invincibilityPressed:
+			invincibilityPressed=true
+			invincibleSet(not invincible)
+	else:
+		invincibilityPressed=false
 	if playerDead:
 		#var gm: GameManager = get_parent()
 		#gm.currentIndex -= 1
