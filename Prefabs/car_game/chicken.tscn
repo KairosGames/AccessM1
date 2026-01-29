@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dwsls0y4cxpvp" path="res://Assets/Audio/Cat_Smashed.wav" id="4_ikul4"]
 [ext_resource type="Script" uid="uid://cs26qvku08hwr" path="res://Scripts/audio_node.gd" id="5_2ay5s"]
 [ext_resource type="AudioStream" uid="uid://c3r8qb8b6pjwg" path="res://Assets/Audio/Car/Cat_Destroyed.tres" id="6_40yjt"]
+[ext_resource type="AudioStream" uid="uid://dxkvlosvymiju" path="res://Assets/Audio/Car/Get_chicks.ogg" id="8_li0ob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1ahg"]
 size = Vector2(77, 65)
@@ -34,6 +35,11 @@ script = ExtResource("5_2ay5s")
 
 [node name="Cat_Destroyed" type="AudioStreamPlayer2D" parent="." unique_id=448526817]
 stream = ExtResource("6_40yjt")
+script = ExtResource("5_2ay5s")
+
+[node name="GetChicksSound" type="AudioStreamPlayer2D" parent="." unique_id=1741884931]
+stream = ExtResource("8_li0ob")
+volume_db = 6.0
 script = ExtResource("5_2ay5s")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

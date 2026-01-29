@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bovsb7c826jfp" path="res://Sprites/shmup/bg.png" id="2_j70ir"]
 [ext_resource type="AudioStream" uid="uid://euj2dqrp767g" path="res://Assets/Audio/Shmup/Shoot.ogg" id="4_j70ir"]
 [ext_resource type="AudioStream" uid="uid://bitut1i4nnkuv" path="res://Assets/Audio/Shmup/Enemy_death.ogg" id="5_fyl2u"]
+[ext_resource type="Script" uid="uid://cs26qvku08hwr" path="res://Scripts/audio_node.gd" id="5_ojwel"]
 [ext_resource type="AudioStream" uid="uid://rjebu5a11kj2" path="res://Assets/Audio/Shmup/Player_death.ogg" id="6_ejw3a"]
 [ext_resource type="AudioStream" uid="uid://fitxltycog05" path="res://Assets/Audio/Ambience.ogg" id="7_ojwel"]
 [ext_resource type="AudioStream" uid="uid://6lplxgwoesqc" path="res://Assets/Audio/Death.ogg" id="8_ki3kc"]
@@ -92,17 +93,22 @@ shape = SubResource("WorldBoundaryShape2D_fyl2u")
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1735127682]
 stream = ExtResource("4_j70ir")
+script = ExtResource("5_ojwel")
 
 [node name="EnemyDeathSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1430662360]
 stream = ExtResource("5_fyl2u")
+script = ExtResource("5_ojwel")
 
 [node name="PlayerDeathSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1977094748]
 stream = ExtResource("6_ejw3a")
+script = ExtResource("5_ojwel")
 
 [node name="AmbienceSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1406136461]
 stream = ExtResource("7_ojwel")
 autoplay = true
 parameters/looping = true
+script = ExtResource("5_ojwel")
 
 [node name="LoseSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1850879620]
 stream = ExtResource("8_ki3kc")
+script = ExtResource("5_ojwel")

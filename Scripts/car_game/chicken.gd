@@ -16,6 +16,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(_body: Node2D) -> void:
 	if GlobalSettings.bebou_mode == true:
+		$GetChicksSound.play()
+		$Sprite2D.visible = false
+		await get_tree().create_timer(0.5).timeout
 		self.queue_free()
 	else:
 		$Sprite2D.texture = death_texture

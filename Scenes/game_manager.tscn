@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccytl6btogey5" path="res://Scenes/platformer.tscn" id="2_e5fcp"]
 [ext_resource type="PackedScene" uid="uid://c4a16n7y6i6r8" path="res://Scenes/car.tscn" id="2_mmt5l"]
 [ext_resource type="PackedScene" uid="uid://bx002ripwggcv" path="res://Scenes/shmup.tscn" id="2_sq00h"]
-[ext_resource type="PackedScene" path="res://Prefabs/AudioManager.tscn" id="4_mmt5l"]
+[ext_resource type="PackedScene" uid="uid://doacv6k41inl3" path="res://Prefabs/AudioManager.tscn" id="4_mmt5l"]
 [ext_resource type="PackedScene" uid="uid://b7bidnraatudr" path="res://Scenes/cc_ui.tscn" id="6_yqty0"]
 [ext_resource type="PackedScene" uid="uid://d2nvhihvkjqj5" path="res://Scenes/settings_ui.tscn" id="7_71d4j"]
 

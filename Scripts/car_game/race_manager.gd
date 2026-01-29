@@ -12,6 +12,7 @@ func obstacle_timer():
 
 func race_timer():
 	await get_tree().create_timer(25).timeout
+	$"../Sound/EndSound".play()
 	var end : Area2D = obstacles.get(1).instantiate()
 	add_child(end)
 

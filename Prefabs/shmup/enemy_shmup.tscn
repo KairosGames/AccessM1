@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://chgy4w8ennuro"]
 
 [ext_resource type="Script" uid="uid://bwxdxt7srcomo" path="res://Scripts/shmup/enemy_shmup.gd" id="1_qvca8"]
-[ext_resource type="Texture2D" uid="uid://dbqaxy3xgrxrh" path="res://Sprites/shmup/pogflame.png" id="2_axkob"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ge55o"]
 resource_local_to_scene = true
@@ -20,4 +19,3 @@ shape = SubResource("CircleShape2D_ge55o")
 [node name="Sprite" type="Sprite2D" parent="." unique_id=951689301]
 unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_axkob")
