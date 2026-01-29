@@ -171,6 +171,7 @@ const PLAYER_PROJECTILE_SPEED_ALTERNATE:float=1.5
 const ENEMY_PROJECTILE_SPEED_ALTERNATE:float=0.66
 
 var gameTime:float=30
+var end_sound_played: bool = true
 
 func _process(delta: float) -> void:
 	if Engine.time_scale>0:
@@ -178,8 +179,10 @@ func _process(delta: float) -> void:
 		if gameTime<=0:
 			get_parent().next_game()
 		if playerDead:
-			$Sound/PlayerDeathSound.play()
-			$Sound/LoseSound.play()
+			if end_sound_played == true:
+				end_sound_played = false
+				$Sound/PlayerDeathSound.play()
+				$Sound/LoseSound.play()
 			if restart==RESTART_TIME:
 				player.visible=false
 				$Camera/EndPanel.visible=true

@@ -65,6 +65,7 @@ func _on_body_entered(body: Node2D) -> void:
 		body.queue_free()
 	else:
 		body.life-=damage
+	$PlayerHurtSound.play() #A FIX
 	life-=1
 	if life<=0:
 		queue_free()
