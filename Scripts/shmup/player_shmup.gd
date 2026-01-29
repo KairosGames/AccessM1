@@ -23,3 +23,4 @@ func fire():
 	var b=game.bulletModel.instantiate()
 	b.call_deferred("setModel",Shmup.DATA.BULLET.PLAYER,global_position)
 	game.add_child(b)
+	$"../Sound/ShootSound".play()

@@ -178,6 +178,8 @@ func _process(delta: float) -> void:
 		if gameTime<=0:
 			get_parent().next_game()
 		if playerDead:
+			$Sound/PlayerDeathSound.play()
+			$Sound/LoseSound.play()
 			if restart==RESTART_TIME:
 				player.visible=false
 				$Camera/EndPanel.visible=true
@@ -219,6 +221,7 @@ func scoreSet(what:float):
 
 func scoreAdd(what:float):
 	scoreSet(score+what*scoreMultiplier)
+	$Sound/EnemyDeathSound.play()
 	
 func settingsRefresh()->void:
 	invincibleSet(GlobalSettings.invincibility)
