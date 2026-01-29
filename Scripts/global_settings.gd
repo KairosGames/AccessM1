@@ -12,7 +12,7 @@ var darkerBackground:bool=false
 var auto_jump : bool
 var coyote_time : float
 
-var car_timescale : float
+var car_timescale : float = 1
 var bebou_mode : bool
 var one_button_mode : bool
 

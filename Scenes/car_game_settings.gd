@@ -10,7 +10,6 @@ func _on_bebou_mode_toggled(toggled_on: bool) -> void:
 		GlobalSettings.bebou_mode = true
 	else:
 		GlobalSettings.bebou_mode = false
-	GlobalSettings.new_settings()
 
 func _on_one_button_mode_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
@@ -18,4 +17,3 @@ func _on_one_button_mode_toggled(toggled_on: bool) -> void:
 	else:
 		toggled_on = false
 		GlobalSettings.one_button_mode = false
-	GlobalSettings.new_settings()

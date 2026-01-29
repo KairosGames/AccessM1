@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scenes/car_game_settings.gd" id="2_dm6ou"]
 [ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="3_a4fwd"]
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="3_dm6ou"]
-[ext_resource type="Script" path="res://Scripts/control_ui.gd" id="5_tx62x"]
-[ext_resource type="PackedScene" path="res://Scenes/remapbutton.tscn" id="6_gnwwx"]
+[ext_resource type="Script" uid="uid://752ljal54yjj" path="res://Scripts/control_ui.gd" id="5_tx62x"]
+[ext_resource type="PackedScene" uid="uid://bm22glu610m05" path="res://Scenes/remapbutton.tscn" id="6_gnwwx"]
 
 [node name="settings_ui" type="CanvasLayer" unique_id=2096271821]
 script = ExtResource("1_1k4ne")
@@ -276,6 +276,7 @@ horizontal_alignment = 1
 [node name="HSlider" type="HSlider" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3" unique_id=73939086]
 layout_mode = 2
 max_value = 1.0
+step = 0.01
 value = 1.0
 
 [node name="Shoot Them Up" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=1180642821]
