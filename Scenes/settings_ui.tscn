@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scenes/car_game_settings.gd" id="2_dm6ou"]
 [ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="3_a4fwd"]
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="3_dm6ou"]
-[ext_resource type="Script" uid="uid://752ljal54yjj" path="res://Scripts/control_ui.gd" id="5_tx62x"]
-[ext_resource type="PackedScene" uid="uid://bm22glu610m05" path="res://Scenes/remapbutton.tscn" id="6_gnwwx"]
+[ext_resource type="Script" path="res://Scripts/control_ui.gd" id="5_tx62x"]
+[ext_resource type="PackedScene" path="res://Scenes/remapbutton.tscn" id="6_gnwwx"]
 
 [node name="settings_ui" type="CanvasLayer" unique_id=2096271821]
 script = ExtResource("1_1k4ne")
@@ -367,6 +367,32 @@ step = 0.25
 value = 1.0
 tick_count = 4
 
+[node name="PlayerColor" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=973461916]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/PlayerColor" unique_id=443424946]
+layout_mode = 2
+text = "Player color : Default"
+horizontal_alignment = 1
+
+[node name="PlayerColor" type="HSlider" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/PlayerColor" unique_id=813113284]
+layout_mode = 2
+max_value = 6.0
+tick_count = 7
+
+[node name="EnemyColor" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=193079655]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyColor" unique_id=1837977004]
+layout_mode = 2
+text = "Player enemy : Default"
+horizontal_alignment = 1
+
+[node name="EnemyColor" type="HSlider" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyColor" unique_id=76002623]
+layout_mode = 2
+max_value = 6.0
+tick_count = 7
+
 [node name="Platformer" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=241576454]
 visible = false
 layout_mode = 2
@@ -434,6 +460,8 @@ text = "Quit Game"
 [connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyProjectileSpeed/EnemyProjectileSpeed" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_enemy_projectile_speed_toggled"]
 [connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/DarkBackground/DarkBackground" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_dark_background_toggled"]
 [connection signal="value_changed" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/TimeScale/TimeScale" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/PlayerColor/PlayerColor" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_player_color_value_changed"]
+[connection signal="value_changed" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyColor/EnemyColor" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_enemy_color_value_changed"]
 [connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer2/CheckBox" to="TabContainer/Accessibility/TabContainer/Platformer" method="_on_check_box_toggled"]
 [connection signal="value_changed" from="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer3/HSlider" to="TabContainer/Accessibility/TabContainer/Platformer" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="QuitMenu" to="." method="_on_quit_menu_pressed"]
