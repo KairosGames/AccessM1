@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctlx36btqvsas"]
 
 [ext_resource type="Script" uid="uid://baj17mxnpeadr" path="res://Scripts/shmup/player_shmup.gd" id="1_tli52"]
-[ext_resource type="Texture2D" uid="uid://ct36rle7h345o" path="res://Sprites/shmup/chara 2.png" id="2_34iti"]
+[ext_resource type="Texture2D" uid="uid://7fksu4dahg4u" path="res://Sprites/shmup/player chara variants/chara_normal.png" id="2_tli52"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ge55o"]
 resource_local_to_scene = true
@@ -15,7 +15,7 @@ script = ExtResource("1_tli52")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=951689301]
 unique_name_in_owner = true
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_34iti")
+texture = ExtResource("2_tli52")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=970728718]
 unique_name_in_owner = true
