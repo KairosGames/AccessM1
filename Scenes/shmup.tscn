@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://dlxqwqc3t7d4c" path="res://Scripts/shmup/shmup.gd" id="1_381ea"]
 [ext_resource type="PackedScene" uid="uid://ctlx36btqvsas" path="res://Prefabs/shmup/player_shmup.tscn" id="2_iwdsl"]
 [ext_resource type="Texture2D" uid="uid://bovsb7c826jfp" path="res://Sprites/shmup/bg.png" id="2_j70ir"]
+[ext_resource type="AudioStream" uid="uid://euj2dqrp767g" path="res://Assets/Audio/Shmup/Shoot.ogg" id="4_j70ir"]
+[ext_resource type="AudioStream" uid="uid://bitut1i4nnkuv" path="res://Assets/Audio/Shmup/Enemy_death.ogg" id="5_fyl2u"]
+[ext_resource type="AudioStream" uid="uid://rjebu5a11kj2" path="res://Assets/Audio/Shmup/Player_death.ogg" id="6_ejw3a"]
+[ext_resource type="AudioStream" uid="uid://fitxltycog05" path="res://Assets/Audio/Ambience.ogg" id="7_ojwel"]
+[ext_resource type="AudioStream" uid="uid://6lplxgwoesqc" path="res://Assets/Audio/Death.ogg" id="8_ki3kc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iwdsl"]
 normal = Vector2(1, 0)
@@ -82,3 +87,22 @@ shape = SubResource("WorldBoundaryShape2D_j70ir")
 [node name="BorderBottom" type="CollisionShape2D" parent="Border" unique_id=365037212]
 position = Vector2(-1, 365)
 shape = SubResource("WorldBoundaryShape2D_fyl2u")
+
+[node name="Sound" type="Node" parent="." unique_id=1584424577]
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1735127682]
+stream = ExtResource("4_j70ir")
+
+[node name="EnemyDeathSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1430662360]
+stream = ExtResource("5_fyl2u")
+
+[node name="PlayerDeathSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1977094748]
+stream = ExtResource("6_ejw3a")
+
+[node name="AmbienceSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1406136461]
+stream = ExtResource("7_ojwel")
+autoplay = true
+parameters/looping = true
+
+[node name="LoseSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1850879620]
+stream = ExtResource("8_ki3kc")
