@@ -87,6 +87,7 @@ func _ready() -> void:
 		player.collision_mask=16
 	Engine.time_scale=gameSpeed
 	startPosition=player.global_position
+	GlobalSettings.settings_changed.connect(settingsRefresh)
 	#await get_tree().create_timer(20.0).timeout
 	#get_parent().next_game()
 	#Engine.time_scale=1
@@ -96,7 +97,7 @@ var spawnTimer=DATA.ENEMY.PERIOD
 var spawnBigTimer=DATA.ENEMYBIG.PERIOD
 var playerDead=false
 
-var invincibilityPressed:bool=false
+#var invincibilityPressed:bool=false
 
 var gameSpeeds=[0.25,0.5,0.75,1]
 var gameSpeedIndex=3
@@ -123,12 +124,12 @@ func _process(delta: float) -> void:
 	if gameTime<=0:
 		get_parent().next_game()
 	#################################
-	if Input.get_action_raw_strength("Shmup_Invincibility"):
-		if not invincibilityPressed:
-			invincibilityPressed=true
-			invincibleSet(not invincible)
-	else:
-		invincibilityPressed=false
+	#if Input.get_action_raw_strength("Shmup_Invincibility"):
+	#	if not invincibilityPressed:
+	#		invincibilityPressed=true
+	#		invincibleSet(not invincible)
+	#else:
+	#	invincibilityPressed=false
 	#################################
 	if Input.get_action_raw_strength("Shmup_game_speed"):
 		if not gameSpeedPressed:
@@ -140,12 +141,12 @@ func _process(delta: float) -> void:
 	else:
 		gameSpeedPressed=false
 	#################################
-	if Input.get_action_raw_strength("Shmup_autofire"):
-		if not autoFirePressed:
-			autoFirePressed=true
-			player.autoFire=not player.autoFire
-	else:
-		autoFirePressed=false
+	#if Input.get_action_raw_strength("Shmup_autofire"):
+		#if not autoFirePressed:
+			#autoFirePressed=true
+			#player.autoFire=not player.autoFire
+	#else:
+		#autoFirePressed=false
 	#################################
 	if Input.get_action_raw_strength("Shmup_high_contrast"):
 		if not highContrastPressed:
@@ -233,6 +234,9 @@ func scoreSet(what:float):
 
 func scoreAdd(what:float):
 	scoreSet(score+what*scoreMultiplier)
+	
+func settingsRefresh()->void:
+	invincibleSet(GlobalSettings.invincibility)
 
 func invincibleSet(value:bool)->void:
 	if value!=invincible:

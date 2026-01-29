@@ -14,7 +14,7 @@ func _physics_process(delta: float)->void:
 		velocity+=Vector2(Input.get_action_strength("Right")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Left")*Shmup.DATA.PLAYER.SPEED,Input.get_action_strength("Down")*Shmup.DATA.PLAYER.SPEED-Input.get_action_strength("Up")*Shmup.DATA.PLAYER.SPEED)
 		move_and_slide()
 		reload=max(reload-delta,0)
-		if autoFire or Input.get_action_strength("Action"):
+		if GlobalSettings.autofire or Input.get_action_strength("Action"):
 			if reload<=0:
 				reload+=game.DATA.PLAYER.RELOAD
 				fire()
