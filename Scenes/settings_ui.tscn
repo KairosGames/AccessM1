@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scenes/car_game_settings.gd" id="2_dm6ou"]
 [ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="3_a4fwd"]
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="3_dm6ou"]
+[ext_resource type="Script" uid="uid://752ljal54yjj" path="res://Scripts/control_ui.gd" id="5_tx62x"]
+[ext_resource type="PackedScene" uid="uid://bm22glu610m05" path="res://Scenes/remapbutton.tscn" id="6_gnwwx"]
 
 [node name="settings_ui" type="CanvasLayer" unique_id=2096271821]
-visible = false
 script = ExtResource("1_1k4ne")
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=1587218561]
@@ -104,9 +105,118 @@ text = "Mono Mode"
 [node name="Mono" type="CheckBox" parent="TabContainer/Audio/HBoxContainer/Right_submenu/HBoxContainer2" unique_id=1661372728]
 layout_mode = 2
 
-[node name="Accessibility" type="TabBar" parent="TabContainer" unique_id=257157212]
+[node name="Control" type="TabBar" parent="TabContainer" unique_id=1179610349]
 layout_mode = 2
+script = ExtResource("5_tx62x")
 metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Control" unique_id=1088512509]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 51.0
+offset_right = 944.0
+offset_bottom = 528.0
+
+[node name="Up" type="HBoxContainer" parent="TabContainer/Control/VBoxContainer" unique_id=71552101]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Control/VBoxContainer/Up" unique_id=1502763133]
+layout_mode = 2
+text = "
+Up
+"
+vertical_alignment = 1
+
+[node name="Remap_Button" parent="TabContainer/Control/VBoxContainer/Up" unique_id=3850664 instance=ExtResource("6_gnwwx")]
+layout_mode = 2
+text = "Z"
+action = "Up"
+
+[node name="Down" type="HBoxContainer" parent="TabContainer/Control/VBoxContainer" unique_id=130176942]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Control/VBoxContainer/Down" unique_id=2109672618]
+layout_mode = 2
+text = "
+Down
+"
+vertical_alignment = 1
+
+[node name="Remap_Button" parent="TabContainer/Control/VBoxContainer/Down" unique_id=114229242 instance=ExtResource("6_gnwwx")]
+layout_mode = 2
+text = "S"
+action = "Down"
+
+[node name="Left" type="HBoxContainer" parent="TabContainer/Control/VBoxContainer" unique_id=2032969001]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Control/VBoxContainer/Left" unique_id=563367901]
+layout_mode = 2
+text = "
+Left
+"
+vertical_alignment = 1
+
+[node name="Remap_Button" parent="TabContainer/Control/VBoxContainer/Left" unique_id=1620762395 instance=ExtResource("6_gnwwx")]
+layout_mode = 2
+text = "Q"
+action = "Left"
+
+[node name="Right" type="HBoxContainer" parent="TabContainer/Control/VBoxContainer" unique_id=77531420]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Control/VBoxContainer/Right" unique_id=1706510533]
+layout_mode = 2
+text = "
+Right
+"
+vertical_alignment = 1
+
+[node name="Remap_Button" parent="TabContainer/Control/VBoxContainer/Right" unique_id=220959820 instance=ExtResource("6_gnwwx")]
+layout_mode = 2
+text = "D"
+action = "Up"
+
+[node name="Jump_Shoot" type="HBoxContainer" parent="TabContainer/Control/VBoxContainer" unique_id=1147649660]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Control/VBoxContainer/Jump_Shoot" unique_id=2078150744]
+layout_mode = 2
+text = "
+Jump / Shoot
+"
+vertical_alignment = 1
+
+[node name="Remap_Button" parent="TabContainer/Control/VBoxContainer/Jump_Shoot" unique_id=221203813 instance=ExtResource("6_gnwwx")]
+layout_mode = 2
+text = "Space"
+action = "Action"
+
+[node name="Pause" type="HBoxContainer" parent="TabContainer/Control/VBoxContainer" unique_id=1561286857]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Control/VBoxContainer/Pause" unique_id=1478991721]
+layout_mode = 2
+text = "
+Pause
+"
+vertical_alignment = 1
+
+[node name="Remap_Button" parent="TabContainer/Control/VBoxContainer/Pause" unique_id=1286779371 instance=ExtResource("6_gnwwx")]
+layout_mode = 2
+text = "T"
+action = "Menu"
+
+[node name="Accessibility" type="TabBar" parent="TabContainer" unique_id=257157212]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
 
 [node name="TabContainer" type="TabContainer" parent="TabContainer/Accessibility" unique_id=882017417]
 layout_mode = 0

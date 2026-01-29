@@ -1,5 +1,7 @@
 extends Node
 
+var keybinds : Array
+
 var shmup_timescale : float
 var autofire : bool
 var invincibility : bool
@@ -15,3 +17,7 @@ signal settings_changed
 
 func new_settings():
 	settings_changed.emit()
+
+func update_keybinds(event):
+	for i in keybinds:
+		i.bypass(event)

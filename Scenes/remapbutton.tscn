@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bm22glu610m05"]
+
+[ext_resource type="Script" uid="uid://cgxttl46jobt6" path="res://Scripts/remap_ui.gd" id="1_43gwh"]
+
+[node name="Remap_Button" type="Button" unique_id=3850664]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_43gwh")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
