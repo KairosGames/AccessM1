@@ -150,6 +150,7 @@ layout_mode = 2
 [node name="Controls" type="Node" parent="Control" unique_id=734990522]
 
 [node name="ControlsboxContainer" type="VBoxContainer" parent="Control/Controls" unique_id=75397511]
+visible = false
 offset_left = 341.0
 offset_top = 51.0
 offset_right = 944.0
@@ -251,9 +252,171 @@ layout_mode = 2
 text = "T"
 action = "Menu"
 
+[node name="Accessibility" type="Node" parent="Control" unique_id=511300759]
+
+[node name="AccesContainer" type="VBoxContainer" parent="Control/Accessibility" unique_id=932723694]
+visible = false
+offset_top = 227.0
+offset_right = 214.0
+offset_bottom = 412.0
+theme_override_constants/separation = 7
+alignment = 1
+
+[node name="Racing Game" type="Button" parent="Control/Accessibility/AccesContainer" unique_id=269151537]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Racing Game"
+
+[node name="RacingContainer" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Racing Game" unique_id=1729864491]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1168225
+anchor_top = -7.1666665
+anchor_right = 2.9859812
+anchor_bottom = -0.25
+scale = Vector2(1.76, 1.76)
+size_flags_vertical = 4
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer" unique_id=1942896588]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer4" unique_id=483029501]
+layout_mode = 2
+text = "Bebou Mode"
+
+[node name="Bebou_mode" type="CheckBox" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer4" unique_id=1215712028]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer" unique_id=701373476]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer2" unique_id=552970682]
+layout_mode = 2
+text = "One Button Mode"
+
+[node name="One Button Mode" type="CheckBox" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer2" unique_id=1851542698]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer" unique_id=509048501]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer3" unique_id=877553362]
+layout_mode = 2
+text = "Timescale"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer3" unique_id=189906924]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+
+[node name="Platformer" type="Button" parent="Control/Accessibility/AccesContainer" unique_id=529376059]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Platformer"
+
+[node name="PlatformerContainer" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Platformer" unique_id=1326528275]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 237.0
+offset_top = -278.0
+offset_right = 637.0
+offset_bottom = -29.0
+scale = Vector2(1.7919624, 1.7919624)
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer" unique_id=893228376]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer/HBoxContainer2" unique_id=1070988681]
+layout_mode = 2
+text = "Auto-Jump"
+
+[node name="CheckBox" type="CheckBox" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer/HBoxContainer2" unique_id=1546921911]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer" unique_id=1815083897]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer/HBoxContainer3" unique_id=2146521454]
+layout_mode = 2
+text = "Jump Tolerance"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer/HBoxContainer3" unique_id=115266565]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.2
+
+[node name="Shmup" type="Button" parent="Control/Accessibility/AccesContainer" unique_id=1472352785]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Shmup
+"
+
+[node name="ShmupContainer" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Shmup" unique_id=605057335]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 239.00002
+offset_top = -329.0
+offset_right = 639.0
+offset_bottom = -80.0
+scale = Vector2(1.7592168, 1.6784545)
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer" unique_id=1405587646]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer" unique_id=1939301269]
+layout_mode = 2
+text = "Autofire"
+
+[node name="Autofire" type="CheckBox" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer" unique_id=877415132]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer" unique_id=633888094]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer2" unique_id=905059982]
+layout_mode = 2
+text = "Invincibility"
+
+[node name="Invincibility" type="CheckBox" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer2" unique_id=1257360190]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer" unique_id=1161115833]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer3" unique_id=699070435]
+layout_mode = 2
+text = "Time Scale"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer3" unique_id=2128548049]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+
 [connection signal="pressed" from="Control/ButtonLeftContainer/General_button" to="." method="_on_general_pressed"]
 [connection signal="pressed" from="Control/ButtonLeftContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="Control/ButtonLeftContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Control/ButtonLeftContainer/Accessibility" to="." method="_on_accessibility_pressed"]
 [connection signal="pressed" from="Control/QuitMenu" to="." method="_on_quit_menu_pressed"]
 [connection signal="pressed" from="Control/QuitGame" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Accessibility/AccesContainer/Racing Game" to="." method="_on_racing_game_pressed"]
+[connection signal="pressed" from="Control/Accessibility/AccesContainer/Platformer" to="." method="_on_platformer_pressed"]
+[connection signal="pressed" from="Control/Accessibility/AccesContainer/Shmup" to="." method="_on_shmup_pressed"]

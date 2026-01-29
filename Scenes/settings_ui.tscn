@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.0480548)
 tab_alignment = 1
-current_tab = 2
+current_tab = 3
 
 [node name="General" type="TabBar" parent="TabContainer" unique_id=535313388]
 visible = false
@@ -107,6 +107,7 @@ text = "Mono Mode"
 layout_mode = 2
 
 [node name="Control" type="TabBar" parent="TabContainer" unique_id=1179610349]
+visible = false
 layout_mode = 2
 script = ExtResource("5_tx62x")
 metadata/_tab_index = 2
@@ -215,7 +216,6 @@ text = "T"
 action = "Menu"
 
 [node name="Accessibility" type="TabBar" parent="TabContainer" unique_id=257157212]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
