@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://c3r8qb8b6pjwg"]
+
+[ext_resource type="AudioStream" uid="uid://bcvkx177l0coi" path="res://Assets/Audio/Car/Cat_destroyed_01.ogg" id="1_ahr6s"]
+[ext_resource type="AudioStream" uid="uid://b8v12pqfdhk7e" path="res://Assets/Audio/Car/Cat_destroyed_02.ogg" id="2_u33fm"]
+[ext_resource type="AudioStream" uid="uid://dem5c8dht5jwl" path="res://Assets/Audio/Car/Cat_destroyed_03.ogg" id="3_frp1l"]
+[ext_resource type="AudioStream" uid="uid://bw8m855j6u26u" path="res://Assets/Audio/Car/Cat_destroyed_04.ogg" id="4_rd5mx"]
+[ext_resource type="AudioStream" uid="uid://c5uu8gwsfb0nf" path="res://Assets/Audio/Car/Cat_destroyed_05.ogg" id="5_sab6x"]
+
+[resource]
+random_pitch = 1.0594631
+random_volume_offset_db = 2.0
+streams_count = 5
+stream_0/stream = ExtResource("1_ahr6s")
+stream_1/stream = ExtResource("2_u33fm")
+stream_2/stream = ExtResource("3_frp1l")
+stream_3/stream = ExtResource("4_rd5mx")
+stream_4/stream = ExtResource("5_sab6x")
