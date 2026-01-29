@@ -17,3 +17,4 @@ games = Array[PackedScene]([ExtResource("2_mmt5l"), ExtResource("2_sq00h"), ExtR
 [node name="cc_ui" parent="." unique_id=1240772617 instance=ExtResource("6_yqty0")]
 
 [node name="settings_ui" parent="." unique_id=2096271821 instance=ExtResource("7_71d4j")]
+visible = false

@@ -65,3 +65,4 @@ func settings():
 		$Sprite2D2.show()
 	else:
 		$Sprite2D2.hide()
+	Engine.time_scale = GlobalSettings.car_timescale

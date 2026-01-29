@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 2
+current_tab = 3
 
 [node name="General" type="TabBar" parent="TabContainer" unique_id=535313388]
 visible = false
@@ -106,6 +106,7 @@ text = "Mono Mode"
 layout_mode = 2
 
 [node name="Control" type="TabBar" parent="TabContainer" unique_id=1179610349]
+visible = false
 layout_mode = 2
 script = ExtResource("5_tx62x")
 metadata/_tab_index = 2
@@ -214,7 +215,6 @@ text = "T"
 action = "Menu"
 
 [node name="Accessibility" type="TabBar" parent="TabContainer" unique_id=257157212]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
@@ -223,12 +223,11 @@ layout_mode = 0
 offset_right = 1279.0
 offset_bottom = 688.0
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 tab_0/title = "Car game"
 tab_1/title = "Shoot them up"
 
 [node name="Car_Game" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=284667736]
-visible = false
 layout_mode = 2
 script = ExtResource("2_dm6ou")
 metadata/_tab_index = 0
@@ -277,6 +276,7 @@ horizontal_alignment = 1
 [node name="HSlider" type="HSlider" parent="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3" unique_id=73939086]
 layout_mode = 2
 max_value = 1.0
+step = 0.01
 value = 1.0
 
 [node name="Shoot Them Up" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=1180642821]
@@ -296,42 +296,79 @@ offset_bottom = 379.0
 size_flags_vertical = 4
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=636399715]
+[node name="Autofire" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=636399715]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer" unique_id=1271903932]
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Autofire" unique_id=1271903932]
 layout_mode = 2
 text = "Autofire"
 
-[node name="Autofire" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer" unique_id=310508660]
+[node name="Autofire" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Autofire" unique_id=310508660]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=1572286520]
+[node name="Invincibility" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=1572286520]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer2" unique_id=1435484782]
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Invincibility" unique_id=1435484782]
 layout_mode = 2
 text = "Invincibility"
 
-[node name="Invincibility" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer2" unique_id=1033876108]
+[node name="Invincibility" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Invincibility" unique_id=1033876108]
 layout_mode = 2
 
-[node name="HBoxContainer3" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=671707340]
+[node name="PlayerProjectileSpeed" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=564695348]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/PlayerProjectileSpeed" unique_id=952472692]
+layout_mode = 2
+text = "Increased player projectile speed"
+
+[node name="PlayerProjectileSpeed" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/PlayerProjectileSpeed" unique_id=105602912]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer3" unique_id=534395904]
+[node name="EnemyProjectileSpeed" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=1003433234]
 layout_mode = 2
-text = "Time Scale"
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyProjectileSpeed" unique_id=7968992]
+layout_mode = 2
+text = "Decreased enemy projectile speed"
+
+[node name="EnemyProjectileSpeed" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyProjectileSpeed" unique_id=1091724859]
+layout_mode = 2
+
+[node name="DarkBackground" type="HBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=1782799452]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/DarkBackground" unique_id=115584589]
+layout_mode = 2
+text = "Darker background"
+
+[node name="DarkBackground" type="CheckBox" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/DarkBackground" unique_id=945259826]
+layout_mode = 2
+
+[node name="TimeScale" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=671707340]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/TimeScale" unique_id=534395904]
+layout_mode = 2
+text = "Time Scale 100%"
 horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer3" unique_id=1742781879]
+[node name="TimeScale" type="HSlider" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/TimeScale" unique_id=1742781879]
 layout_mode = 2
+min_value = 0.25
 max_value = 1.0
+step = 0.25
 value = 1.0
+tick_count = 4
 
 [node name="Platformer" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=241576454]
+visible = false
 layout_mode = 2
 script = ExtResource("3_a4fwd")
 metadata/_tab_index = 2
@@ -391,8 +428,12 @@ text = "Quit Game"
 [connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer4/Bebou_mode" to="TabContainer/Accessibility/TabContainer/Car_Game" method="_on_bebou_mode_toggled"]
 [connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer2/One Button Mode" to="TabContainer/Accessibility/TabContainer/Car_Game" method="_on_one_button_mode_toggled"]
 [connection signal="value_changed" from="TabContainer/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3/HSlider" to="TabContainer/Accessibility/TabContainer/Car_Game" method="_on_h_slider_value_changed"]
-[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer/Autofire" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_autofire_toggled"]
-[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/HBoxContainer2/Invincibility" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_invincibility_toggled"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Autofire/Autofire" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_autofire_toggled"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Invincibility/Invincibility" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_invincibility_toggled"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/PlayerProjectileSpeed/PlayerProjectileSpeed" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_player_projectile_speed_toggled"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyProjectileSpeed/EnemyProjectileSpeed" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_enemy_projectile_speed_toggled"]
+[connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/DarkBackground/DarkBackground" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_dark_background_toggled"]
+[connection signal="value_changed" from="TabContainer/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/TimeScale/TimeScale" to="TabContainer/Accessibility/TabContainer/Shoot Them Up" method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer2/CheckBox" to="TabContainer/Accessibility/TabContainer/Platformer" method="_on_check_box_toggled"]
 [connection signal="value_changed" from="TabContainer/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer3/HSlider" to="TabContainer/Accessibility/TabContainer/Platformer" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="QuitMenu" to="." method="_on_quit_menu_pressed"]

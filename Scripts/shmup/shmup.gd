@@ -37,7 +37,7 @@ const DATA={
 	"ENEMY":{
 		"PERIOD":1,# spawn period
 		"VELOCITY":-1000, # Pixels per second
-		"SPRITE":preload("res://Sprites/shmup/ennemi 2.png"),
+		"SPRITE":preload("res://Sprites/shmup/ennemy chara variants/ennemi_normal.png"),
 		"SCALE":0.1,
 		"COLLISION":32,#Radius
 		"SCORE":10,
@@ -47,7 +47,7 @@ const DATA={
 	"ENEMYBIG":{
 		"PERIOD":6.19,# spawn period
 		"VELOCITY":-200, # Pixels per second
-		"SPRITE":preload("res://Sprites/shmup/ennemi 2.png"),
+		"SPRITE":preload("res://Sprites/shmup/ennemy chara variants/ennemi_normal.png"),
 		"SCALE":0.2,
 		"COLLISION":64,#Radius
 		"SCORE":10,
@@ -60,7 +60,7 @@ const DATA={
 		"PLAYER":{
 			"FRIEND":true,
 			"VELOCITY":1500,
-			"SPRITE":preload("res://Sprites/shmup/bullet joueur.png"),
+			"SPRITE":preload("res://Sprites/shmup/player bullets variants/bullets_joueur_normal.png"),
 			"SCALE":0.4,
 			"OFFSET":Vector2(64,0),
 			"LIFE":1, # Number of hits before destruction
@@ -71,7 +71,7 @@ const DATA={
 		"ENEMY":{
 			"FRIEND":false,
 			"VELOCITY":500,
-			"SPRITE":preload("res://Sprites/shmup/bullet ennemi.png"),
+			"SPRITE":preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_normal.png"),
 			"SCALE":0.2,
 			"LIFE":1,
 			"DAMAGE":1,
@@ -85,33 +85,24 @@ func _ready() -> void:
 	player.life=DATA.PLAYER.LIFE
 	if invincible:
 		player.collision_mask=16
-	Engine.time_scale=gameSpeed
 	startPosition=player.global_position
 	GlobalSettings.settings_changed.connect(settingsRefresh)
-	#await get_tree().create_timer(20.0).timeout
-	#get_parent().next_game()
-	#Engine.time_scale=1
-	#pass#set_deferred("startPositin",player.global_position)
+	settingsRefresh()
 
 var spawnTimer=DATA.ENEMY.PERIOD
 var spawnBigTimer=DATA.ENEMYBIG.PERIOD
 var playerDead=false
 
-#var invincibilityPressed:bool=false
-
 var gameSpeeds=[0.25,0.5,0.75,1]
 var gameSpeedIndex=3
-var gameSpeedPressed:bool=false
-
-var autoFirePressed:bool=false
+const GAME_SPEED_MIN=0.25
+const GAME_SPEED_MAX=1
+const GAME_SPEED_DEFAULT=1
 
 var highContrastPressed:bool=false
 
 @export var playerProjectileSpeed:float=1
 @export var enemyProjectileSpeed:float=1
-
-var playerProjectileSpeedPressed:bool=false
-var enemyProjectileSpeedPressed:bool=false
 
 const PLAYER_PROJECTILE_SPEED_ALTERNATE:float=1.5
 const ENEMY_PROJECTILE_SPEED_ALTERNATE:float=0.66
@@ -119,107 +110,38 @@ const ENEMY_PROJECTILE_SPEED_ALTERNATE:float=0.66
 var gameTime=30
 
 func _process(delta: float) -> void:
-	gameTime-=delta/gameSpeeds[gameSpeedIndex]
-	print("gameTime "+str(gameTime))
-	if gameTime<=0:
-		get_parent().next_game()
-	#################################
-	#if Input.get_action_raw_strength("Shmup_Invincibility"):
-	#	if not invincibilityPressed:
-	#		invincibilityPressed=true
-	#		invincibleSet(not invincible)
-	#else:
-	#	invincibilityPressed=false
-	#################################
-	if Input.get_action_raw_strength("Shmup_game_speed"):
-		if not gameSpeedPressed:
-			gameSpeedPressed=true
-			gameSpeedIndex+=1
-			if gameSpeedIndex>=gameSpeeds.size():
-				gameSpeedIndex=0
-			Engine.time_scale=gameSpeeds[gameSpeedIndex]
-	else:
-		gameSpeedPressed=false
-	#################################
-	#if Input.get_action_raw_strength("Shmup_autofire"):
-		#if not autoFirePressed:
-			#autoFirePressed=true
-			#player.autoFire=not player.autoFire
-	#else:
-		#autoFirePressed=false
-	#################################
-	if Input.get_action_raw_strength("Shmup_high_contrast"):
-		if not highContrastPressed:
-			highContrastPressed=true
-			if $Parallax/Background.modulate==Color.WHITE:
-				$Parallax/Background.modulate=Color.DIM_GRAY
-			else:
-				$Parallax/Background.modulate=Color.WHITE
-	else:
-		highContrastPressed=false
-	#################################
-	if Input.get_action_raw_strength("Shmup_player_projectile_speed"):
-		if not playerProjectileSpeedPressed:
-			playerProjectileSpeedPressed=true
-			if playerProjectileSpeed==1:
-				playerProjectileSpeed=PLAYER_PROJECTILE_SPEED_ALTERNATE
-				for e in get_children():
-					if e.name.contains("Bullet") and e.friend:
-						e.velocity*=PLAYER_PROJECTILE_SPEED_ALTERNATE
-			else:
-				playerProjectileSpeed=1
-				for e in get_children():
-					if e.name.contains("Bullet") and e.friend:
-						e.velocity/=PLAYER_PROJECTILE_SPEED_ALTERNATE
-	else:
-		playerProjectileSpeedPressed=false
-	if Input.get_action_raw_strength("Shmup_enemy_projectile_speed"):
-		if not enemyProjectileSpeedPressed:
-			enemyProjectileSpeedPressed=true
-			if enemyProjectileSpeed==1:
-				enemyProjectileSpeed=ENEMY_PROJECTILE_SPEED_ALTERNATE
-				for e in get_children():
-					if e.name.contains("Bullet") and not e.friend:
-						e.velocity*=ENEMY_PROJECTILE_SPEED_ALTERNATE
-			else:
-				enemyProjectileSpeed=1
-				for e in get_children():
-					if e.name.contains("Bullet") and not e.friend:
-						e.velocity/=ENEMY_PROJECTILE_SPEED_ALTERNATE
-	else:
-		enemyProjectileSpeedPressed=false
-	if playerDead:
-		#var gm: GameManager = get_parent()
-		#gm.currentIndex -= 1
-		#get_parent().next_game()
-		 #Engine.time_scale=gameSpeed
-		if restart==RESTART_TIME:
-			player.visible=false
-			$Camera/EndPanel.visible=true
-			for c in get_children():
-				if c.name.contains("Enemy") or c.name.contains("Bullet"):
-					c.queue_free()
-		restart-=delta
-		$Camera/EndPanel/EndLabel.text="You died\nRestart in... "+str(ceili(restart))
-		if restart<=0: # GAME RESTARTS
-			player.global_position=startPosition
-			player.visible=true
-			playerDead=false
-			player.life=DATA.PLAYER.LIFE
+	if Engine.time_scale>0:
+		gameTime-=delta/Engine.time_scale
+		if gameTime<=0:
+			get_parent().next_game()
+		if playerDead:
+			if restart==RESTART_TIME:
+				player.visible=false
+				$Camera/EndPanel.visible=true
+				for c in get_children():
+					if c.name.contains("Enemy") or c.name.contains("Bullet"):
+						c.queue_free()
+			restart-=delta/Engine.time_scale
+			$Camera/EndPanel/EndLabel.text="You died\nRestart in... "+str(ceili(restart))
+			if restart<=0: # GAME RESTARTS
+				player.global_position=startPosition
+				player.visible=true
+				playerDead=false
+				player.life=DATA.PLAYER.LIFE
+				restart=RESTART_TIME
+				scoreSet(0)
+				spawnTimer=DATA.ENEMY.PERIOD
+				$Camera/EndPanel.visible=false
+		else:
 			restart=RESTART_TIME
-			scoreSet(0)
-			spawnTimer=DATA.ENEMY.PERIOD
-			$Camera/EndPanel.visible=false
-	else:
-		restart=RESTART_TIME
-		spawnTimer-=delta
-		spawnBigTimer-=delta
-		while spawnTimer<=0:
-			spawn(DATA.ENEMY,Vector2(1400,randf_range(60,660)))
-			spawnTimer+=DATA.ENEMY.PERIOD
-		while spawnBigTimer<=0:
-			spawn(DATA.ENEMYBIG,Vector2(1400,randf_range(60,660)))
-			spawnBigTimer+=DATA.ENEMYBIG.PERIOD
+			spawnTimer-=delta
+			spawnBigTimer-=delta
+			while spawnTimer<=0:
+				spawn(DATA.ENEMY,Vector2(1400,randf_range(60,660)))
+				spawnTimer+=DATA.ENEMY.PERIOD
+			while spawnBigTimer<=0:
+				spawn(DATA.ENEMYBIG,Vector2(1400,randf_range(60,660)))
+				spawnBigTimer+=DATA.ENEMYBIG.PERIOD
 
 func spawn(what,where:Vector2)->void:
 	var e=enemyModel.instantiate()
@@ -237,6 +159,43 @@ func scoreAdd(what:float):
 	
 func settingsRefresh()->void:
 	invincibleSet(GlobalSettings.invincibility)
+	if not get_parent().get_node("settings_ui").visible:
+		Engine.time_scale=GlobalSettings.shmup_timescale
+		#print(Engine.time_scale)
+	##################################################################
+	if GlobalSettings.playerProjectileSpeed:
+		if playerProjectileSpeed==1:
+			playerProjectileSpeed=PLAYER_PROJECTILE_SPEED_ALTERNATE
+			for e in get_children():
+				if e.name.contains("Bullet") and e.friend:
+					e.velocity*=PLAYER_PROJECTILE_SPEED_ALTERNATE
+	else:
+		if playerProjectileSpeed==PLAYER_PROJECTILE_SPEED_ALTERNATE:
+			playerProjectileSpeed=1
+			for e in get_children():
+				if e.name.contains("Bullet") and e.friend:
+					e.velocity/=PLAYER_PROJECTILE_SPEED_ALTERNATE
+	##################################################################
+	if GlobalSettings.enemyProjectileSpeed:
+		if enemyProjectileSpeed==1:
+			enemyProjectileSpeed=ENEMY_PROJECTILE_SPEED_ALTERNATE
+			for e in get_children():
+				if e.name.contains("Bullet") and not e.friend:
+					e.velocity*=ENEMY_PROJECTILE_SPEED_ALTERNATE
+	else:
+		if enemyProjectileSpeed==ENEMY_PROJECTILE_SPEED_ALTERNATE:
+			enemyProjectileSpeed=1
+			for e in get_children():
+				if e.name.contains("Bullet") and not e.friend:
+					e.velocity/=ENEMY_PROJECTILE_SPEED_ALTERNATE
+	##################################################################
+	if GlobalSettings.darkerBackground:
+		if $Parallax/Background.modulate==Color.WHITE:
+			$Parallax/Background.modulate=Color.DIM_GRAY
+	else:
+		if $Parallax/Background.modulate==Color.DIM_GRAY:
+			$Parallax/Background.modulate=Color.WHITE
+	##################################################################
 
 func invincibleSet(value:bool)->void:
 	if value!=invincible:

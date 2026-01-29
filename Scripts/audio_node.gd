@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 
 func on_playing():
 	var sound_name = stream.resource_path.get_file().get_basename()
-	GlobalCc.write(sound_name, self.get_playback_position())
+	GlobalCc.write(sound_name, self.position)
 	await get_tree().create_timer(self.stream.get_length()).timeout
 	GlobalCc.erase(sound_name)
 	called = false
