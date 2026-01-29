@@ -37,7 +37,7 @@ const DATA={
 	"ENEMY":{
 		"PERIOD":1,# spawn period
 		"VELOCITY":-1000, # Pixels per second
-		"SPRITE":preload("res://Sprites/shmup/ennemi 2.png"),
+		"SPRITE":preload("res://Sprites/shmup/ennemy chara variants/ennemi_normal.png"),
 		"SCALE":0.1,
 		"COLLISION":32,#Radius
 		"SCORE":10,
@@ -47,7 +47,7 @@ const DATA={
 	"ENEMYBIG":{
 		"PERIOD":6.19,# spawn period
 		"VELOCITY":-200, # Pixels per second
-		"SPRITE":preload("res://Sprites/shmup/ennemi 2.png"),
+		"SPRITE":preload("res://Sprites/shmup/ennemy chara variants/ennemi_normal.png"),
 		"SCALE":0.2,
 		"COLLISION":64,#Radius
 		"SCORE":10,
@@ -60,7 +60,7 @@ const DATA={
 		"PLAYER":{
 			"FRIEND":true,
 			"VELOCITY":1500,
-			"SPRITE":preload("res://Sprites/shmup/bullet joueur.png"),
+			"SPRITE":preload("res://Sprites/shmup/player bullets variants/bullets_joueur_normal.png"),
 			"SCALE":0.4,
 			"OFFSET":Vector2(64,0),
 			"LIFE":1, # Number of hits before destruction
@@ -71,7 +71,7 @@ const DATA={
 		"ENEMY":{
 			"FRIEND":false,
 			"VELOCITY":500,
-			"SPRITE":preload("res://Sprites/shmup/bullet ennemi.png"),
+			"SPRITE":preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_normal.png"),
 			"SCALE":0.2,
 			"LIFE":1,
 			"DAMAGE":1,

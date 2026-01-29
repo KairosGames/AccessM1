@@ -12,7 +12,7 @@ func _on_h_slider_value_changed(value: float) -> void:
 	if value!=GlobalSettings.shmup_timescale:
 		GlobalSettings.shmup_timescale=value
 		GlobalSettings.new_settings()
-		$VBoxContainer2/HBoxContainer3/Label.text="Time Scale "+str(floori(value*100))+"%"
+		$VBoxContainer2/TimeScale/Label.text="Time Scale "+str(floori(value*100))+"%"
 
 func _on_player_projectile_speed_toggled(toggled_on: bool) -> void:
 	GlobalSettings.playerProjectileSpeed=toggled_on
