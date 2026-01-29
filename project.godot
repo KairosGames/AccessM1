@@ -25,6 +25,10 @@ GlobalSettings="*uid://moyjpx5s22op"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[dotnet]
+
+project/assembly_name="AccessM1"
+
 [input]
 
 Up={
