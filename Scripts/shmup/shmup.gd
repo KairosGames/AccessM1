@@ -172,18 +172,7 @@ const ENEMY_PROJECTILE_SPEED_ALTERNATE:float=0.66
 
 var gameTime:float=30
 
-var colorModeTest:float=1
-var enemyColorModeTest:float=2
-
 func _process(delta: float) -> void:
-	colorModeTest-=delta
-	while colorModeTest<=0:
-		colorModeTest+=1
-		colorModeSwitch()
-	enemyColorModeTest-=delta
-	while enemyColorModeTest<=0:
-		enemyColorModeTest+=2
-		enemyColorModeSwitch()
 	if Engine.time_scale>0:
 		gameTime-=delta/Engine.time_scale
 		if gameTime<=0:
@@ -273,6 +262,8 @@ func settingsRefresh()->void:
 		if $Parallax/Background.modulate==Color.DIM_GRAY:
 			$Parallax/Background.modulate=Color.WHITE
 	##################################################################
+	colorModeSet(GlobalSettings.shmup_player_color)
+	enemyColorModeSet(GlobalSettings.shmup_enemy_color)
 
 func invincibleSet(value:bool)->void:
 	if value!=invincible:
