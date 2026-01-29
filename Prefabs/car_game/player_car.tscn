@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dsnc6n2wkorwx" path="res://Assets/voiture_1.png" id="2_8g0gi"]
 [ext_resource type="Texture2D" uid="uid://dviw5wedbvpxg" path="res://Assets/voiture_2.png" id="3_6yhff"]
 [ext_resource type="Texture2D" uid="uid://dfm7c066j61wc" path="res://Assets/arrow.png" id="3_35kap"]
-[ext_resource type="AudioStream" uid="uid://b880cn10ujqlm" path="res://Assets/Audio/envie2cnamer.tres" id="5_0qh3u"]
+[ext_resource type="AudioStream" uid="uid://c4pvfmjvqmdbx" path="res://Assets/Audio/Car/Engine.ogg" id="5_0qh3u"]
 [ext_resource type="Script" uid="uid://cs26qvku08hwr" path="res://Scripts/audio_node.gd" id="5_6yhff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0moc"]
@@ -34,7 +34,9 @@ texture = ExtResource("3_35kap")
 
 [node name="car_engine" type="AudioStreamPlayer2D" parent="." unique_id=1600389776]
 stream = ExtResource("5_0qh3u")
+volume_db = -18.0
 autoplay = true
+parameters/looping = true
 script = ExtResource("5_6yhff")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
