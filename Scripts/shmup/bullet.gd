@@ -62,6 +62,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if damage>=body.life:
 		if body.name.contains("Enemy"):
 			get_parent().scoreAdd(body.model.SCORE)
+		else:
+			# ici
+			pass
 		body.queue_free()
 	else:
 		body.life-=damage
