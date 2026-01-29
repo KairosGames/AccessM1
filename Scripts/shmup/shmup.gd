@@ -32,12 +32,25 @@ const DATA={
 		"SPEED":100, # Pixels per second
 		"FRICTION":10, # Pixels per second
 		"LIFE":10, # Pixels per second
-		"RELOAD":0.25 # To fire, in seconds
+		"RELOAD":0.25, # To fire, in seconds
+		"SPRITE":[preload("res://Sprites/shmup/player chara variants/chara_normal.png"),
+				  preload("res://Sprites/shmup/player chara variants/chara_blanc.png"),
+				  preload("res://Sprites/shmup/player chara variants/chara_bleu.png"),
+				  preload("res://Sprites/shmup/player chara variants/chara_jaune.png"),
+				  preload("res://Sprites/shmup/player chara variants/chara_noir.png"),
+				  preload("res://Sprites/shmup/player chara variants/chara_rouge.png"),
+				  preload("res://Sprites/shmup/player chara variants/chara_vert.png"),]
 	},
 	"ENEMY":{
 		"PERIOD":1,# spawn period
 		"VELOCITY":-1000, # Pixels per second
-		"SPRITE":preload("res://Sprites/shmup/ennemy chara variants/ennemi_normal.png"),
+		"SPRITE":[preload("res://Sprites/shmup/ennemy chara variants/ennemi_normal.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_blanc.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_bleu.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_jaune.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_noir.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_rouge.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_vert.png"),],
 		"SCALE":0.1,
 		"COLLISION":32,#Radius
 		"SCORE":10,
@@ -47,7 +60,13 @@ const DATA={
 	"ENEMYBIG":{
 		"PERIOD":6.19,# spawn period
 		"VELOCITY":-200, # Pixels per second
-		"SPRITE":preload("res://Sprites/shmup/ennemy chara variants/ennemi_normal.png"),
+		"SPRITE":[preload("res://Sprites/shmup/ennemy chara variants/ennemi_normal.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_blanc.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_bleu.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_jaune.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_noir.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_rouge.png"),
+				  preload("res://Sprites/shmup/ennemy chara variants/ennemi_vert.png"),],
 		"SCALE":0.2,
 		"COLLISION":64,#Radius
 		"SCORE":10,
@@ -60,7 +79,13 @@ const DATA={
 		"PLAYER":{
 			"FRIEND":true,
 			"VELOCITY":1500,
-			"SPRITE":preload("res://Sprites/shmup/player bullets variants/bullets_joueur_normal.png"),
+			"SPRITE":[preload("res://Sprites/shmup/player bullets variants/bullets_joueur_normal.png"),
+					  preload("res://Sprites/shmup/player bullets variants/bullets_joueur_blanc.png"),
+					  preload("res://Sprites/shmup/player bullets variants/bullets_joueur_bleu.png"),
+					  preload("res://Sprites/shmup/player bullets variants/bullets_joueur_jaune.png"),
+					  preload("res://Sprites/shmup/player bullets variants/bullets_joueur_noir.png"),
+					  preload("res://Sprites/shmup/player bullets variants/bullets_joueur_rouge.png"),
+					  preload("res://Sprites/shmup/player bullets variants/bullets_joueur_vert.png"),],
 			"SCALE":0.4,
 			"OFFSET":Vector2(64,0),
 			"LIFE":1, # Number of hits before destruction
@@ -71,7 +96,13 @@ const DATA={
 		"ENEMY":{
 			"FRIEND":false,
 			"VELOCITY":500,
-			"SPRITE":preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_normal.png"),
+			"SPRITE":[preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_normal.png"),
+					  preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_blanc.png"),
+					  preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_bleu.png"),
+					  preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_jaune.png"),
+					  preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_noir.png"),
+					  preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_rouge.png"),
+					  preload("res://Sprites/shmup/ennemy bullets variants/bullets_ennemis_vert.png"),],
 			"SCALE":0.2,
 			"LIFE":1,
 			"DAMAGE":1,
@@ -80,6 +111,38 @@ const DATA={
 		}
 	}
 }
+
+var colorMode:int=0 # from 0 to 6
+var enemyColorMode:int=0 # from 0 to 6
+
+func colorModeSet(what:int)->void:
+	what=clamp(what,0,6)
+	if what!=colorMode:
+		colorMode=what
+		player.get_node("Sprite").texture=DATA.PLAYER.SPRITE[colorMode]
+		for e in get_children():
+			if e.name.contains("Bullet") and e.friend:
+				e.get_node("Sprite").texture=e.model.SPRITE[colorMode]
+
+func colorModeSwitch()->void:
+	if colorMode>=6:
+		colorModeSet(0)
+	else:
+		colorModeSet(colorMode+1)
+
+func enemyColorModeSet(what:int)->void:
+	what=clamp(what,0,6)
+	if what!=enemyColorMode:
+		enemyColorMode=what
+		for e in get_children():
+			if e.name.contains("Enemy") or (e.name.contains("Bullet") and not e.friend):
+				e.get_node("Sprite").texture=e.model.SPRITE[enemyColorMode]
+
+func enemyColorModeSwitch()->void:
+	if enemyColorMode>=6:
+		enemyColorModeSet(0)
+	else:
+		enemyColorModeSet(enemyColorMode+1)
 
 func _ready() -> void:
 	player.life=DATA.PLAYER.LIFE
@@ -107,9 +170,20 @@ var highContrastPressed:bool=false
 const PLAYER_PROJECTILE_SPEED_ALTERNATE:float=1.5
 const ENEMY_PROJECTILE_SPEED_ALTERNATE:float=0.66
 
-var gameTime=30
+var gameTime:float=30
+
+var colorModeTest:float=1
+var enemyColorModeTest:float=2
 
 func _process(delta: float) -> void:
+	colorModeTest-=delta
+	while colorModeTest<=0:
+		colorModeTest+=1
+		colorModeSwitch()
+	enemyColorModeTest-=delta
+	while enemyColorModeTest<=0:
+		enemyColorModeTest+=2
+		enemyColorModeSwitch()
 	if Engine.time_scale>0:
 		gameTime-=delta/Engine.time_scale
 		if gameTime<=0:
