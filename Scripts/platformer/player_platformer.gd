@@ -26,6 +26,7 @@ var has_control: bool = true
 
 func _ready() -> void:
 	position = reset_pos.position
+	GlobalSettings.settings_changed.connect(settings)
 
 func _process(delta: float) -> void:
 	get_input()
@@ -102,3 +103,7 @@ func check_win(delta: float) -> void:
 func launch_auto_jump():
 	if can_use_jump: return
 	jump()
+
+func settings():
+	coyote_time = GlobalSettings.coyote_time
+	can_use_jump = GlobalSettings.auto_jump
