@@ -15,7 +15,7 @@ func _ready() -> void:
 	currentGame = games[currentIndex].instantiate()
 	add_child(currentGame)
 	GlobalCc.game_manager = self
-	pass
+	Engine.time_scale = 0
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("SwitchGame"):

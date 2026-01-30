@@ -1,11 +1,11 @@
 extends TabBar
 
-var white := Color(255, 255, 255)
-var blue := Color(0, 0, 155)
-var yellow := Color(155, 155, 0)
+var white := Color(1.5, 1.5, 1.5)
+var blue := Color(0, 0, 1)
+var yellow := Color(1, 1, 0)
 var black := Color()
-var red := Color(155, 0, 0)
-var green := Color(0, 155, 0)
+var red := Color(1, 0, 0)
+var green := Color(0, 1, 0)
 var colors = [null ,white, blue, yellow, black, red, green]
 
 @onready var player_sprite : TextureRect = $VBoxContainer2/PlayerColor/TextureRect

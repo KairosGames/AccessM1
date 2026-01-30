@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ca1rp2rkwe1gf" path="res://Scripts/HugoTestMenuScript/AccessMenuTestH.gd" id="1_108xm"]
 [ext_resource type="PackedScene" uid="uid://bm22glu610m05" path="res://Scenes/remapbutton.tscn" id="3_63t7d"]
+[ext_resource type="PackedScene" uid="uid://cloc6y21k64nt" path="res://Prefabs/global_a11Y.tscn" id="3_108xm"]
+[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scripts/car_game_settings.gd" id="4_isq87"]
+[ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="5_7nkt4"]
+[ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="6_6ntmc"]
 
 [node name="settings_ui" type="CanvasLayer" unique_id=2096271821]
 script = ExtResource("1_108xm")
@@ -19,10 +23,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 0.99999994
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6.4400015, 12.880002)
-color = Color(0.8151441, 0.14885032, 0.07445829, 0.7921569)
+color = Color(0.8156863, 0.14901961, 0.07450981, 0.39215687)
 
 [node name="ButtonLeftContainer" type="VBoxContainer" parent="Control" unique_id=1602271438]
 layout_mode = 1
@@ -68,348 +74,382 @@ offset_right = 1035.0
 offset_bottom = 683.0
 text = "Quit Game"
 
-[node name="Audio" type="Node" parent="Control" unique_id=1486266534]
+[node name="Audio" type="Control" parent="Control" unique_id=335645133]
+anchors_preset = 0
 
-[node name="AudioBoxContainer" type="HBoxContainer" parent="Control/Audio" unique_id=177110006]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Audio" unique_id=1214585117]
 visible = false
+layout_mode = 0
+offset_left = 213.0
 offset_right = 1280.0
-offset_bottom = 691.0
-mouse_filter = 2
+offset_bottom = 592.0
 alignment = 1
 
-[node name="Left_submenu" type="VBoxContainer" parent="Control/Audio/AudioBoxContainer" unique_id=589444466]
+[node name="Left_submenu" type="VBoxContainer" parent="Control/Audio/HBoxContainer" unique_id=1841366489]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Audio/AudioBoxContainer/Left_submenu" unique_id=852398097]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Audio/HBoxContainer/Left_submenu" unique_id=2009905599]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/Audio/AudioBoxContainer/Left_submenu/VBoxContainer" unique_id=246857607]
+[node name="Label" type="Label" parent="Control/Audio/HBoxContainer/Left_submenu/VBoxContainer" unique_id=2004223688]
 layout_mode = 2
 text = "General"
 
-[node name="General" type="HSlider" parent="Control/Audio/AudioBoxContainer/Left_submenu/VBoxContainer" unique_id=1220075876]
+[node name="General" type="HSlider" parent="Control/Audio/HBoxContainer/Left_submenu/VBoxContainer" unique_id=1421563957]
 layout_mode = 2
 value = 100.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Audio/AudioBoxContainer/Left_submenu" unique_id=505329662]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Audio/HBoxContainer/Left_submenu" unique_id=1206560177]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/Audio/AudioBoxContainer/Left_submenu/VBoxContainer2" unique_id=1399769877]
+[node name="Label" type="Label" parent="Control/Audio/HBoxContainer/Left_submenu/VBoxContainer2" unique_id=1320039598]
 layout_mode = 2
 text = "SFX"
 
-[node name="SFX" type="HSlider" parent="Control/Audio/AudioBoxContainer/Left_submenu/VBoxContainer2" unique_id=21995982]
+[node name="SFX" type="HSlider" parent="Control/Audio/HBoxContainer/Left_submenu/VBoxContainer2" unique_id=549757535]
 layout_mode = 2
 value = 100.0
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Control/Audio/AudioBoxContainer/Left_submenu" unique_id=1158541961]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/Audio/HBoxContainer/Left_submenu" unique_id=1378927413]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/Audio/AudioBoxContainer/Left_submenu/VBoxContainer3" unique_id=606950583]
+[node name="Label" type="Label" parent="Control/Audio/HBoxContainer/Left_submenu/VBoxContainer3" unique_id=2025426658]
 layout_mode = 2
 text = "Amb"
 
-[node name="AMB" type="HSlider" parent="Control/Audio/AudioBoxContainer/Left_submenu/VBoxContainer3" unique_id=537609601]
+[node name="AMB" type="HSlider" parent="Control/Audio/HBoxContainer/Left_submenu/VBoxContainer3" unique_id=515063527]
 layout_mode = 2
 value = 100.0
 
-[node name="VSeparator" type="VSeparator" parent="Control/Audio/AudioBoxContainer" unique_id=112848376]
+[node name="VSeparator" type="VSeparator" parent="Control/Audio/HBoxContainer" unique_id=451045994]
 layout_mode = 2
 
-[node name="Right_submenu" type="VBoxContainer" parent="Control/Audio/AudioBoxContainer" unique_id=1658048133]
+[node name="Right_submenu" type="VBoxContainer" parent="Control/Audio/HBoxContainer" unique_id=1202762553]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Audio/AudioBoxContainer/Right_submenu" unique_id=1573973174]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Audio/HBoxContainer/Right_submenu" unique_id=105240150]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="Control/Audio/AudioBoxContainer/Right_submenu/HBoxContainer" unique_id=736589138]
+[node name="Label" type="Label" parent="Control/Audio/HBoxContainer/Right_submenu/HBoxContainer" unique_id=177691048]
 layout_mode = 2
 text = "
 Mute All
 "
 
-[node name="MuteAll" type="CheckBox" parent="Control/Audio/AudioBoxContainer/Right_submenu/HBoxContainer" unique_id=74306500]
+[node name="MuteAll" type="CheckBox" parent="Control/Audio/HBoxContainer/Right_submenu/HBoxContainer" unique_id=1017071259]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Audio/AudioBoxContainer/Right_submenu" unique_id=1438931503]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Audio/HBoxContainer/Right_submenu" unique_id=748793640]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="Control/Audio/AudioBoxContainer/Right_submenu/HBoxContainer2" unique_id=167015530]
+[node name="Label" type="Label" parent="Control/Audio/HBoxContainer/Right_submenu/HBoxContainer2" unique_id=117575201]
 layout_mode = 2
 text = "Mono Mode"
 
-[node name="Mono" type="CheckBox" parent="Control/Audio/AudioBoxContainer/Right_submenu/HBoxContainer2" unique_id=2011263020]
+[node name="Mono" type="CheckBox" parent="Control/Audio/HBoxContainer/Right_submenu/HBoxContainer2" unique_id=753694002]
 layout_mode = 2
 
-[node name="Controls" type="Node" parent="Control" unique_id=734990522]
+[node name="Controls" type="Control" parent="Control" unique_id=1541160689]
+anchors_preset = 0
 
-[node name="ControlsboxContainer" type="VBoxContainer" parent="Control/Controls" unique_id=75397511]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Controls" unique_id=915868068]
 visible = false
+layout_mode = 0
 offset_left = 341.0
 offset_top = 51.0
 offset_right = 944.0
 offset_bottom = 528.0
 
-[node name="Up" type="HBoxContainer" parent="Control/Controls/ControlsboxContainer" unique_id=1601855558]
+[node name="Up" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1418755346]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Controls/ControlsboxContainer/Up" unique_id=1444759597]
+[node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Up" unique_id=575346023]
 layout_mode = 2
 text = "
 Up
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/ControlsboxContainer/Up" unique_id=172462941 instance=ExtResource("3_63t7d")]
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Up" unique_id=3850664 instance=ExtResource("3_63t7d")]
 layout_mode = 2
 text = "Z"
 action = "Up"
 
-[node name="Down" type="HBoxContainer" parent="Control/Controls/ControlsboxContainer" unique_id=782237917]
+[node name="Down" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1106747210]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Controls/ControlsboxContainer/Down" unique_id=342020786]
+[node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Down" unique_id=1739983945]
 layout_mode = 2
 text = "
 Down
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/ControlsboxContainer/Down" unique_id=576444479 instance=ExtResource("3_63t7d")]
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Down" unique_id=859244038 instance=ExtResource("3_63t7d")]
 layout_mode = 2
 text = "S"
 action = "Down"
 
-[node name="Left" type="HBoxContainer" parent="Control/Controls/ControlsboxContainer" unique_id=530046933]
+[node name="Left" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=518560465]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Controls/ControlsboxContainer/Left" unique_id=1700188992]
+[node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Left" unique_id=1080398745]
 layout_mode = 2
 text = "
 Left
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/ControlsboxContainer/Left" unique_id=1825454489 instance=ExtResource("3_63t7d")]
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Left" unique_id=1209022606 instance=ExtResource("3_63t7d")]
 layout_mode = 2
 text = "Q"
 action = "Left"
 
-[node name="Right" type="HBoxContainer" parent="Control/Controls/ControlsboxContainer" unique_id=1903159103]
+[node name="Right" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1054602529]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Controls/ControlsboxContainer/Right" unique_id=1620056692]
+[node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Right" unique_id=692237101]
 layout_mode = 2
 text = "
 Right
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/ControlsboxContainer/Right" unique_id=1358936201 instance=ExtResource("3_63t7d")]
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Right" unique_id=1369661082 instance=ExtResource("3_63t7d")]
 layout_mode = 2
 text = "D"
 action = "Up"
 
-[node name="Jump_Shoot" type="HBoxContainer" parent="Control/Controls/ControlsboxContainer" unique_id=2027074208]
+[node name="Jump_Shoot" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1860776034]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Controls/ControlsboxContainer/Jump_Shoot" unique_id=417766525]
+[node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Jump_Shoot" unique_id=1237636089]
 layout_mode = 2
 text = "
 Jump / Shoot
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/ControlsboxContainer/Jump_Shoot" unique_id=2049342850 instance=ExtResource("3_63t7d")]
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Jump_Shoot" unique_id=1599261014 instance=ExtResource("3_63t7d")]
 layout_mode = 2
 text = "Space"
 action = "Action"
 
-[node name="Pause" type="HBoxContainer" parent="Control/Controls/ControlsboxContainer" unique_id=773711392]
+[node name="Pause" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1706326765]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Controls/ControlsboxContainer/Pause" unique_id=1406255424]
+[node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Pause" unique_id=1404959275]
 layout_mode = 2
 text = "
 Pause
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/ControlsboxContainer/Pause" unique_id=1445633326 instance=ExtResource("3_63t7d")]
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Pause" unique_id=1349688703 instance=ExtResource("3_63t7d")]
 layout_mode = 2
 text = "T"
 action = "Menu"
 
-[node name="Accessibility" type="Node" parent="Control" unique_id=511300759]
+[node name="Accessibility" type="Control" parent="Control" unique_id=554000018]
+anchors_preset = 0
 
-[node name="AccesContainer" type="VBoxContainer" parent="Control/Accessibility" unique_id=932723694]
+[node name="TabContainer" type="TabContainer" parent="Control/Accessibility" unique_id=329045356]
 visible = false
-offset_top = 227.0
-offset_right = 214.0
-offset_bottom = 412.0
-theme_override_constants/separation = 7
-alignment = 1
+layout_mode = 0
+offset_left = 216.0
+offset_right = 1279.0
+offset_bottom = 599.0
+tab_alignment = 1
+current_tab = 0
+tab_1/title = "Car game"
+tab_2/title = "Shoot them up"
 
-[node name="Racing Game" type="Button" parent="Control/Accessibility/AccesContainer" unique_id=269151537]
+[node name="Global" parent="Control/Accessibility/TabContainer" unique_id=1021631383 instance=ExtResource("3_108xm")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Racing Game"
 
-[node name="RacingContainer" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Racing Game" unique_id=1729864491]
+[node name="Car_Game" type="TabBar" parent="Control/Accessibility/TabContainer" unique_id=1264486628]
 visible = false
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.1168225
-anchor_top = -7.1666665
-anchor_right = 2.9859812
-anchor_bottom = -0.25
-scale = Vector2(1.76, 1.76)
+layout_mode = 2
+script = ExtResource("4_isq87")
+metadata/_tab_index = 1
+metadata/_tab_name = "Car game"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Accessibility/TabContainer/Car_Game" unique_id=2002138448]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 252.0
+offset_top = 125.0
+offset_right = 652.0
+offset_bottom = 374.0
 size_flags_vertical = 4
 alignment = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer" unique_id=1942896588]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2" unique_id=26282001]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer4" unique_id=483029501]
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer4" unique_id=1422099609]
 layout_mode = 2
-text = "Bebou Mode"
+text = "No violence Mode"
 
-[node name="Bebou_mode" type="CheckBox" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer4" unique_id=1215712028]
+[node name="Bebou_mode" type="CheckBox" parent="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer4" unique_id=1290978931]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer" unique_id=701373476]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2" unique_id=1631969702]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer2" unique_id=552970682]
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer2" unique_id=865535381]
 layout_mode = 2
 text = "One Button Mode"
 
-[node name="One Button Mode" type="CheckBox" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer2" unique_id=1851542698]
+[node name="One Button Mode" type="CheckBox" parent="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer2" unique_id=628658448]
 layout_mode = 2
 
-[node name="HBoxContainer3" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer" unique_id=509048501]
+[node name="HBoxContainer3" type="VBoxContainer" parent="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2" unique_id=2002839786]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer3" unique_id=877553362]
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3" unique_id=1815167654]
 layout_mode = 2
 text = "Timescale"
 horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Control/Accessibility/AccesContainer/Racing Game/RacingContainer/HBoxContainer3" unique_id=189906924]
+[node name="HSlider" type="HSlider" parent="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3" unique_id=1597206562]
 layout_mode = 2
 max_value = 1.0
+step = 0.01
 value = 1.0
 
-[node name="Platformer" type="Button" parent="Control/Accessibility/AccesContainer" unique_id=529376059]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Platformer"
-
-[node name="PlatformerContainer" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Platformer" unique_id=1326528275]
+[node name="Shoot Them Up" type="TabBar" parent="Control/Accessibility/TabContainer" unique_id=315051532]
 visible = false
+layout_mode = 2
+script = ExtResource("5_7nkt4")
+metadata/_tab_index = 2
+metadata/_tab_name = "Shoot them up"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Accessibility/TabContainer/Shoot Them Up" unique_id=1375643311]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 0
-offset_left = 237.0
-offset_top = -278.0
-offset_right = 637.0
-offset_bottom = -29.0
-scale = Vector2(1.7919624, 1.7919624)
+offset_left = 125.0
+offset_top = 130.0
+offset_right = 853.0
+offset_bottom = 407.0
 size_flags_vertical = 4
 alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer" unique_id=893228376]
+[node name="Autofire" type="HBoxContainer" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=528157936]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer/HBoxContainer2" unique_id=1070988681]
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Autofire" unique_id=1478721113]
+layout_mode = 2
+text = "Autofire"
+
+[node name="Autofire" type="CheckBox" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Autofire" unique_id=1155123184]
+layout_mode = 2
+
+[node name="Invincibility" type="HBoxContainer" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=1312609620]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Invincibility" unique_id=895974297]
+layout_mode = 2
+text = "Invincibility"
+
+[node name="Invincibility" type="CheckBox" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Invincibility" unique_id=627802937]
+layout_mode = 2
+
+[node name="PlayerProjectileSpeed" type="HBoxContainer" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=2110633237]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/PlayerProjectileSpeed" unique_id=1702608981]
+layout_mode = 2
+text = "Increased player projectile speed"
+
+[node name="PlayerProjectileSpeed" type="CheckBox" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/PlayerProjectileSpeed" unique_id=136453053]
+layout_mode = 2
+
+[node name="EnemyProjectileSpeed" type="HBoxContainer" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=1157231441]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyProjectileSpeed" unique_id=2102219191]
+layout_mode = 2
+text = "Decreased enemy projectile speed"
+
+[node name="EnemyProjectileSpeed" type="CheckBox" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyProjectileSpeed" unique_id=634349622]
+layout_mode = 2
+
+[node name="TimeScale" type="VBoxContainer" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2" unique_id=1349753523]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/TimeScale" unique_id=1360820538]
+layout_mode = 2
+text = "Time Scale 100%"
+horizontal_alignment = 1
+
+[node name="TimeScale" type="HSlider" parent="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/TimeScale" unique_id=1828621476]
+layout_mode = 2
+min_value = 0.25
+max_value = 1.0
+step = 0.25
+value = 1.0
+tick_count = 4
+
+[node name="Platformer" type="TabBar" parent="Control/Accessibility/TabContainer" unique_id=250228905]
+visible = false
+layout_mode = 2
+script = ExtResource("6_6ntmc")
+metadata/_tab_index = 3
+metadata/_tab_name = "Platformer"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Accessibility/TabContainer/Platformer" unique_id=161961748]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 174.0
+offset_top = 130.0
+offset_right = 853.0
+offset_bottom = 379.0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Accessibility/TabContainer/Platformer/VBoxContainer2" unique_id=938945208]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer2" unique_id=205467296]
 layout_mode = 2
 text = "Auto-Jump"
 
-[node name="CheckBox" type="CheckBox" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer/HBoxContainer2" unique_id=1546921911]
+[node name="CheckBox" type="CheckBox" parent="Control/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer2" unique_id=814907249]
 layout_mode = 2
 
-[node name="HBoxContainer3" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer" unique_id=1815083897]
+[node name="HBoxContainer3" type="VBoxContainer" parent="Control/Accessibility/TabContainer/Platformer/VBoxContainer2" unique_id=1342902379]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer/HBoxContainer3" unique_id=2146521454]
+[node name="Label" type="Label" parent="Control/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer3" unique_id=690133751]
 layout_mode = 2
 text = "Jump Tolerance"
 horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Control/Accessibility/AccesContainer/Platformer/PlatformerContainer/HBoxContainer3" unique_id=115266565]
+[node name="HSlider" type="HSlider" parent="Control/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer3" unique_id=525084635]
 layout_mode = 2
 max_value = 1.0
 step = 0.001
 value = 0.2
-
-[node name="Shmup" type="Button" parent="Control/Accessibility/AccesContainer" unique_id=1472352785]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Shmup
-"
-
-[node name="ShmupContainer" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Shmup" unique_id=605057335]
-visible = false
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 0
-offset_left = 239.00002
-offset_top = -329.0
-offset_right = 639.0
-offset_bottom = -80.0
-scale = Vector2(1.7592168, 1.6784545)
-size_flags_vertical = 4
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer" unique_id=1405587646]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer" unique_id=1939301269]
-layout_mode = 2
-text = "Autofire"
-
-[node name="Autofire" type="CheckBox" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer" unique_id=877415132]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer" unique_id=633888094]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer2" unique_id=905059982]
-layout_mode = 2
-text = "Invincibility"
-
-[node name="Invincibility" type="CheckBox" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer2" unique_id=1257360190]
-layout_mode = 2
-
-[node name="HBoxContainer3" type="VBoxContainer" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer" unique_id=1161115833]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer3" unique_id=699070435]
-layout_mode = 2
-text = "Time Scale"
-horizontal_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="Control/Accessibility/AccesContainer/Shmup/ShmupContainer/HBoxContainer3" unique_id=2128548049]
-layout_mode = 2
-max_value = 1.0
-value = 1.0
 
 [connection signal="pressed" from="Control/ButtonLeftContainer/General_button" to="." method="_on_general_pressed"]
 [connection signal="pressed" from="Control/ButtonLeftContainer/Audio" to="." method="_on_audio_pressed"]
@@ -417,6 +457,13 @@ value = 1.0
 [connection signal="pressed" from="Control/ButtonLeftContainer/Accessibility" to="." method="_on_accessibility_pressed"]
 [connection signal="pressed" from="Control/QuitMenu" to="." method="_on_quit_menu_pressed"]
 [connection signal="pressed" from="Control/QuitGame" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Control/Accessibility/AccesContainer/Racing Game" to="." method="_on_racing_game_pressed"]
-[connection signal="pressed" from="Control/Accessibility/AccesContainer/Platformer" to="." method="_on_platformer_pressed"]
-[connection signal="pressed" from="Control/Accessibility/AccesContainer/Shmup" to="." method="_on_shmup_pressed"]
+[connection signal="toggled" from="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer4/Bebou_mode" to="Control/Accessibility/TabContainer/Car_Game" method="_on_bebou_mode_toggled"]
+[connection signal="toggled" from="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer2/One Button Mode" to="Control/Accessibility/TabContainer/Car_Game" method="_on_one_button_mode_toggled"]
+[connection signal="value_changed" from="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3/HSlider" to="Control/Accessibility/TabContainer/Car_Game" method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Autofire/Autofire" to="Control/Accessibility/TabContainer/Shoot Them Up" method="_on_autofire_toggled"]
+[connection signal="toggled" from="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/Invincibility/Invincibility" to="Control/Accessibility/TabContainer/Shoot Them Up" method="_on_invincibility_toggled"]
+[connection signal="toggled" from="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/PlayerProjectileSpeed/PlayerProjectileSpeed" to="Control/Accessibility/TabContainer/Shoot Them Up" method="_on_player_projectile_speed_toggled"]
+[connection signal="toggled" from="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/EnemyProjectileSpeed/EnemyProjectileSpeed" to="Control/Accessibility/TabContainer/Shoot Them Up" method="_on_enemy_projectile_speed_toggled"]
+[connection signal="value_changed" from="Control/Accessibility/TabContainer/Shoot Them Up/VBoxContainer2/TimeScale/TimeScale" to="Control/Accessibility/TabContainer/Shoot Them Up" method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="Control/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer2/CheckBox" to="Control/Accessibility/TabContainer/Platformer" method="_on_check_box_toggled"]
+[connection signal="value_changed" from="Control/Accessibility/TabContainer/Platformer/VBoxContainer2/HBoxContainer3/HSlider" to="Control/Accessibility/TabContainer/Platformer" method="_on_h_slider_value_changed"]

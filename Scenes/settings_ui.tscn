@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2nvhihvkjqj5"]
 
 [ext_resource type="Script" uid="uid://dqibnv41rwjfd" path="res://Scripts/settings_ui.gd" id="1_1k4ne"]
+[ext_resource type="Script" uid="uid://cxdyibjv0n24i" path="res://Scripts/settings_audio.gd" id="2_2xaif"]
 [ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scripts/car_game_settings.gd" id="2_dm6ou"]
 [ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="3_a4fwd"]
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="3_dm6ou"]
@@ -19,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.0480548)
 tab_alignment = 1
-current_tab = 3
+current_tab = 1
 
 [node name="General" type="TabBar" parent="TabContainer" unique_id=535313388]
 visible = false
@@ -27,8 +28,8 @@ layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Audio" type="TabBar" parent="TabContainer" unique_id=2140731782]
-visible = false
 layout_mode = 2
+script = ExtResource("2_2xaif")
 metadata/_tab_index = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Audio" unique_id=525643353]
@@ -217,6 +218,7 @@ text = "T"
 action = "Menu"
 
 [node name="Accessibility" type="TabBar" parent="TabContainer" unique_id=257157212]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
