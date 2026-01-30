@@ -37,6 +37,8 @@ func _on_player_color_value_changed(value: float) -> void:
 		$VBoxContainer2/PlayerColor/VBoxContainer/Label.text="Player color : "+s
 		if value != 0:
 			player_sprite.self_modulate = colors.get(value)
+		else:
+			player_sprite.self_modulate = Color(1, 1, 1, 1)
 		Engine.time_scale = 0
 
 func _on_enemy_color_value_changed(value: float) -> void:
@@ -60,4 +62,6 @@ func _on_enemy_color_value_changed(value: float) -> void:
 		$VBoxContainer2/EnemyColor/VBoxContainer/Label.text="Elements color : "+s
 		if value != 0:
 			enemy_sprite.self_modulate = colors.get(value)
+		else:
+			enemy_sprite.self_modulate = Color(1, 1, 1, 1)
 		Engine.time_scale = 0

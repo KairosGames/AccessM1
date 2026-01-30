@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://btw1v6snffoss"]
 
 [ext_resource type="Script" uid="uid://ca1rp2rkwe1gf" path="res://Scripts/HugoTestMenuScript/AccessMenuTestH.gd" id="1_108xm"]
-[ext_resource type="PackedScene" path="res://Scenes/remapbutton.tscn" id="3_63t7d"]
+[ext_resource type="Script" uid="uid://cxdyibjv0n24i" path="res://Scripts/settings_audio.gd" id="2_isq87"]
+[ext_resource type="PackedScene" uid="uid://bm22glu610m05" path="res://Scenes/remapbutton.tscn" id="3_63t7d"]
 [ext_resource type="PackedScene" uid="uid://d7ejdhj734eg" path="res://Prefabs/global_a11Y.tscn" id="3_108xm"]
-[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scenes/car_game_settings.gd" id="4_isq87"]
+[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scripts/car_game_settings.gd" id="4_isq87"]
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="5_7nkt4"]
 [ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="6_6ntmc"]
 
@@ -84,6 +85,7 @@ offset_left = 213.0
 offset_right = 1280.0
 offset_bottom = 592.0
 alignment = 1
+script = ExtResource("2_isq87")
 
 [node name="Left_submenu" type="VBoxContainer" parent="Control/Audio/HBoxContainer" unique_id=1841366489]
 custom_minimum_size = Vector2(400, 0)
@@ -99,7 +101,8 @@ text = "General"
 
 [node name="General" type="HSlider" parent="Control/Audio/HBoxContainer/Left_submenu/VBoxContainer" unique_id=1421563957]
 layout_mode = 2
-value = 100.0
+min_value = -60.0
+max_value = 0.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/Audio/HBoxContainer/Left_submenu" unique_id=1206560177]
 layout_mode = 2
@@ -258,7 +261,7 @@ layout_mode = 2
 [node name="Remap_Button" parent="Control/Controls/VBoxContainer/Pause" unique_id=1349688703 instance=ExtResource("3_63t7d")]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "T"
+text = "ECHAP"
 action = "Menu"
 
 [node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Pause" unique_id=1404959275]
@@ -464,6 +467,9 @@ value = 0.2
 [connection signal="pressed" from="Control/ButtonLeftContainer/Accessibility" to="." method="_on_accessibility_pressed"]
 [connection signal="pressed" from="Control/QuitMenu" to="." method="_on_quit_menu_pressed"]
 [connection signal="pressed" from="Control/QuitGame" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="Control/Audio/HBoxContainer/Left_submenu/VBoxContainer/General" to="Control/Audio/HBoxContainer" method="_on_general_value_changed"]
+[connection signal="toggled" from="Control/Audio/HBoxContainer/Right_submenu/HBoxContainer/MuteAll" to="Control/Audio/HBoxContainer" method="_on_mute_all_toggled"]
+[connection signal="toggled" from="Control/Audio/HBoxContainer/Right_submenu/HBoxContainer2/Mono" to="Control/Audio/HBoxContainer" method="_on_mono_toggled"]
 [connection signal="toggled" from="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer4/Bebou_mode" to="Control/Accessibility/TabContainer/Car_Game" method="_on_bebou_mode_toggled"]
 [connection signal="toggled" from="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer2/One Button Mode" to="Control/Accessibility/TabContainer/Car_Game" method="_on_one_button_mode_toggled"]
 [connection signal="value_changed" from="Control/Accessibility/TabContainer/Car_Game/VBoxContainer2/HBoxContainer3/HSlider" to="Control/Accessibility/TabContainer/Car_Game" method="_on_h_slider_value_changed"]
