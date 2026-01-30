@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d2evtidyx5mfr" path="res://Scripts/platformer/player_platformer.gd" id="1_d8102"]
 [ext_resource type="Texture2D" uid="uid://cbeoi012gqt6v" path="res://Assets/platformer/chara2_platformer.png" id="2_dhbh0"]
-[ext_resource type="Texture2D" uid="uid://bmt3o43jw4roo" path="res://Assets/platformer/chara1_platformer.png" id="3_o1lu4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y75pj"]
 radius = 20.0
@@ -14,12 +13,7 @@ script = ExtResource("1_d8102")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1475884500]
 shape = SubResource("CapsuleShape2D_y75pj")
 
-[node name="Sprite1" type="Sprite2D" parent="." unique_id=540338906]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=540338906]
 position = Vector2(-13, 0)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_dhbh0")
-
-[node name="Sprite2" type="Sprite2D" parent="." unique_id=795262404]
-position = Vector2(-13, 0)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_o1lu4")

@@ -57,7 +57,7 @@ func _on_enemy_color_value_changed(value: float) -> void:
 				s="Red"
 			6:
 				s="Green"
-		$VBoxContainer2/EnemyColor/VBoxContainer/Label.text="Enemy color : "+s
+		$VBoxContainer2/EnemyColor/VBoxContainer/Label.text="Elements color : "+s
 		if value != 0:
 			enemy_sprite.self_modulate = colors.get(value)
 		Engine.time_scale = 0

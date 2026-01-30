@@ -30,6 +30,7 @@ var play_victory_sound: bool = false
 func _ready() -> void:
 	position = reset_pos.position
 	GlobalSettings.settings_changed.connect(settings)
+	settings()
 
 func _process(delta: float) -> void:
 	get_input()
@@ -127,6 +128,15 @@ func launch_auto_jump():
 	if can_use_jump: return
 	jump()
 
+@onready var playerTexture:Array[Texture2D]=[preload("res://Sprites/Plateformer/character variants/chara_normal.png"),
+											 preload("res://Sprites/Plateformer/character variants/chara_blanc.png"),
+											 preload("res://Sprites/Plateformer/character variants/chara_bleu.png"),
+											 preload("res://Sprites/Plateformer/character variants/chara_jaune.png"),
+											 preload("res://Sprites/Plateformer/character variants/chara_noir.png"),
+											 preload("res://Sprites/Plateformer/character variants/chara_rouge.png"),
+											 preload("res://Sprites/Plateformer/character variants/chara_vert.png")] 
+
 func settings():
-	coyote_time = GlobalSettings.coyote_time
-	can_use_jump = GlobalSettings.auto_jump
+	coyote_time=GlobalSettings.coyote_time
+	can_use_jump=GlobalSettings.auto_jump
+	$Sprite.texture=playerTexture[GlobalSettings.player_color]

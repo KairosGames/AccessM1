@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://kwyh835wwiss" path="res://Prefabs/shmup/player_platformer.tscn" id="1_41awe"]
 [ext_resource type="Script" uid="uid://dh3fwkcruwfx2" path="res://Prefabs/platformer/back_ground.gd" id="2_enw1t"]
 [ext_resource type="Texture2D" uid="uid://hmsmwc8mmyu" path="res://Sprites/Plateformer/porte/Porte.png" id="2_k5hyf"]
+[ext_resource type="Script" uid="uid://dro0qy1c44ioy" path="res://Scripts/platformer/gate.gd" id="3_3t7nx"]
 [ext_resource type="Texture2D" uid="uid://30nt65wdrnu7" path="res://Assets/platformer/platform.png" id="4_h786q"]
 [ext_resource type="Script" uid="uid://bhpwowmopokhx" path="res://Scripts/platformer/jump_box.gd" id="5_k5hyf"]
 [ext_resource type="AudioStream" uid="uid://cr6ll7rr6ixno" path="res://Assets/Audio/Platformer/Jump.ogg" id="6_cy5s2"]
@@ -12,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://rh7bwayisvff" path="res://Assets/Audio/Platformer/Moving.ogg" id="8_8y7vq"]
 [ext_resource type="AudioStream" uid="uid://fitxltycog05" path="res://Assets/Audio/Ambience.ogg" id="9_l2b43"]
 [ext_resource type="AudioStream" uid="uid://6lplxgwoesqc" path="res://Assets/Audio/Death.ogg" id="10_8of63"]
+[ext_resource type="Script" uid="uid://nehmogyxo0r" path="res://Scripts/platformer/platforms.gd" id="11_g4n58"]
 [ext_resource type="AudioStream" uid="uid://cvekvy3yjn2d5" path="res://Assets/Audio/Platformer/Door.ogg" id="11_xuiey"]
 [ext_resource type="AudioStream" uid="uid://bb3gpabexltpe" path="res://Assets/Audio/Platformer/Finish.ogg" id="12_ma1iw"]
 
@@ -57,6 +59,7 @@ position = Vector2(67, 517)
 
 [node name="Gate" type="Area2D" parent="." unique_id=797272663]
 position = Vector2(1217, 502)
+script = ExtResource("3_3t7nx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate" unique_id=711141815]
 position = Vector2(-0.5, -4)
@@ -90,6 +93,7 @@ parameters/looping = true
 script = ExtResource("7_ma1iw")
 
 [node name="Platforms" type="Node2D" parent="." unique_id=418223071]
+script = ExtResource("11_g4n58")
 
 [node name="Plat1" type="StaticBody2D" parent="Platforms" unique_id=615442738]
 position = Vector2(99, 666)
@@ -102,10 +106,6 @@ mesh = SubResource("BoxMesh_6hv7n")
 shape = SubResource("RectangleShape2D_h786q")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platforms/Plat1" unique_id=1507322506]
-scale = Vector2(0.213, 0.64)
-texture = ExtResource("4_h786q")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Platforms/Plat1" unique_id=256295072]
 scale = Vector2(0.213, 0.64)
 texture = ExtResource("4_h786q")
 
@@ -123,10 +123,6 @@ shape = SubResource("RectangleShape2D_xp55e")
 scale = Vector2(0.08, 0.16)
 texture = ExtResource("4_h786q")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Platforms/Plat2" unique_id=1115899725]
-scale = Vector2(0.08, 0.16)
-texture = ExtResource("4_h786q")
-
 [node name="Plat3" type="StaticBody2D" parent="Platforms" unique_id=1147869716]
 position = Vector2(780, 413)
 
@@ -141,10 +137,6 @@ shape = SubResource("RectangleShape2D_xp55e")
 scale = Vector2(0.08, 0.16)
 texture = ExtResource("4_h786q")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Platforms/Plat3" unique_id=1681563548]
-scale = Vector2(0.08, 0.16)
-texture = ExtResource("4_h786q")
-
 [node name="Plat4" type="StaticBody2D" parent="Platforms" unique_id=528023652]
 position = Vector2(1214, 666)
 
@@ -156,10 +148,6 @@ mesh = SubResource("BoxMesh_6hv7n")
 shape = SubResource("RectangleShape2D_h786q")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platforms/Plat4" unique_id=611706936]
-scale = Vector2(0.213, 0.64)
-texture = ExtResource("4_h786q")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Platforms/Plat4" unique_id=872230061]
 scale = Vector2(0.213, 0.64)
 texture = ExtResource("4_h786q")
 

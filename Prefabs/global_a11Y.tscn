@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cloc6y21k64nt"]
+[gd_scene format=3 uid="uid://d7ejdhj734eg"]
 
 [ext_resource type="Script" uid="uid://ccxrs0m86k7rn" path="res://Scripts/global_a11y_settings.gd" id="1_yder6"]
 [ext_resource type="Texture2D" uid="uid://bqn3kms52fx82" path="res://Assets/Test_Sprite.png" id="2_jrxpy"]
@@ -61,7 +61,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer2/EnemyColor/VBoxContainer" unique_id=313426941]
 layout_mode = 2
-text = "Player enemy : Default"
+text = "Elements color : Default"
 horizontal_alignment = 1
 
 [node name="EnemyColor" type="HSlider" parent="VBoxContainer2/EnemyColor/VBoxContainer" unique_id=1352477912]
