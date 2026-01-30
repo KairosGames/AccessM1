@@ -42,12 +42,16 @@ texture = ExtResource("6_aky6y")
 [node name="Sound" type="Node" parent="." unique_id=1122630040]
 
 [node name="AmbienceSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1726046724]
+position = Vector2(640, 0)
 stream = ExtResource("7_aqss3")
 autoplay = true
+panning_strength = 0.0
 playback_type = 1
 parameters/looping = true
 script = ExtResource("8_argdw")
 
 [node name="EndSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1494771035]
+position = Vector2(640, 0)
 stream = ExtResource("9_lh2yg")
+panning_strength = 0.0
 script = ExtResource("8_argdw")

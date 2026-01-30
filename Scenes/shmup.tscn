@@ -69,6 +69,10 @@ Restart in..."
 [node name="PlayerShmup" parent="." unique_id=1846282480 instance=ExtResource("2_iwdsl")]
 position = Vector2(215, 301)
 
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="PlayerShmup" unique_id=1735127682]
+stream = ExtResource("4_j70ir")
+script = ExtResource("5_ojwel")
+
 [node name="Border" type="StaticBody2D" parent="." unique_id=573962077]
 collision_layer = 16
 collision_mask = 0
@@ -91,24 +95,24 @@ shape = SubResource("WorldBoundaryShape2D_fyl2u")
 
 [node name="Sound" type="Node" parent="." unique_id=1584424577]
 
-[node name="ShootSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1735127682]
-stream = ExtResource("4_j70ir")
-script = ExtResource("5_ojwel")
-
 [node name="EnemyDeathSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1430662360]
+position = Vector2(640, 0)
 stream = ExtResource("5_fyl2u")
 script = ExtResource("5_ojwel")
 
 [node name="PlayerDeathSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1977094748]
+position = Vector2(640, 0)
 stream = ExtResource("6_ejw3a")
 script = ExtResource("5_ojwel")
 
 [node name="AmbienceSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1406136461]
+position = Vector2(640, 0)
 stream = ExtResource("7_ojwel")
 autoplay = true
 parameters/looping = true
 script = ExtResource("5_ojwel")
 
 [node name="LoseSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1850879620]
+position = Vector2(640, 0)
 stream = ExtResource("8_ki3kc")
 script = ExtResource("5_ojwel")

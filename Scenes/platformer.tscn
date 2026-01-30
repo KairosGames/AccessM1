@@ -65,10 +65,27 @@ position = Vector2(-2.9999447, -10.999989)
 scale = Vector2(0.13296093, 0.13296095)
 texture = ExtResource("2_k5hyf")
 
+[node name="DoorSound" type="AudioStreamPlayer2D" parent="Gate" unique_id=1499399899]
+stream = ExtResource("11_xuiey")
+script = ExtResource("7_ma1iw")
+
 [node name="PlayerPlatformer" parent="." unique_id=1249391039 node_paths=PackedStringArray("reset_pos", "gate") instance=ExtResource("1_41awe")]
 position = Vector2(139, 472)
 reset_pos = NodePath("../ResetPosition")
 gate = NodePath("../Gate")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="PlayerPlatformer" unique_id=376656950]
+stream = ExtResource("6_cy5s2")
+script = ExtResource("7_ma1iw")
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="PlayerPlatformer" unique_id=1313534021]
+stream = ExtResource("7_cy5s2")
+script = ExtResource("7_ma1iw")
+
+[node name="MovingSound" type="AudioStreamPlayer2D" parent="PlayerPlatformer" unique_id=1386258736]
+stream = ExtResource("8_8y7vq")
+parameters/looping = true
+script = ExtResource("7_ma1iw")
 
 [node name="Platforms" type="Node2D" parent="." unique_id=418223071]
 
@@ -175,31 +192,16 @@ shape = SubResource("RectangleShape2D_8y7vq")
 
 [node name="Sound" type="Node" parent="." unique_id=1462444966]
 
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=376656950]
-stream = ExtResource("6_cy5s2")
-script = ExtResource("7_ma1iw")
-
-[node name="LandSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1313534021]
-stream = ExtResource("7_cy5s2")
-script = ExtResource("7_ma1iw")
-
-[node name="MovingSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1386258736]
-stream = ExtResource("8_8y7vq")
-parameters/looping = true
-script = ExtResource("7_ma1iw")
-
 [node name="AmbienceSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=844944036]
+position = Vector2(640, 0)
 stream = ExtResource("9_l2b43")
 autoplay = true
 parameters/looping = true
 script = ExtResource("7_ma1iw")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1091012600]
+position = Vector2(640, 0)
 stream = ExtResource("10_8of63")
-script = ExtResource("7_ma1iw")
-
-[node name="DoorSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=1499399899]
-stream = ExtResource("11_xuiey")
 script = ExtResource("7_ma1iw")
 
 [node name="EndSound" type="AudioStreamPlayer2D" parent="Sound" unique_id=428966197]

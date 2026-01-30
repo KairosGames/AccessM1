@@ -62,7 +62,7 @@ func handle_acceleration(delta: float):
 		velocity.x += move_dir.x * acceleration * delta
 		if move_sound_playing == true:
 			move_sound_playing = false
-			$"../Sound/MovingSound".play()
+			$MovingSound.play()
 		if (velocity.x * Vector2.RIGHT).normalized().x != (move_dir.x * Vector2.RIGHT).normalized().x:
 			velocity.x -= braking_strength * dir * delta
 		if velocity.x * dir > max_speed:
@@ -70,7 +70,7 @@ func handle_acceleration(delta: float):
 		return
 	else:
 		move_sound_playing = true
-		$"../Sound/MovingSound".stop()
+		$MovingSound.stop()
 	
 	velocity.x -= braking_strength * dir * delta
 	if velocity.x * dir < 0.0:
@@ -80,7 +80,7 @@ func handle_gravity(delta: float):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		landing_played = false
-		$"../Sound/MovingSound".stop()
+		$MovingSound.stop()
 		move_sound_playing = false
 		if velocity.y < -max_fall_speed:
 			velocity.y = -max_fall_speed
@@ -94,7 +94,7 @@ func check_floor():
 	if is_on_floor():
 		can_jump = true
 		if landing_played == false:
-			$"../Sound/LandSound".play()
+			$LandSound.play()
 			landing_played = true
 			move_sound_playing = true
 
@@ -102,7 +102,7 @@ func jump() -> void:
 	if can_jump:
 		velocity.y = -jump_strength
 		can_jump = false
-		$"../Sound/JumpSound".play()
+		$JumpSound.play()
 
 func check_pos() -> void:
 	position.x = clamp(position.x, 0.0, 1280.0)
@@ -115,7 +115,7 @@ func check_win(delta: float) -> void:
 		win_timer += delta
 		if play_victory_sound == true:
 			play_victory_sound = false
-			$"../Sound/DoorSound".play()
+			$"../Gate/DoorSound".play()
 			$"../Sound/EndSound".play()
 		if (win_timer > 0.75):
 			(get_parent().get_parent() as GameManager).next_game()
