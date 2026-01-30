@@ -8,8 +8,8 @@ var invincibility : bool=false
 var playerProjectileSpeed : bool=false
 var enemyProjectileSpeed : bool=false
 var darkerBackground:bool=false
-var shmup_player_color : float=0
-var shmup_enemy_color : float=0
+var player_color : float=0
+var other_color : float=0
 
 var auto_jump : bool
 var coyote_time : float

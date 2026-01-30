@@ -5,6 +5,10 @@ extends Node2D
 func _ready() -> void:
 	obstacle_timer()
 	race_timer()
+	GlobalSettings.settings_changed.connect(settingsRefresh)
+
+func settingsRefresh()->void:
+	pass
 
 func obstacle_timer():
 	await get_tree().create_timer(randf_range(1, 3)).timeout

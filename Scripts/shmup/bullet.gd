@@ -26,7 +26,7 @@ func setModel(what,where)->void:
 	if friend:
 		$Sprite.texture=model.SPRITE[get_parent().colorMode]
 	else:
-		$Sprite.texture=model.SPRITE[get_parent().enemyColorMode]
+		$Sprite.texture=model.SPRITE[get_parent().otherColorMode]
 	life=model.LIFE
 	damage=model.DAMAGE
 	if friend:

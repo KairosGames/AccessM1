@@ -28,8 +28,8 @@ func _on_dark_background_toggled(toggled_on: bool) -> void:
 	Engine.time_scale=0
 
 func _on_player_color_value_changed(value: float) -> void:
-	if value!=GlobalSettings.shmup_player_color:
-		GlobalSettings.shmup_player_color=value
+	if value!=GlobalSettings.player_color:
+		GlobalSettings.player_color=value
 		GlobalSettings.new_settings()
 		var s="Standard"
 		match floori(value):
@@ -48,8 +48,8 @@ func _on_player_color_value_changed(value: float) -> void:
 		$VBoxContainer2/PlayerColor/Label.text="Player color : "+s
 
 func _on_enemy_color_value_changed(value: float) -> void:
-	if value!=GlobalSettings.shmup_enemy_color:
-		GlobalSettings.shmup_enemy_color=value
+	if value!=GlobalSettings.other_color:
+		GlobalSettings.other_color=value
 		GlobalSettings.new_settings()
 		var s="Standard"
 		match floori(value):

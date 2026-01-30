@@ -113,7 +113,7 @@ const DATA={
 }
 
 var colorMode:int=0 # from 0 to 6
-var enemyColorMode:int=0 # from 0 to 6
+var otherColorMode:int=0 # from 0 to 6
 
 func colorModeSet(what:int)->void:
 	what=clamp(what,0,6)
@@ -132,17 +132,17 @@ func colorModeSwitch()->void:
 
 func enemyColorModeSet(what:int)->void:
 	what=clamp(what,0,6)
-	if what!=enemyColorMode:
-		enemyColorMode=what
+	if what!=otherColorMode:
+		otherColorMode=what
 		for e in get_children():
 			if e.name.contains("Enemy") or (e.name.contains("Bullet") and not e.friend):
-				e.get_node("Sprite").texture=e.model.SPRITE[enemyColorMode]
+				e.get_node("Sprite").texture=e.model.SPRITE[otherColorMode]
 
 func enemyColorModeSwitch()->void:
-	if enemyColorMode>=6:
+	if otherColorMode>=6:
 		enemyColorModeSet(0)
 	else:
-		enemyColorModeSet(enemyColorMode+1)
+		enemyColorModeSet(otherColorMode+1)
 
 func _ready() -> void:
 	player.life=DATA.PLAYER.LIFE
@@ -265,8 +265,8 @@ func settingsRefresh()->void:
 		if $Parallax/Background.modulate==Color.DIM_GRAY:
 			$Parallax/Background.modulate=Color.WHITE
 	##################################################################
-	colorModeSet(GlobalSettings.shmup_player_color)
-	enemyColorModeSet(GlobalSettings.shmup_enemy_color)
+	colorModeSet(GlobalSettings.player_color)
+	enemyColorModeSet(GlobalSettings.other_color)
 
 func invincibleSet(value:bool)->void:
 	if value!=invincible:
