@@ -111,38 +111,32 @@ const DATA={
 		}
 	}
 }
-
-var colorMode:int=0 # from 0 to 6
-var otherColorMode:int=0 # from 0 to 6
+#
+#var colorMode:int=0 # from 0 to 6
+#var otherColorMode:int=0 # from 0 to 6
 
 func colorModeSet(what:int)->void:
-	what=clamp(what,0,6)
-	if what!=colorMode:
-		colorMode=what
-		player.get_node("Sprite").texture=DATA.PLAYER.SPRITE[colorMode]
-		for e in get_children():
-			if e.name.contains("Bullet") and e.friend:
-				e.get_node("Sprite").texture=e.model.SPRITE[colorMode]
+	player.get_node("Sprite").texture=DATA.PLAYER.SPRITE[GlobalSettings.player_color]
+	for e in get_children():
+		if e.name.contains("Bullet") and e.friend:
+			e.get_node("Sprite").texture=e.model.SPRITE[GlobalSettings.player_color]
 
-func colorModeSwitch()->void:
-	if colorMode>=6:
-		colorModeSet(0)
-	else:
-		colorModeSet(colorMode+1)
+#func colorModeSwitch()->void:
+	#if colorMode>=6:
+		#colorModeSet(0)
+	#else:
+		#colorModeSet(colorMode+1)
 
 func enemyColorModeSet(what:int)->void:
-	what=clamp(what,0,6)
-	if what!=otherColorMode:
-		otherColorMode=what
-		for e in get_children():
-			if e.name.contains("Enemy") or (e.name.contains("Bullet") and not e.friend):
-				e.get_node("Sprite").texture=e.model.SPRITE[otherColorMode]
+	for e in get_children():
+		if e.name.contains("Enemy") or (e.name.contains("Bullet") and not e.friend):
+			e.get_node("Sprite").texture=e.model.SPRITE[GlobalSettings.other_color]
 
-func enemyColorModeSwitch()->void:
-	if otherColorMode>=6:
-		enemyColorModeSet(0)
-	else:
-		enemyColorModeSet(otherColorMode+1)
+#func enemyColorModeSwitch()->void:
+	#if otherColorMode>=6:
+		#enemyColorModeSet(0)
+	#else:
+		#enemyColorModeSet(otherColorMode+1)
 
 func _ready() -> void:
 	player.life=DATA.PLAYER.LIFE

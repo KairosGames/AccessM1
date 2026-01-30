@@ -24,9 +24,9 @@ func setModel(what,where)->void:
 	$Collision.shape.radius=model.COLLISION
 	friend=model.FRIEND
 	if friend:
-		$Sprite.texture=model.SPRITE[get_parent().colorMode]
+		$Sprite.texture=model.SPRITE[GlobalSettings.player_color]
 	else:
-		$Sprite.texture=model.SPRITE[get_parent().otherColorMode]
+		$Sprite.texture=model.SPRITE[GlobalSettings.other_color]
 	life=model.LIFE
 	damage=model.DAMAGE
 	if friend:

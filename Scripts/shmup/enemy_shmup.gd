@@ -46,11 +46,10 @@ func setModel(whatModel,where)->void:
 	velocity=Vector2(model.VELOCITY,0)
 	global_position=where
 	$Collision.shape.radius=model.COLLISION
-	$Sprite.texture=model.SPRITE[get_parent().otherColorMode]
+	$Sprite.texture=model.SPRITE[GlobalSettings.other_color]
 	$Sprite.scale=Vector2(model.SCALE,model.SCALE)
 	collision_layer=8
 	if get_parent().invincible:
 		collision_mask=2
 	else:
 		collision_mask=1+2
-	#print("Fired at"+str(global_position))
