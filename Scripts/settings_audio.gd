@@ -14,8 +14,6 @@ func _on_mute_all_toggled(toggled_on: bool) -> void:
 	else:
 		AudioServer.set_bus_mute(master_bus, false)
 
-
-
 func _on_mono_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		AudioServer.set_bus_bypass_effects(master_bus, false)

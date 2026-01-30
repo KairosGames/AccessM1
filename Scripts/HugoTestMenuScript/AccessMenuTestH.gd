@@ -94,24 +94,19 @@ func SetPopupVisible(Pop, isVisible : bool):
 
 func _on_general_pressed():
 	current_pressed_button =  general_button
-	SetBgColor(Color.RED)
-
-
+	SetBgColor(Color(1,0,0,100.0/255.0))
 
 func _on_audio_pressed():
 	current_pressed_button = audio_button
-	SetBgColor(Color.AQUA)
-
-
+	SetBgColor(Color(0,0.5,1,100.0/255.0))
 
 func _on_controls_pressed():
 	current_pressed_button =  controls
-	SetBgColor(Color.AQUAMARINE)
-	
+	SetBgColor(Color(0.5,1,0.83,100.0/255.0))
 
 func _on_accessibility_pressed():
 	current_pressed_button =  accessibility
-	SetBgColor(Color.BROWN)
+	SetBgColor(Color(0.64,0.16,0.16,100.0/255.0))
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):

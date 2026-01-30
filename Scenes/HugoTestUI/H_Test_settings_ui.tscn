@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://btw1v6snffoss"]
 
 [ext_resource type="Script" uid="uid://ca1rp2rkwe1gf" path="res://Scripts/HugoTestMenuScript/AccessMenuTestH.gd" id="1_108xm"]
-[ext_resource type="PackedScene" uid="uid://bm22glu610m05" path="res://Scenes/remapbutton.tscn" id="3_63t7d"]
-[ext_resource type="PackedScene" uid="uid://cloc6y21k64nt" path="res://Prefabs/global_a11Y.tscn" id="3_108xm"]
-[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scripts/car_game_settings.gd" id="4_isq87"]
+[ext_resource type="PackedScene" path="res://Scenes/remapbutton.tscn" id="3_63t7d"]
+[ext_resource type="PackedScene" uid="uid://d7ejdhj734eg" path="res://Prefabs/global_a11Y.tscn" id="3_108xm"]
+[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scenes/car_game_settings.gd" id="4_isq87"]
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="5_7nkt4"]
 [ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="6_6ntmc"]
 
@@ -28,7 +28,7 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6.4400015, 12.880002)
-color = Color(0.8156863, 0.14901961, 0.07450981, 0.39215687)
+color = Color(1, 0, 0, 0.39215687)
 
 [node name="ButtonLeftContainer" type="VBoxContainer" parent="Control" unique_id=1602271438]
 layout_mode = 1
@@ -168,99 +168,106 @@ offset_bottom = 528.0
 
 [node name="Up" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1418755346]
 layout_mode = 2
-alignment = 1
+
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Up" unique_id=3850664 instance=ExtResource("3_63t7d")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Z"
+action = "Up"
 
 [node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Up" unique_id=575346023]
+layout_direction = 4
 layout_mode = 2
+size_flags_horizontal = 3
 text = "
 Up
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Up" unique_id=3850664 instance=ExtResource("3_63t7d")]
-layout_mode = 2
-text = "Z"
-action = "Up"
-
 [node name="Down" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1106747210]
 layout_mode = 2
-alignment = 1
+
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Down" unique_id=859244038 instance=ExtResource("3_63t7d")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "S"
+action = "Down"
 
 [node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Down" unique_id=1739983945]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "
 Down
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Down" unique_id=859244038 instance=ExtResource("3_63t7d")]
-layout_mode = 2
-text = "S"
-action = "Down"
-
 [node name="Left" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=518560465]
 layout_mode = 2
-alignment = 1
+
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Left" unique_id=1209022606 instance=ExtResource("3_63t7d")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Q"
+action = "Left"
 
 [node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Left" unique_id=1080398745]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "
 Left
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Left" unique_id=1209022606 instance=ExtResource("3_63t7d")]
-layout_mode = 2
-text = "Q"
-action = "Left"
-
 [node name="Right" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1054602529]
 layout_mode = 2
-alignment = 1
+
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Right" unique_id=1369661082 instance=ExtResource("3_63t7d")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "D"
+action = "Up"
 
 [node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Right" unique_id=692237101]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "
 Right
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Right" unique_id=1369661082 instance=ExtResource("3_63t7d")]
-layout_mode = 2
-text = "D"
-action = "Up"
-
 [node name="Jump_Shoot" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1860776034]
 layout_mode = 2
-alignment = 1
+
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Jump_Shoot" unique_id=1599261014 instance=ExtResource("3_63t7d")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Space"
+action = "Action"
 
 [node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Jump_Shoot" unique_id=1237636089]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "
 Jump / Shoot
 "
 vertical_alignment = 1
 
-[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Jump_Shoot" unique_id=1599261014 instance=ExtResource("3_63t7d")]
-layout_mode = 2
-text = "Space"
-action = "Action"
-
 [node name="Pause" type="HBoxContainer" parent="Control/Controls/VBoxContainer" unique_id=1706326765]
 layout_mode = 2
-alignment = 1
+
+[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Pause" unique_id=1349688703 instance=ExtResource("3_63t7d")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "T"
+action = "Menu"
 
 [node name="Label" type="Label" parent="Control/Controls/VBoxContainer/Pause" unique_id=1404959275]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "
 Pause
 "
 vertical_alignment = 1
-
-[node name="Remap_Button" parent="Control/Controls/VBoxContainer/Pause" unique_id=1349688703 instance=ExtResource("3_63t7d")]
-layout_mode = 2
-text = "T"
-action = "Menu"
 
 [node name="Accessibility" type="Control" parent="Control" unique_id=554000018]
 anchors_preset = 0

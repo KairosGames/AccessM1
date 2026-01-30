@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dqibnv41rwjfd" path="res://Scripts/settings_ui.gd" id="1_1k4ne"]
 [ext_resource type="Script" uid="uid://cxdyibjv0n24i" path="res://Scripts/settings_audio.gd" id="2_2xaif"]
-[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scripts/car_game_settings.gd" id="2_dm6ou"]
+[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scenes/car_game_settings.gd" id="2_dm6ou"]
 [ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="3_a4fwd"]
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="3_dm6ou"]
-[ext_resource type="PackedScene" uid="uid://cloc6y21k64nt" path="res://Prefabs/global_a11Y.tscn" id="4_gnwwx"]
-[ext_resource type="Script" uid="uid://752ljal54yjj" path="res://Scripts/control_ui.gd" id="5_tx62x"]
-[ext_resource type="PackedScene" uid="uid://bm22glu610m05" path="res://Scenes/remapbutton.tscn" id="6_gnwwx"]
+[ext_resource type="PackedScene" uid="uid://d7ejdhj734eg" path="res://Prefabs/global_a11Y.tscn" id="4_gnwwx"]
+[ext_resource type="Script" path="res://Scripts/control_ui.gd" id="5_tx62x"]
+[ext_resource type="PackedScene" path="res://Scenes/remapbutton.tscn" id="6_gnwwx"]
 
 [node name="settings_ui" type="CanvasLayer" unique_id=2096271821]
 script = ExtResource("1_1k4ne")
