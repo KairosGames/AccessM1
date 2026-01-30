@@ -12,10 +12,10 @@ func _ready() -> void:
 
 func add_line(sound_name, sound_position):
 	var new_line : HBoxContainer = line.instantiate()
-	if sound_position > float(0):
+	if sound_position.x < float(630):
 		new_line.get_child(0).show()
 	to_print = to_print + sound_name
-	if sound_position < float(0):
+	if sound_position.x > float(650):
 		new_line.get_child(2).show()
 	new_line.get_child(1).text = sound_name
 	new_line.name = sound_name

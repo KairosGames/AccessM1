@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cl7stdf3fignr"]
 
 [ext_resource type="Script" uid="uid://b1yx0ouujihim" path="res://Scripts/shmup/bullet.gd" id="1_1ghm6"]
+[ext_resource type="AudioStream" uid="uid://cmx50wmcadu25" path="res://Assets/Audio/Shmup/Player_hurt.ogg" id="2_pufeh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7dga7"]
 resource_local_to_scene = true
@@ -14,5 +15,8 @@ shape = SubResource("CircleShape2D_7dga7")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=797597029]
 unique_name_in_owner = true
+
+[node name="PlayerHurtSound" type="AudioStreamPlayer2D" parent="." unique_id=1272870653]
+stream = ExtResource("2_pufeh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

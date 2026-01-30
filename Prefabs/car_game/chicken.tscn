@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://c65x6rjf6ed7b" path="res://Scripts/car_game/chicken.gd" id="1_f1ahg"]
 [ext_resource type="Texture2D" uid="uid://bheqba20yptf3" path="res://Assets/chat 2.png" id="2_atdqk"]
 [ext_resource type="Texture2D" uid="uid://w0bcaxsevc51" path="res://Assets/chat 1.png" id="2_f1ahg"]
+[ext_resource type="Texture2D" uid="uid://df7sg4nru52o7" path="res://Assets/Chocolatine.png" id="4_dxnmx"]
 [ext_resource type="AudioStream" uid="uid://dwsls0y4cxpvp" path="res://Assets/Audio/Cat_Smashed.wav" id="4_ikul4"]
 [ext_resource type="Script" uid="uid://cs26qvku08hwr" path="res://Scripts/audio_node.gd" id="5_2ay5s"]
+[ext_resource type="AudioStream" uid="uid://c3r8qb8b6pjwg" path="res://Assets/Audio/Car/Cat_Destroyed.tres" id="6_40yjt"]
+[ext_resource type="AudioStream" uid="uid://dxkvlosvymiju" path="res://Assets/Audio/Car/Get_chicks.ogg" id="8_li0ob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1ahg"]
 size = Vector2(77, 65)
@@ -14,6 +17,8 @@ modulate = Color(0.7530005, 0.4033937, 0.14885107, 1)
 scale = Vector2(2, 2)
 script = ExtResource("1_f1ahg")
 death_texture = ExtResource("2_atdqk")
+base_texture = ExtResource("2_f1ahg")
+bebou_texture = ExtResource("4_dxnmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511700096]
 position = Vector2(-0.5, 0.5)
@@ -24,8 +29,17 @@ position = Vector2(-0.49999762, 0.50000536)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_f1ahg")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=268810538]
+[node name="Cat_Smashed" type="AudioStreamPlayer2D" parent="." unique_id=268810538]
 stream = ExtResource("4_ikul4")
+script = ExtResource("5_2ay5s")
+
+[node name="Cat_Destroyed" type="AudioStreamPlayer2D" parent="." unique_id=448526817]
+stream = ExtResource("6_40yjt")
+script = ExtResource("5_2ay5s")
+
+[node name="GetChicksSound" type="AudioStreamPlayer2D" parent="." unique_id=1741884931]
+stream = ExtResource("8_li0ob")
+volume_db = 6.0
 script = ExtResource("5_2ay5s")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
