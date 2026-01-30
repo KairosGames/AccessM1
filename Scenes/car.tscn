@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dkdgbxy2dirjx" path="res://Prefabs/car_game/obstacle_manager.tscn" id="2_go66d"]
 [ext_resource type="PackedScene" uid="uid://b0fp3xn4wptd3" path="res://Prefabs/car_game/chicken.tscn" id="3_yi23e"]
 [ext_resource type="PackedScene" uid="uid://cbwqqp3tcb6vo" path="res://Prefabs/car_game/track_end.tscn" id="4_u41r7"]
-[ext_resource type="Texture2D" uid="uid://ds5vxv3gpkch8" path="res://Assets/route.png" id="5_u41r7"]
+[ext_resource type="Texture2D" uid="uid://fqe23lsmvul2" path="res://Sprites/Racing game/route v2.png" id="5_argdw"]
 [ext_resource type="Texture2D" uid="uid://c2dmx466v4fpb" path="res://Assets/herbe.png" id="6_aky6y"]
 [ext_resource type="AudioStream" uid="uid://fitxltycog05" path="res://Assets/Audio/Ambience.ogg" id="7_aqss3"]
 [ext_resource type="Script" uid="uid://cs26qvku08hwr" path="res://Scripts/audio_node.gd" id="8_argdw"]
@@ -25,9 +25,9 @@ repeat_size = Vector2(1524, 0)
 autoscroll = Vector2(-1000, 0)
 
 [node name="Sprite" type="Sprite2D" parent="Road" unique_id=2105014228]
-position = Vector2(764, 360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_u41r7")
+position = Vector2(709.2874, 355.97284)
+scale = Vector2(0.46005067, 0.46005067)
+texture = ExtResource("5_argdw")
 
 [node name="Grass" type="Parallax2D" parent="." unique_id=1478910954]
 z_index = -1
@@ -35,8 +35,8 @@ repeat_size = Vector2(1300, 0)
 autoscroll = Vector2(-800, 0)
 
 [node name="Sprite" type="Sprite2D" parent="Grass" unique_id=858498384]
-position = Vector2(705.2, 360)
-scale = Vector2(0.4624672, 0.4)
+position = Vector2(650.4874, 355.97284)
+scale = Vector2(0.4255167, 0.36804053)
 texture = ExtResource("6_aky6y")
 
 [node name="Sound" type="Node" parent="." unique_id=1122630040]

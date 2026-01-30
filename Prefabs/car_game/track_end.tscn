@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cbwqqp3tcb6vo"]
 
 [ext_resource type="Script" uid="uid://dnyqcbmxh4hq6" path="res://Scripts/car_game/track_end.gd" id="1_to5jr"]
-[ext_resource type="Texture2D" uid="uid://bk2gmfoey1wt" path="res://Assets/Asset_Ligne_arrivée.png" id="2_to5jr"]
+[ext_resource type="Texture2D" uid="uid://l255x7yqxs7b" path="res://Sprites/Racing game/Ligne arrivée v3.png" id="2_to5jr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_to5jr"]
 size = Vector2(256, 717)
