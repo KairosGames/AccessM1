@@ -6,6 +6,7 @@ func _ready() -> void:
 	obstacle_timer()
 	race_timer()
 	GlobalSettings.settings_changed.connect(settingsRefresh)
+	settingsRefresh()
 
 func settingsRefresh()->void:
 	pass

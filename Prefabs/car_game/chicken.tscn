@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://b0fp3xn4wptd3"]
 
 [ext_resource type="Script" uid="uid://c65x6rjf6ed7b" path="res://Scripts/car_game/chicken.gd" id="1_f1ahg"]
-[ext_resource type="Texture2D" uid="uid://bheqba20yptf3" path="res://Assets/chat 2.png" id="2_atdqk"]
 [ext_resource type="Texture2D" uid="uid://w0bcaxsevc51" path="res://Assets/chat 1.png" id="2_f1ahg"]
-[ext_resource type="Texture2D" uid="uid://df7sg4nru52o7" path="res://Assets/Chocolatine.png" id="4_dxnmx"]
 [ext_resource type="AudioStream" uid="uid://dwsls0y4cxpvp" path="res://Assets/Audio/Cat_Smashed.wav" id="4_ikul4"]
 [ext_resource type="Script" uid="uid://cs26qvku08hwr" path="res://Scripts/audio_node.gd" id="5_2ay5s"]
 [ext_resource type="AudioStream" uid="uid://c3r8qb8b6pjwg" path="res://Assets/Audio/Car/Cat_Destroyed.tres" id="6_40yjt"]
@@ -13,12 +11,8 @@
 size = Vector2(77, 65)
 
 [node name="Chicken" type="Area2D" unique_id=1615905102]
-modulate = Color(0.7530005, 0.4033937, 0.14885107, 1)
 scale = Vector2(2, 2)
 script = ExtResource("1_f1ahg")
-death_texture = ExtResource("2_atdqk")
-base_texture = ExtResource("2_f1ahg")
-bebou_texture = ExtResource("4_dxnmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511700096]
 position = Vector2(-0.5, 0.5)

@@ -12,8 +12,7 @@ func _ready() -> void:
 	if is_one_button == true:
 		$Sprite2D2.show()
 	GlobalSettings.settings_changed.connect(settings)
-	GlobalSettings.new_settings()
-
+	settings()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -39,7 +38,6 @@ func _physics_process(delta: float) -> void:
 				else:
 					direction = true
 			tap_timer()
-
 		
 		if Input.is_action_pressed("Up"):
 			if direction == true:
@@ -58,9 +56,18 @@ func tap_timer():
 func _on_timer_timeout() -> void:
 	waiting_tap = false
 
+@onready var carTexture=[preload("res://Sprites/Racing game/Car variants/voiture_normal.png"),
+						 preload("res://Sprites/Racing game/Car variants/voiture_blanc.png"),
+						 preload("res://Sprites/Racing game/Car variants/voiture_bleu.png"),
+						 preload("res://Sprites/Racing game/Car variants/voiture_jaune.png"),
+						 preload("res://Sprites/Racing game/Car variants/voiture_noir.png"),
+						 preload("res://Sprites/Racing game/Car variants/voiture_rouge.png"),
+						 preload("res://Sprites/Racing game/Car variants/voiture_vert.png"),]
+
 func settings():
 	var game=get_parent()
 	var road=game.get_node("Road")
+	$Sprite.texture=carTexture[GlobalSettings.player_color]
 	if GlobalSettings.darkerBackground:
 		if road.get_node("Sprite").modulate==Color.WHITE:
 			road.get_node("Sprite").modulate=Color.DIM_GRAY
