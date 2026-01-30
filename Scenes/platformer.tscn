@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://do70skw0vvamu" path="res://Assets/platformer/bg_platformer.png" id="1_6hv7n"]
 [ext_resource type="PackedScene" uid="uid://kwyh835wwiss" path="res://Prefabs/shmup/player_platformer.tscn" id="1_41awe"]
+[ext_resource type="Script" uid="uid://dh3fwkcruwfx2" path="res://Prefabs/platformer/back_ground.gd" id="2_enw1t"]
 [ext_resource type="Texture2D" uid="uid://hmsmwc8mmyu" path="res://Sprites/Plateformer/porte/Porte.png" id="2_k5hyf"]
 [ext_resource type="Texture2D" uid="uid://30nt65wdrnu7" path="res://Assets/platformer/platform.png" id="4_h786q"]
 [ext_resource type="Script" uid="uid://bhpwowmopokhx" path="res://Scripts/platformer/jump_box.gd" id="5_k5hyf"]
@@ -49,6 +50,7 @@ size = Vector2(23, 32)
 position = Vector2(640, 431)
 scale = Vector2(0.425, 0.425)
 texture = ExtResource("1_6hv7n")
+script = ExtResource("2_enw1t")
 
 [node name="ResetPosition" type="Marker2D" parent="." unique_id=1655889943]
 position = Vector2(67, 517)
