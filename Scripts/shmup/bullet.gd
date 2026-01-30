@@ -20,7 +20,8 @@ func setModel(what,where)->void:
 	global_position=where
 	if model.has("OFFSET"):
 		global_position+=model.OFFSET
-	$Sprite.scale=Vector2(model.SCALE,model.SCALE)
+	$Sprite.scale=Vector2(model.SCALE,model.SCALE)*4
+	modulate=Color(2,2,2,1)
 	$Collision.shape.radius=model.COLLISION
 	friend=model.FRIEND
 	if friend:
@@ -57,17 +58,17 @@ func _process(delta: float) -> void:
 	lifeSpan-=delta
 	if delta<=0:
 		queue_free()
+	$Sprite.scale=lerp($Sprite.scale,Vector2(model.SCALE,model.SCALE),delta*20)
+	modulate=lerp(modulate,Color.WHITE,delta)
 
 func _on_body_entered(body: Node2D) -> void:
 	if damage>=body.life:
 		if body.name.contains("Enemy"):
 			get_parent().scoreAdd(body.model.SCORE)
-		else:
-			# ici
-			pass
 		body.queue_free()
 	else:
 		body.life-=damage
+		body.shake+=damage*5
 	$PlayerHurtSound.play() #A FIX
 	life-=1
 	if life<=0:

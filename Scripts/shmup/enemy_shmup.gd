@@ -23,10 +23,16 @@ func _physics_process(delta: float)->void:
 					get_parent().playerDead=true
 				else:
 					bonk.life-=damage
+					bonk.shake+=damage*5
 				get_parent().scoreAdd(model.SCORE)
 				queue_free()
 
+var shake:float=0
+
 func _process(delta: float) -> void:
+	$Sprite.position=lerp($Sprite.position,Vector2.ZERO,delta*10)+Vector2(randf_range(-shake,shake),randf_range(-shake,shake))
+	$Sprite.scale=lerp($Sprite.scale,Vector2(model.SCALE,model.SCALE),delta*10)
+	shake=lerp(shake,0.0,delta*10)
 	if model.has("PROJECTILE"):
 		reload-=delta
 		while reload<=0:
@@ -37,6 +43,8 @@ func fire()->Bullet:
 	var b=game.bulletModel.instantiate()
 	b.call_deferred("setModel",get_parent().DATA.BULLET[model.PROJECTILE],global_position)
 	game.add_child(b)
+	$Sprite.scale*=Vector2(0.5,2)
+	$Sprite.position+=Vector2(-32,0)
 	return b
 
 func setModel(whatModel,where)->void:
