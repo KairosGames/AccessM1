@@ -15,6 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$Sprite.scale=lerp($Sprite.scale,baseScale,delta*10)
 	$Sprite.position=lerp($Sprite.position,Vector2.ZERO,delta*10)+Vector2(randf_range(-shake,shake),randf_range(-shake,shake))
+	get_parent().get_node("Camera").position=Vector2(randf_range(-shake,shake),randf_range(-shake,shake))*2
 	shake=lerp(shake,0.0,delta*10)
 	get_parent().modulate=Color(1+shake*0.02,1.0-shake*0.02,1.0-shake*0.02)
 

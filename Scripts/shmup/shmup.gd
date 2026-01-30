@@ -178,6 +178,7 @@ func _process(delta: float) -> void:
 				$Sound/PlayerDeathSound.play()
 				$Sound/LoseSound.play()
 			if restart==RESTART_TIME:
+				player.shake=100
 				player.visible=false
 				$Camera/EndPanel.visible=true
 				for c in get_children():
