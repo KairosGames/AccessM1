@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://d2nvhihvkjqj5"]
 
 [ext_resource type="Script" uid="uid://dqibnv41rwjfd" path="res://Scripts/settings_ui.gd" id="1_1k4ne"]
-[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scenes/car_game_settings.gd" id="2_dm6ou"]
+[ext_resource type="Script" uid="uid://ciu50d42g8qgf" path="res://Scripts/car_game_settings.gd" id="2_dm6ou"]
 [ext_resource type="Script" uid="uid://qfmjg0ltxbbx" path="res://Scripts/platformer_settings.gd" id="3_a4fwd"]
 [ext_resource type="Script" uid="uid://ls1ha65on6pu" path="res://Scripts/shoot_them_up_settings.gd" id="3_dm6ou"]
-[ext_resource type="Script" path="res://Scripts/control_ui.gd" id="5_tx62x"]
-[ext_resource type="PackedScene" path="res://Scenes/remapbutton.tscn" id="6_gnwwx"]
+[ext_resource type="PackedScene" uid="uid://cloc6y21k64nt" path="res://Prefabs/global_a11Y.tscn" id="4_gnwwx"]
+[ext_resource type="Script" uid="uid://752ljal54yjj" path="res://Scripts/control_ui.gd" id="5_tx62x"]
+[ext_resource type="PackedScene" uid="uid://bm22glu610m05" path="res://Scenes/remapbutton.tscn" id="6_gnwwx"]
 
 [node name="settings_ui" type="CanvasLayer" unique_id=2096271821]
 script = ExtResource("1_1k4ne")
@@ -18,9 +19,10 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.0480548)
 tab_alignment = 1
-current_tab = 0
+current_tab = 3
 
 [node name="General" type="TabBar" parent="TabContainer" unique_id=535313388]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -215,7 +217,6 @@ text = "T"
 action = "Menu"
 
 [node name="Accessibility" type="TabBar" parent="TabContainer" unique_id=257157212]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
@@ -225,13 +226,17 @@ offset_right = 1279.0
 offset_bottom = 688.0
 tab_alignment = 1
 current_tab = 0
-tab_0/title = "Car game"
-tab_1/title = "Shoot them up"
+tab_1/title = "Car game"
+tab_2/title = "Shoot them up"
+
+[node name="Global" parent="TabContainer/Accessibility/TabContainer" unique_id=1021631383 instance=ExtResource("4_gnwwx")]
+layout_mode = 2
 
 [node name="Car_Game" type="TabBar" parent="TabContainer/Accessibility/TabContainer" unique_id=284667736]
+visible = false
 layout_mode = 2
 script = ExtResource("2_dm6ou")
-metadata/_tab_index = 0
+metadata/_tab_index = 1
 metadata/_tab_name = "Car game"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Car_Game" unique_id=1674106224]
@@ -284,7 +289,7 @@ value = 1.0
 visible = false
 layout_mode = 2
 script = ExtResource("3_dm6ou")
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 metadata/_tab_name = "Shoot them up"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Shoot Them Up" unique_id=64936275]
@@ -398,7 +403,7 @@ tick_count = 7
 visible = false
 layout_mode = 2
 script = ExtResource("3_a4fwd")
-metadata/_tab_index = 2
+metadata/_tab_index = 3
 metadata/_tab_name = "Platformer"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Accessibility/TabContainer/Platformer" unique_id=344058981]

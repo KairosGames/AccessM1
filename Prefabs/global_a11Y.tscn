@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cloc6y21k64nt"]
+
+[ext_resource type="Script" uid="uid://ccxrs0m86k7rn" path="res://Scripts/global_a11y_settings.gd" id="1_yder6"]
+[ext_resource type="Texture2D" uid="uid://bqn3kms52fx82" path="res://Assets/Test_Sprite.png" id="2_jrxpy"]
+
+[node name="Global" type="TabBar" unique_id=1021631383]
+script = ExtResource("1_yder6")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1663591363]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 453.0
+offset_top = 130.0
+offset_right = 853.0
+offset_bottom = 379.0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="DarkBackground" type="HBoxContainer" parent="VBoxContainer2" unique_id=619426584]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2/DarkBackground" unique_id=763675732]
+layout_mode = 2
+text = "Darker background"
+
+[node name="DarkBackground" type="CheckBox" parent="VBoxContainer2/DarkBackground" unique_id=539316223]
+layout_mode = 2
+
+[node name="PlayerColor" type="HBoxContainer" parent="VBoxContainer2" unique_id=862499627]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/PlayerColor" unique_id=1500014774]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2/PlayerColor/VBoxContainer" unique_id=1205201418]
+layout_mode = 2
+text = "Player color : Default"
+horizontal_alignment = 1
+
+[node name="PlayerColor" type="HSlider" parent="VBoxContainer2/PlayerColor/VBoxContainer" unique_id=1310348231]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+max_value = 6.0
+tick_count = 7
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/PlayerColor" unique_id=1911965663]
+layout_mode = 2
+texture = ExtResource("2_jrxpy")
+
+[node name="EnemyColor" type="HBoxContainer" parent="VBoxContainer2" unique_id=1688779501]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/EnemyColor" unique_id=15571410]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/EnemyColor/VBoxContainer" unique_id=313426941]
+layout_mode = 2
+text = "Player enemy : Default"
+horizontal_alignment = 1
+
+[node name="EnemyColor" type="HSlider" parent="VBoxContainer2/EnemyColor/VBoxContainer" unique_id=1352477912]
+layout_mode = 2
+max_value = 6.0
+tick_count = 7
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/EnemyColor" unique_id=2040566579]
+layout_mode = 2
+texture = ExtResource("2_jrxpy")
+
+[connection signal="toggled" from="VBoxContainer2/DarkBackground/DarkBackground" to="." method="_on_dark_background_toggled"]
+[connection signal="value_changed" from="VBoxContainer2/PlayerColor/VBoxContainer/PlayerColor" to="." method="_on_player_color_value_changed"]
+[connection signal="value_changed" from="VBoxContainer2/EnemyColor/VBoxContainer/EnemyColor" to="." method="_on_enemy_color_value_changed"]
