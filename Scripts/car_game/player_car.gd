@@ -58,7 +58,17 @@ func tap_timer():
 func _on_timer_timeout() -> void:
 	waiting_tap = false
 
-func settings(): 
+func settings():
+	var game=get_parent()
+	var road=game.get_node("Road")
+	if GlobalSettings.darkerBackground:
+		if road.get_node("Sprite").modulate==Color.WHITE:
+			road.get_node("Sprite").modulate=Color.DIM_GRAY
+			game.get_node("Grass/Sprite").modulate=Color.DIM_GRAY
+	else:
+		if road.get_node("Sprite").modulate==Color.DIM_GRAY:
+			road.get_node("Sprite").modulate=Color.WHITE
+			game.get_node("Grass/Sprite").modulate=Color.WHITE
 	is_one_button = GlobalSettings.one_button_mode
 	print(is_one_button)
 	if is_one_button == true:

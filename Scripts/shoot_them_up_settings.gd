@@ -25,6 +25,7 @@ func _on_enemy_projectile_speed_toggled(toggled_on: bool) -> void:
 func _on_dark_background_toggled(toggled_on: bool) -> void:
 	GlobalSettings.darkerBackground=toggled_on
 	GlobalSettings.new_settings()
+	Engine.time_scale=0
 
 func _on_player_color_value_changed(value: float) -> void:
 	if value!=GlobalSettings.shmup_player_color:

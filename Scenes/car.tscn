@@ -19,22 +19,22 @@ position = Vector2(300, 360)
 position = Vector2(1500, 360)
 obstacles = Array[PackedScene]([ExtResource("3_yi23e"), ExtResource("4_u41r7")])
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=862256618]
+[node name="Road" type="Parallax2D" parent="." unique_id=862256618]
 z_index = -1
 repeat_size = Vector2(1524, 0)
 autoscroll = Vector2(-1000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=2105014228]
+[node name="Sprite" type="Sprite2D" parent="Road" unique_id=2105014228]
 position = Vector2(764, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_u41r7")
 
-[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1478910954]
+[node name="Grass" type="Parallax2D" parent="." unique_id=1478910954]
 z_index = -1
 repeat_size = Vector2(1300, 0)
 autoscroll = Vector2(-800, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D2" unique_id=858498384]
+[node name="Sprite" type="Sprite2D" parent="Grass" unique_id=858498384]
 position = Vector2(705.2, 360)
 scale = Vector2(0.4624672, 0.4)
 texture = ExtResource("6_aky6y")

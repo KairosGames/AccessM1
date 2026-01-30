@@ -10,10 +10,8 @@ func _process(delta: float) -> void:
 			Engine.time_scale = 1
 			GlobalSettings.new_settings()
 
-
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-
 
 func _on_quit_menu_pressed() -> void:
 	self.hide()
