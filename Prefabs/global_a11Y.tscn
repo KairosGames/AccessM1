@@ -8,12 +8,12 @@ script = ExtResource("1_yder6")
 metadata/_tab_index = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1663591363]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(640, 0)
 layout_mode = 0
-offset_left = 453.0
-offset_top = 130.0
-offset_right = 853.0
-offset_bottom = 379.0
+offset_left = 77.0
+offset_top = 156.0
+offset_right = 983.0
+offset_bottom = 405.0
 size_flags_vertical = 4
 alignment = 1
 
